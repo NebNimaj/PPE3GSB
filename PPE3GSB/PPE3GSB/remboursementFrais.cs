@@ -16,5 +16,17 @@ namespace PPE3GSB
         {
             InitializeComponent();
         }
+
+        private void butModifier_Click(object sender, EventArgs e)
+        {
+            modFrais frm = new modFrais();
+            frm.Show();
+        }
+
+        private void butAjouter_Click(object sender, EventArgs e)
+        {
+            modFrais frm = new modFrais();
+            frm.Show();
+        }
     }
 }
