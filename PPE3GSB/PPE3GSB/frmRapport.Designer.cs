@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRapport));
             this.btnOK = new System.Windows.Forms.Button();
             this.txtIdent = new System.Windows.Forms.TextBox();
             this.txtMDP = new System.Windows.Forms.TextBox();
             this.lblIdent = new System.Windows.Forms.Label();
+            this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOK
@@ -44,6 +47,7 @@
             this.btnOK.TabIndex = 0;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // txtIdent
             // 
@@ -85,6 +89,7 @@
             this.Controls.Add(this.btnOK);
             this.Name = "frmRapport";
             this.Text = "Rapport_Visite";
+            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,6 +101,7 @@
         private System.Windows.Forms.TextBox txtIdent;
         private System.Windows.Forms.TextBox txtMDP;
         private System.Windows.Forms.Label lblIdent;
+        private System.Windows.Forms.BindingSource bsVisiteur;
     }
 }
 

@@ -15,11 +15,7 @@ namespace PPE3GSB
         public frmCptRendu()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+        bsPracticien.DataSource = Modele.MaConnexion.MEDECIN.ToList();
         }
     }
 }

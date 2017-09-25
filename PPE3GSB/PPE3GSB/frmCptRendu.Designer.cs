@@ -39,26 +39,31 @@
             this.btnDetails = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
             this.bnRapport = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.dgvEchantillons = new System.Windows.Forms.DataGridView();
             this.txtNumRapport = new System.Windows.Forms.TextBox();
             this.txtDateRapport = new System.Windows.Forms.TextBox();
             this.txtMotif = new System.Windows.Forms.TextBox();
             this.txtBilan = new System.Windows.Forms.TextBox();
             this.cboPracticiens = new System.Windows.Forms.ComboBox();
+            this.txtTitre = new System.Windows.Forms.TextBox();
+            this.bsEchantillon = new System.Windows.Forms.BindingSource(this.components);
+            this.bsPracticien = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bnRapport)).BeginInit();
             this.bnRapport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEchantillon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPracticien)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumRap
@@ -66,17 +71,16 @@
             this.lblNumRap.AutoSize = true;
             this.lblNumRap.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumRap.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblNumRap.Location = new System.Drawing.Point(12, 36);
+            this.lblNumRap.Location = new System.Drawing.Point(8, 88);
             this.lblNumRap.Name = "lblNumRap";
             this.lblNumRap.Size = new System.Drawing.Size(94, 13);
             this.lblNumRap.TabIndex = 0;
             this.lblNumRap.Text = "Numéro rapport";
-            this.lblNumRap.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblPractic
             // 
             this.lblPractic.AutoSize = true;
-            this.lblPractic.Location = new System.Drawing.Point(12, 65);
+            this.lblPractic.Location = new System.Drawing.Point(8, 121);
             this.lblPractic.Name = "lblPractic";
             this.lblPractic.Size = new System.Drawing.Size(54, 13);
             this.lblPractic.TabIndex = 1;
@@ -85,7 +89,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 92);
+            this.label3.Location = new System.Drawing.Point(8, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 2;
@@ -94,7 +98,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 118);
+            this.label4.Location = new System.Drawing.Point(8, 174);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 3;
@@ -103,7 +107,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 142);
+            this.label5.Location = new System.Drawing.Point(8, 200);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 13);
             this.label5.TabIndex = 4;
@@ -124,7 +128,7 @@
             // btnDetails
             // 
             this.btnDetails.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnDetails.Location = new System.Drawing.Point(292, 63);
+            this.btnDetails.Location = new System.Drawing.Point(292, 118);
             this.btnDetails.Name = "btnDetails";
             this.btnDetails.Size = new System.Drawing.Size(49, 23);
             this.btnDetails.TabIndex = 6;
@@ -169,6 +173,30 @@
             this.bnRapport.TabIndex = 11;
             this.bnRapport.Text = "bindingNavigator1";
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Supprimer";
+            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -201,16 +229,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Position actuelle";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -233,26 +254,8 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Supprimer";
             // 
             // dgvEchantillons
             // 
@@ -264,28 +267,29 @@
             // 
             // txtNumRapport
             // 
-            this.txtNumRapport.Location = new System.Drawing.Point(130, 36);
+            this.txtNumRapport.Enabled = false;
+            this.txtNumRapport.Location = new System.Drawing.Point(110, 85);
             this.txtNumRapport.Name = "txtNumRapport";
             this.txtNumRapport.Size = new System.Drawing.Size(100, 20);
             this.txtNumRapport.TabIndex = 13;
             // 
             // txtDateRapport
             // 
-            this.txtDateRapport.Location = new System.Drawing.Point(130, 92);
+            this.txtDateRapport.Location = new System.Drawing.Point(110, 145);
             this.txtDateRapport.Name = "txtDateRapport";
             this.txtDateRapport.Size = new System.Drawing.Size(100, 20);
             this.txtDateRapport.TabIndex = 15;
             // 
             // txtMotif
             // 
-            this.txtMotif.Location = new System.Drawing.Point(130, 118);
+            this.txtMotif.Location = new System.Drawing.Point(110, 171);
             this.txtMotif.Name = "txtMotif";
             this.txtMotif.Size = new System.Drawing.Size(156, 20);
             this.txtMotif.TabIndex = 16;
             // 
             // txtBilan
             // 
-            this.txtBilan.Location = new System.Drawing.Point(130, 144);
+            this.txtBilan.Location = new System.Drawing.Point(110, 200);
             this.txtBilan.Multiline = true;
             this.txtBilan.Name = "txtBilan";
             this.txtBilan.Size = new System.Drawing.Size(183, 154);
@@ -295,10 +299,21 @@
             // 
             this.cboPracticiens.BackColor = System.Drawing.Color.CornflowerBlue;
             this.cboPracticiens.FormattingEnabled = true;
-            this.cboPracticiens.Location = new System.Drawing.Point(130, 65);
+            this.cboPracticiens.Location = new System.Drawing.Point(110, 118);
             this.cboPracticiens.Name = "cboPracticiens";
             this.cboPracticiens.Size = new System.Drawing.Size(156, 21);
             this.cboPracticiens.TabIndex = 18;
+            // 
+            // txtTitre
+            // 
+            this.txtTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitre.ForeColor = System.Drawing.Color.DarkBlue;
+            this.txtTitre.Location = new System.Drawing.Point(25, 37);
+            this.txtTitre.Name = "txtTitre";
+            this.txtTitre.Size = new System.Drawing.Size(593, 26);
+            this.txtTitre.TabIndex = 20;
+            this.txtTitre.Text = "RAPPORTS DE VISITE";
+            this.txtTitre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmCptRendu
             // 
@@ -307,6 +322,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(630, 430);
+            this.Controls.Add(this.txtTitre);
             this.Controls.Add(this.cboPracticiens);
             this.Controls.Add(this.txtBilan);
             this.Controls.Add(this.txtMotif);
@@ -328,6 +344,8 @@
             this.bnRapport.ResumeLayout(false);
             this.bnRapport.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEchantillon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPracticien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,5 +379,8 @@
         private System.Windows.Forms.TextBox txtMotif;
         private System.Windows.Forms.TextBox txtBilan;
         private System.Windows.Forms.ComboBox cboPracticiens;
+        private System.Windows.Forms.TextBox txtTitre;
+        private System.Windows.Forms.BindingSource bsEchantillon;
+        private System.Windows.Forms.BindingSource bsPracticien;
     }
 }
