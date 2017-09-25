@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PPE3GSB
 {
-    public partial class Form1 : Form
+    public partial class frmGestionCptRendu : Form
     {
-        public Form1()
+        public frmGestionCptRendu()
         {
             InitializeComponent();
         }
