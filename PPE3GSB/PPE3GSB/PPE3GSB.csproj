@@ -56,26 +56,26 @@
     <Compile Include="frmBase.Designer.cs">
       <DependentUpon>frmBase.cs</DependentUpon>
     </Compile>
-     <Compile Include="modFrais.cs">
-      </Compile>
-     <Compile Include="frmContainer.cs">
+    <Compile Include="modFrais.cs">
       <SubType>Form</SubType>
-     </Compile>
-     <Compile Include="Program.cs" />
-     </Compile>
-     <Compile Include="Properties\AssemblyInfo.cs" />
-     </Compile>
-     <Compile Include="remboursementFrais.cs">
-     </Compile>
-     <Compile Include="modFrais.Designer.cs">
-       <DependentUpon>modFrais.cs</DependentUpon>
-     </Compile>
+    </Compile>
+    <Compile Include="frmContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="remboursementFrais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modFrais.Designer.cs">
+      <DependentUpon>modFrais.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmContainer.Designer.cs">
       <DependentUpon>frmContainer.cs</DependentUpon>
     </Compile>
     <Compile Include="remboursementFrais.Designer.cs">
-    <DependentUpon>remboursementFrais.cs</DependentUpon>
-     </Compile>
+      <DependentUpon>remboursementFrais.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRapport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,7 +88,7 @@
     <Compile Include="frmCptRendu.Designer.cs">
       <DependentUpon>frmCptRendu.cs</DependentUpon>
     </Compile>
-      <EmbeddedResource Include="remboursementFrais.resx">
+    <EmbeddedResource Include="remboursementFrais.resx">
       <DependentUpon>remboursementFrais.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="frmGestionCptRendu.cs">
@@ -103,8 +103,6 @@
       <DependentUpon>mdlGSB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Modele.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBase.resx">
       <DependentUpon>frmBase.cs</DependentUpon>
     </EmbeddedResource>
