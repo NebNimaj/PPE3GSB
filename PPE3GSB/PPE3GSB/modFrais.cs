@@ -17,11 +17,10 @@ namespace PPE3GSB
             InitializeComponent();
         }
 
-        private void cboTypeFrais_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboTypeFrais_SelectedValueChanged(object sender, EventArgs e)
         {
-
-            if (cboTypeFrais.SelectedIndex= "Forfaitisés"  /*/ Frais hors forfait*/)
-                {
+            if (cboTypeFrais.SelectedText == "Forfaitisés")
+            {
                 lblTypeForfait.Visible = true;
                 cboTypeForfait.Visible = true;
                 lblQuantité.Visible = true;
@@ -36,8 +35,9 @@ namespace PPE3GSB
                 txtLibellé.Visible = false;
                 lblMontant.Visible = false;
                 txtMontant.Visible = false;
-                } else if(cboTypeFrais.Text = 'Hors forfait' )
-                    {
+            }
+            else if (cboTypeFrais.SelectedText == "Hors forfait")
+            {
                 lblTypeForfait.Visible = false;
                 cboTypeForfait.Visible = false;
                 lblQuantité.Visible = false;
@@ -52,10 +52,7 @@ namespace PPE3GSB
                 txtLibellé.Visible = true;
                 lblMontant.Visible = true;
                 txtMontant.Visible = true;
-                    }
-
-
             }
-
         }
     }
+}

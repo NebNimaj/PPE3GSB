@@ -200,11 +200,11 @@
             this.cboTypeFrais.Items.AddRange(new object[] {
             "Forfaitisés",
             "Hors forfait"});
-            this.cboTypeFrais.Location = new System.Drawing.Point(134, 20);
+            this.cboTypeFrais.Location = new System.Drawing.Point(134, 28);
             this.cboTypeFrais.Name = "cboTypeFrais";
             this.cboTypeFrais.Size = new System.Drawing.Size(121, 21);
             this.cboTypeFrais.TabIndex = 18;
-            this.cboTypeFrais.SelectedIndexChanged += new System.EventHandler(this.cboTypeFrais_SelectedIndexChanged);
+            this.cboTypeFrais.SelectedIndexChanged += new System.EventHandler(this.cboTypeFrais_SelectedValueChanged);
             // 
             // modFrais
             // 
@@ -245,7 +245,6 @@
         private System.Windows.Forms.ComboBox cboTypeForfait;
         private System.Windows.Forms.Label lblMontant;
         private System.Windows.Forms.Label lblTypeForfait;
-        private System.Windows.Forms.Label lblQuantité;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblMontantUnitaire;
         private System.Windows.Forms.Label lblDate;
@@ -256,5 +255,6 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label lblFrais;
         private System.Windows.Forms.ComboBox cboTypeFrais;
+        private System.Windows.Forms.Label lblQuantité;
     }
 }
