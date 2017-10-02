@@ -20,7 +20,7 @@ namespace PPE3GSB
         private void cboTypeFrais_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-           // if (cboTypeFrais.SelectedIndex= "Forfaitisés"  /*/ Frais hors forfait*/)
+            if (cboTypeFrais.SelectedText == "Forfaitisés"  /*/ Frais hors forfait*/)
                 {
                 lblTypeForfait.Visible = true;
                 cboTypeForfait.Visible = true;
@@ -37,7 +37,7 @@ namespace PPE3GSB
                 lblMontant.Visible = false;
                 txtMontant.Visible = false;
                 } 
-            //else if(cboTypeFrais.Text = 'Hors forfait' )
+                else if(cboTypeFrais.SelectedText == "Hors forfait" )
                     {
                 lblTypeForfait.Visible = false;
                 cboTypeForfait.Visible = false;
