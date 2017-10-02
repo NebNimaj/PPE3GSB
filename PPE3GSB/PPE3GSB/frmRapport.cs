@@ -7,21 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using System.Security.Cryptography;
 
 namespace PPE3GSB
 {
-    public partial class frmRapport : Form
+    public partial class frmRapport : frmBase
     {
-        public frmRapport()
+        public frmRapport() :base()
         {
             InitializeComponent();
+            lblTitre.ForeColor = System.Drawing.Color.DarkBlue;
+            lblTitre.Text= "IDENTIFIEZ VOUS";
         }
 
         public bool Validation()
         {
             var filteredData = Modele.MaConnexion.Visiteur.ToList()
-                         .Where(x => x.idUtilisateur.Equals(txtIdent.Text));
+                         .Where(x => x.identifiant.Equals(txtIdent.Text));
             if (filteredData.ToList().Count == 0)
             {
                 MessageBox.Show("Identifiant non valide");
@@ -37,7 +40,7 @@ namespace PPE3GSB
                 string pswdc = monVisiteur.password.Substring(2); // Pbs de l'hexa 0x sur sqlserver
                 if (pswdc.Equals(passwdCrypte) || monVisiteur.password.Equals(passwdCrypte))
                 {
-                    Modele.VVisiteur = monVisiteur;
+                    Modele.VisiteurConnecte = monVisiteur;
                     MessageBox.Show("ok");
                     return true;
                 }
@@ -70,17 +73,19 @@ namespace PPE3GSB
         Application.Run(new frmGestionCptRendu());
     }
 
-    private void btnOK_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
+            if (Validation())
+            {
+                this.Close();
+                //
 
-        this.Close();
-        //
+                System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
 
-        System.Threading.Thread t = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadProc));
+                //
+                t.Start();
 
-        //
-        t.Start();
-
-    }
+            }
+        }
     }
 }

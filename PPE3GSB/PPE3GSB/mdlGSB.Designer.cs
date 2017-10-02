@@ -21,6 +21,21 @@ using System.Xml.Serialization;
 
 [assembly: EdmRelationshipAttribute("mdlGSB", "rapport_fk2", "MEDECIN", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.MEDECIN), "RAPPORT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.RAPPORT), true)]
 [assembly: EdmRelationshipAttribute("mdlGSB", "rapport_fk1", "Visiteur", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.Visiteur), "RAPPORT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.RAPPORT), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "FK__fichefrai__idEta__03F0984C", "Etat", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PPE3GSB.Etat), "fichefrais", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.fichefrais), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "medicament_fk", "FAMILLE", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.FAMILLE), "MEDICAMENT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.MEDICAMENT), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "FK__fichefrai__idVis__04E4BC85", "Visiteur", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.Visiteur), "fichefrais", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.fichefrais), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "FK__LigneFraisForfai__0A9D95DB", "fichefrais", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.fichefrais), "LigneFraisForfait", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.LigneFraisForfait), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "FK__LigneFraisHorsFo__1332DBDC", "fichefrais", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.fichefrais), "LigneFraisHorsForfait", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.LigneFraisHorsForfait), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "FK__LigneFrai__idFra__0B91BA14", "FraisForfait", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.FraisForfait), "LigneFraisForfait", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.LigneFraisForfait), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "FK_Laboratoire", "Laboratoire", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.Laboratoire), "Visiteur", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Visiteur), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "medecin_fk", "SPECIALITE", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PPE3GSB.SPECIALITE), "MEDECIN", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.MEDECIN), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "offrir_fk2", "MEDICAMENT", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.MEDICAMENT), "OFFRIR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.OFFRIR), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "rapport_fk3", "MOTIF", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PPE3GSB.MOTIF), "RAPPORT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.RAPPORT), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "offrir_fk1", "RAPPORT", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.RAPPORT), "OFFRIR", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.OFFRIR), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "FK_SECTEUR", "Secteur", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.Secteur), "Region", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Region), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "FK_VISITEUR", "Visiteur", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.Visiteur), "Region", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Region), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "FK_VISITEURSECTEUR", "Visiteur", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.Visiteur), "Secteur", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Secteur), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "Travailler", "Region", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Region), "Visiteur", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Visiteur))]
 
 #endregion
 
@@ -135,6 +150,214 @@ namespace PPE3GSB
             }
         }
         private ObjectSet<Visiteur> _Visiteur;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<Etat> Etat
+        {
+            get
+            {
+                if ((_Etat == null))
+                {
+                    _Etat = base.CreateObjectSet<Etat>("Etat");
+                }
+                return _Etat;
+            }
+        }
+        private ObjectSet<Etat> _Etat;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<FAMILLE> FAMILLE
+        {
+            get
+            {
+                if ((_FAMILLE == null))
+                {
+                    _FAMILLE = base.CreateObjectSet<FAMILLE>("FAMILLE");
+                }
+                return _FAMILLE;
+            }
+        }
+        private ObjectSet<FAMILLE> _FAMILLE;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<fichefrais> fichefrais
+        {
+            get
+            {
+                if ((_fichefrais == null))
+                {
+                    _fichefrais = base.CreateObjectSet<fichefrais>("fichefrais");
+                }
+                return _fichefrais;
+            }
+        }
+        private ObjectSet<fichefrais> _fichefrais;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<FraisForfait> FraisForfait
+        {
+            get
+            {
+                if ((_FraisForfait == null))
+                {
+                    _FraisForfait = base.CreateObjectSet<FraisForfait>("FraisForfait");
+                }
+                return _FraisForfait;
+            }
+        }
+        private ObjectSet<FraisForfait> _FraisForfait;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<Laboratoire> Laboratoire
+        {
+            get
+            {
+                if ((_Laboratoire == null))
+                {
+                    _Laboratoire = base.CreateObjectSet<Laboratoire>("Laboratoire");
+                }
+                return _Laboratoire;
+            }
+        }
+        private ObjectSet<Laboratoire> _Laboratoire;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<LigneFraisForfait> LigneFraisForfait
+        {
+            get
+            {
+                if ((_LigneFraisForfait == null))
+                {
+                    _LigneFraisForfait = base.CreateObjectSet<LigneFraisForfait>("LigneFraisForfait");
+                }
+                return _LigneFraisForfait;
+            }
+        }
+        private ObjectSet<LigneFraisForfait> _LigneFraisForfait;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<LigneFraisHorsForfait> LigneFraisHorsForfait
+        {
+            get
+            {
+                if ((_LigneFraisHorsForfait == null))
+                {
+                    _LigneFraisHorsForfait = base.CreateObjectSet<LigneFraisHorsForfait>("LigneFraisHorsForfait");
+                }
+                return _LigneFraisHorsForfait;
+            }
+        }
+        private ObjectSet<LigneFraisHorsForfait> _LigneFraisHorsForfait;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<MOTIF> MOTIF
+        {
+            get
+            {
+                if ((_MOTIF == null))
+                {
+                    _MOTIF = base.CreateObjectSet<MOTIF>("MOTIF");
+                }
+                return _MOTIF;
+            }
+        }
+        private ObjectSet<MOTIF> _MOTIF;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<OFFRIR> OFFRIR
+        {
+            get
+            {
+                if ((_OFFRIR == null))
+                {
+                    _OFFRIR = base.CreateObjectSet<OFFRIR>("OFFRIR");
+                }
+                return _OFFRIR;
+            }
+        }
+        private ObjectSet<OFFRIR> _OFFRIR;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<Region> Region
+        {
+            get
+            {
+                if ((_Region == null))
+                {
+                    _Region = base.CreateObjectSet<Region>("Region");
+                }
+                return _Region;
+            }
+        }
+        private ObjectSet<Region> _Region;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<Secteur> Secteur
+        {
+            get
+            {
+                if ((_Secteur == null))
+                {
+                    _Secteur = base.CreateObjectSet<Secteur>("Secteur");
+                }
+                return _Secteur;
+            }
+        }
+        private ObjectSet<Secteur> _Secteur;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<SPECIALITE> SPECIALITE
+        {
+            get
+            {
+                if ((_SPECIALITE == null))
+                {
+                    _SPECIALITE = base.CreateObjectSet<SPECIALITE>("SPECIALITE");
+                }
+                return _SPECIALITE;
+            }
+        }
+        private ObjectSet<SPECIALITE> _SPECIALITE;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<sysdiagrams> sysdiagrams
+        {
+            get
+            {
+                if ((_sysdiagrams == null))
+                {
+                    _sysdiagrams = base.CreateObjectSet<sysdiagrams>("sysdiagrams");
+                }
+                return _sysdiagrams;
+            }
+        }
+        private ObjectSet<sysdiagrams> _sysdiagrams;
 
         #endregion
 
@@ -171,6 +394,110 @@ namespace PPE3GSB
         {
             base.AddObject("Visiteur", visiteur);
         }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Etat. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToEtat(Etat etat)
+        {
+            base.AddObject("Etat", etat);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet FAMILLE. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToFAMILLE(FAMILLE fAMILLE)
+        {
+            base.AddObject("FAMILLE", fAMILLE);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet fichefrais. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddTofichefrais(fichefrais fichefrais)
+        {
+            base.AddObject("fichefrais", fichefrais);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet FraisForfait. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToFraisForfait(FraisForfait fraisForfait)
+        {
+            base.AddObject("FraisForfait", fraisForfait);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Laboratoire. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToLaboratoire(Laboratoire laboratoire)
+        {
+            base.AddObject("Laboratoire", laboratoire);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet LigneFraisForfait. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToLigneFraisForfait(LigneFraisForfait ligneFraisForfait)
+        {
+            base.AddObject("LigneFraisForfait", ligneFraisForfait);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet LigneFraisHorsForfait. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToLigneFraisHorsForfait(LigneFraisHorsForfait ligneFraisHorsForfait)
+        {
+            base.AddObject("LigneFraisHorsForfait", ligneFraisHorsForfait);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet MOTIF. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToMOTIF(MOTIF mOTIF)
+        {
+            base.AddObject("MOTIF", mOTIF);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet OFFRIR. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToOFFRIR(OFFRIR oFFRIR)
+        {
+            base.AddObject("OFFRIR", oFFRIR);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Region. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToRegion(Region region)
+        {
+            base.AddObject("Region", region);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet Secteur. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToSecteur(Secteur secteur)
+        {
+            base.AddObject("Secteur", secteur);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet SPECIALITE. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToSPECIALITE(SPECIALITE sPECIALITE)
+        {
+            base.AddObject("SPECIALITE", sPECIALITE);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet sysdiagrams. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddTosysdiagrams(sysdiagrams sysdiagrams)
+        {
+            base.AddObject("sysdiagrams", sysdiagrams);
+        }
 
         #endregion
 
@@ -179,6 +506,1201 @@ namespace PPE3GSB
     #endregion
 
     #region Entités
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="Etat")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Etat : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet Etat.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété id.</param>
+        public static Etat CreateEtat(global::System.String id)
+        {
+            Etat etat = new Etat();
+            etat.id = id;
+            return etat;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value, false, "id");
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.String _id;
+        partial void OnidChanging(global::System.String value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String libelle
+        {
+            get
+            {
+                return _libelle;
+            }
+            set
+            {
+                OnlibelleChanging(value);
+                ReportPropertyChanging("libelle");
+                _libelle = StructuralObject.SetValidValue(value, true, "libelle");
+                ReportPropertyChanged("libelle");
+                OnlibelleChanged();
+            }
+        }
+        private global::System.String _libelle;
+        partial void OnlibelleChanging(global::System.String value);
+        partial void OnlibelleChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK__fichefrai__idEta__03F0984C", "fichefrais")]
+        public EntityCollection<fichefrais> fichefrais
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<fichefrais>("mdlGSB.FK__fichefrai__idEta__03F0984C", "fichefrais");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<fichefrais>("mdlGSB.FK__fichefrai__idEta__03F0984C", "fichefrais", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="FAMILLE")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class FAMILLE : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet FAMILLE.
+        /// </summary>
+        /// <param name="idFamille">Valeur initiale de la propriété idFamille.</param>
+        /// <param name="libFamille">Valeur initiale de la propriété libFamille.</param>
+        public static FAMILLE CreateFAMILLE(global::System.String idFamille, global::System.String libFamille)
+        {
+            FAMILLE fAMILLE = new FAMILLE();
+            fAMILLE.idFamille = idFamille;
+            fAMILLE.libFamille = libFamille;
+            return fAMILLE;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String idFamille
+        {
+            get
+            {
+                return _idFamille;
+            }
+            set
+            {
+                if (_idFamille != value)
+                {
+                    OnidFamilleChanging(value);
+                    ReportPropertyChanging("idFamille");
+                    _idFamille = StructuralObject.SetValidValue(value, false, "idFamille");
+                    ReportPropertyChanged("idFamille");
+                    OnidFamilleChanged();
+                }
+            }
+        }
+        private global::System.String _idFamille;
+        partial void OnidFamilleChanging(global::System.String value);
+        partial void OnidFamilleChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String libFamille
+        {
+            get
+            {
+                return _libFamille;
+            }
+            set
+            {
+                OnlibFamilleChanging(value);
+                ReportPropertyChanging("libFamille");
+                _libFamille = StructuralObject.SetValidValue(value, false, "libFamille");
+                ReportPropertyChanged("libFamille");
+                OnlibFamilleChanged();
+            }
+        }
+        private global::System.String _libFamille;
+        partial void OnlibFamilleChanging(global::System.String value);
+        partial void OnlibFamilleChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "medicament_fk", "MEDICAMENT")]
+        public EntityCollection<MEDICAMENT> MEDICAMENT
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MEDICAMENT>("mdlGSB.medicament_fk", "MEDICAMENT");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MEDICAMENT>("mdlGSB.medicament_fk", "MEDICAMENT", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="fichefrais")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class fichefrais : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet fichefrais.
+        /// </summary>
+        /// <param name="idVisiteur">Valeur initiale de la propriété idVisiteur.</param>
+        /// <param name="mois">Valeur initiale de la propriété mois.</param>
+        public static fichefrais Createfichefrais(global::System.String idVisiteur, global::System.String mois)
+        {
+            fichefrais fichefrais = new fichefrais();
+            fichefrais.idVisiteur = idVisiteur;
+            fichefrais.mois = mois;
+            return fichefrais;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String idVisiteur
+        {
+            get
+            {
+                return _idVisiteur;
+            }
+            set
+            {
+                if (_idVisiteur != value)
+                {
+                    OnidVisiteurChanging(value);
+                    ReportPropertyChanging("idVisiteur");
+                    _idVisiteur = StructuralObject.SetValidValue(value, false, "idVisiteur");
+                    ReportPropertyChanged("idVisiteur");
+                    OnidVisiteurChanged();
+                }
+            }
+        }
+        private global::System.String _idVisiteur;
+        partial void OnidVisiteurChanging(global::System.String value);
+        partial void OnidVisiteurChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String mois
+        {
+            get
+            {
+                return _mois;
+            }
+            set
+            {
+                if (_mois != value)
+                {
+                    OnmoisChanging(value);
+                    ReportPropertyChanging("mois");
+                    _mois = StructuralObject.SetValidValue(value, false, "mois");
+                    ReportPropertyChanged("mois");
+                    OnmoisChanged();
+                }
+            }
+        }
+        private global::System.String _mois;
+        partial void OnmoisChanging(global::System.String value);
+        partial void OnmoisChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> nbJustificatifs
+        {
+            get
+            {
+                return _nbJustificatifs;
+            }
+            set
+            {
+                OnnbJustificatifsChanging(value);
+                ReportPropertyChanging("nbJustificatifs");
+                _nbJustificatifs = StructuralObject.SetValidValue(value, "nbJustificatifs");
+                ReportPropertyChanged("nbJustificatifs");
+                OnnbJustificatifsChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _nbJustificatifs;
+        partial void OnnbJustificatifsChanging(Nullable<global::System.Int32> value);
+        partial void OnnbJustificatifsChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> montantValide
+        {
+            get
+            {
+                return _montantValide;
+            }
+            set
+            {
+                OnmontantValideChanging(value);
+                ReportPropertyChanging("montantValide");
+                _montantValide = StructuralObject.SetValidValue(value, "montantValide");
+                ReportPropertyChanged("montantValide");
+                OnmontantValideChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _montantValide;
+        partial void OnmontantValideChanging(Nullable<global::System.Decimal> value);
+        partial void OnmontantValideChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> dateModif
+        {
+            get
+            {
+                return _dateModif;
+            }
+            set
+            {
+                OndateModifChanging(value);
+                ReportPropertyChanging("dateModif");
+                _dateModif = StructuralObject.SetValidValue(value, "dateModif");
+                ReportPropertyChanged("dateModif");
+                OndateModifChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _dateModif;
+        partial void OndateModifChanging(Nullable<global::System.DateTime> value);
+        partial void OndateModifChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String idEtat
+        {
+            get
+            {
+                return _idEtat;
+            }
+            set
+            {
+                OnidEtatChanging(value);
+                ReportPropertyChanging("idEtat");
+                _idEtat = StructuralObject.SetValidValue(value, true, "idEtat");
+                ReportPropertyChanged("idEtat");
+                OnidEtatChanged();
+            }
+        }
+        private global::System.String _idEtat;
+        partial void OnidEtatChanging(global::System.String value);
+        partial void OnidEtatChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK__fichefrai__idEta__03F0984C", "Etat")]
+        public Etat Etat
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Etat>("mdlGSB.FK__fichefrai__idEta__03F0984C", "Etat").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Etat>("mdlGSB.FK__fichefrai__idEta__03F0984C", "Etat").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Etat> EtatReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Etat>("mdlGSB.FK__fichefrai__idEta__03F0984C", "Etat");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Etat>("mdlGSB.FK__fichefrai__idEta__03F0984C", "Etat", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK__fichefrai__idVis__04E4BC85", "Visiteur")]
+        public Visiteur Visiteur
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Visiteur>("mdlGSB.FK__fichefrai__idVis__04E4BC85", "Visiteur").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Visiteur>("mdlGSB.FK__fichefrai__idVis__04E4BC85", "Visiteur").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Visiteur> VisiteurReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Visiteur>("mdlGSB.FK__fichefrai__idVis__04E4BC85", "Visiteur");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Visiteur>("mdlGSB.FK__fichefrai__idVis__04E4BC85", "Visiteur", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK__LigneFraisForfai__0A9D95DB", "LigneFraisForfait")]
+        public EntityCollection<LigneFraisForfait> LigneFraisForfait
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LigneFraisForfait>("mdlGSB.FK__LigneFraisForfai__0A9D95DB", "LigneFraisForfait");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LigneFraisForfait>("mdlGSB.FK__LigneFraisForfai__0A9D95DB", "LigneFraisForfait", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK__LigneFraisHorsFo__1332DBDC", "LigneFraisHorsForfait")]
+        public EntityCollection<LigneFraisHorsForfait> LigneFraisHorsForfait
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LigneFraisHorsForfait>("mdlGSB.FK__LigneFraisHorsFo__1332DBDC", "LigneFraisHorsForfait");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LigneFraisHorsForfait>("mdlGSB.FK__LigneFraisHorsFo__1332DBDC", "LigneFraisHorsForfait", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="FraisForfait")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class FraisForfait : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet FraisForfait.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété id.</param>
+        public static FraisForfait CreateFraisForfait(global::System.String id)
+        {
+            FraisForfait fraisForfait = new FraisForfait();
+            fraisForfait.id = id;
+            return fraisForfait;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value, false, "id");
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.String _id;
+        partial void OnidChanging(global::System.String value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String libelle
+        {
+            get
+            {
+                return _libelle;
+            }
+            set
+            {
+                OnlibelleChanging(value);
+                ReportPropertyChanging("libelle");
+                _libelle = StructuralObject.SetValidValue(value, true, "libelle");
+                ReportPropertyChanged("libelle");
+                OnlibelleChanged();
+            }
+        }
+        private global::System.String _libelle;
+        partial void OnlibelleChanging(global::System.String value);
+        partial void OnlibelleChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> montant
+        {
+            get
+            {
+                return _montant;
+            }
+            set
+            {
+                OnmontantChanging(value);
+                ReportPropertyChanging("montant");
+                _montant = StructuralObject.SetValidValue(value, "montant");
+                ReportPropertyChanged("montant");
+                OnmontantChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _montant;
+        partial void OnmontantChanging(Nullable<global::System.Decimal> value);
+        partial void OnmontantChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK__LigneFrai__idFra__0B91BA14", "LigneFraisForfait")]
+        public EntityCollection<LigneFraisForfait> LigneFraisForfait
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LigneFraisForfait>("mdlGSB.FK__LigneFrai__idFra__0B91BA14", "LigneFraisForfait");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LigneFraisForfait>("mdlGSB.FK__LigneFrai__idFra__0B91BA14", "LigneFraisForfait", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="Laboratoire")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Laboratoire : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet Laboratoire.
+        /// </summary>
+        /// <param name="idLabo">Valeur initiale de la propriété idLabo.</param>
+        public static Laboratoire CreateLaboratoire(global::System.Int32 idLabo)
+        {
+            Laboratoire laboratoire = new Laboratoire();
+            laboratoire.idLabo = idLabo;
+            return laboratoire;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idLabo
+        {
+            get
+            {
+                return _idLabo;
+            }
+            set
+            {
+                if (_idLabo != value)
+                {
+                    OnidLaboChanging(value);
+                    ReportPropertyChanging("idLabo");
+                    _idLabo = StructuralObject.SetValidValue(value, "idLabo");
+                    ReportPropertyChanged("idLabo");
+                    OnidLaboChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idLabo;
+        partial void OnidLaboChanging(global::System.Int32 value);
+        partial void OnidLaboChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nomLabo
+        {
+            get
+            {
+                return _nomLabo;
+            }
+            set
+            {
+                OnnomLaboChanging(value);
+                ReportPropertyChanging("nomLabo");
+                _nomLabo = StructuralObject.SetValidValue(value, true, "nomLabo");
+                ReportPropertyChanged("nomLabo");
+                OnnomLaboChanged();
+            }
+        }
+        private global::System.String _nomLabo;
+        partial void OnnomLaboChanging(global::System.String value);
+        partial void OnnomLaboChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK_Laboratoire", "Visiteur")]
+        public EntityCollection<Visiteur> Visiteur
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Visiteur>("mdlGSB.FK_Laboratoire", "Visiteur");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Visiteur>("mdlGSB.FK_Laboratoire", "Visiteur", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="LigneFraisForfait")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class LigneFraisForfait : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet LigneFraisForfait.
+        /// </summary>
+        /// <param name="idVisiteur">Valeur initiale de la propriété idVisiteur.</param>
+        /// <param name="mois">Valeur initiale de la propriété mois.</param>
+        /// <param name="idFraisForfait">Valeur initiale de la propriété idFraisForfait.</param>
+        public static LigneFraisForfait CreateLigneFraisForfait(global::System.String idVisiteur, global::System.String mois, global::System.String idFraisForfait)
+        {
+            LigneFraisForfait ligneFraisForfait = new LigneFraisForfait();
+            ligneFraisForfait.idVisiteur = idVisiteur;
+            ligneFraisForfait.mois = mois;
+            ligneFraisForfait.idFraisForfait = idFraisForfait;
+            return ligneFraisForfait;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String idVisiteur
+        {
+            get
+            {
+                return _idVisiteur;
+            }
+            set
+            {
+                if (_idVisiteur != value)
+                {
+                    OnidVisiteurChanging(value);
+                    ReportPropertyChanging("idVisiteur");
+                    _idVisiteur = StructuralObject.SetValidValue(value, false, "idVisiteur");
+                    ReportPropertyChanged("idVisiteur");
+                    OnidVisiteurChanged();
+                }
+            }
+        }
+        private global::System.String _idVisiteur;
+        partial void OnidVisiteurChanging(global::System.String value);
+        partial void OnidVisiteurChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String mois
+        {
+            get
+            {
+                return _mois;
+            }
+            set
+            {
+                if (_mois != value)
+                {
+                    OnmoisChanging(value);
+                    ReportPropertyChanging("mois");
+                    _mois = StructuralObject.SetValidValue(value, false, "mois");
+                    ReportPropertyChanged("mois");
+                    OnmoisChanged();
+                }
+            }
+        }
+        private global::System.String _mois;
+        partial void OnmoisChanging(global::System.String value);
+        partial void OnmoisChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String idFraisForfait
+        {
+            get
+            {
+                return _idFraisForfait;
+            }
+            set
+            {
+                if (_idFraisForfait != value)
+                {
+                    OnidFraisForfaitChanging(value);
+                    ReportPropertyChanging("idFraisForfait");
+                    _idFraisForfait = StructuralObject.SetValidValue(value, false, "idFraisForfait");
+                    ReportPropertyChanged("idFraisForfait");
+                    OnidFraisForfaitChanged();
+                }
+            }
+        }
+        private global::System.String _idFraisForfait;
+        partial void OnidFraisForfaitChanging(global::System.String value);
+        partial void OnidFraisForfaitChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> quantite
+        {
+            get
+            {
+                return _quantite;
+            }
+            set
+            {
+                OnquantiteChanging(value);
+                ReportPropertyChanging("quantite");
+                _quantite = StructuralObject.SetValidValue(value, "quantite");
+                ReportPropertyChanged("quantite");
+                OnquantiteChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _quantite;
+        partial void OnquantiteChanging(Nullable<global::System.Int32> value);
+        partial void OnquantiteChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK__LigneFraisForfai__0A9D95DB", "fichefrais")]
+        public fichefrais fichefrais
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<fichefrais>("mdlGSB.FK__LigneFraisForfai__0A9D95DB", "fichefrais").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<fichefrais>("mdlGSB.FK__LigneFraisForfai__0A9D95DB", "fichefrais").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<fichefrais> fichefraisReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<fichefrais>("mdlGSB.FK__LigneFraisForfai__0A9D95DB", "fichefrais");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<fichefrais>("mdlGSB.FK__LigneFraisForfai__0A9D95DB", "fichefrais", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK__LigneFrai__idFra__0B91BA14", "FraisForfait")]
+        public FraisForfait FraisForfait
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FraisForfait>("mdlGSB.FK__LigneFrai__idFra__0B91BA14", "FraisForfait").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FraisForfait>("mdlGSB.FK__LigneFrai__idFra__0B91BA14", "FraisForfait").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<FraisForfait> FraisForfaitReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FraisForfait>("mdlGSB.FK__LigneFrai__idFra__0B91BA14", "FraisForfait");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FraisForfait>("mdlGSB.FK__LigneFrai__idFra__0B91BA14", "FraisForfait", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="LigneFraisHorsForfait")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class LigneFraisHorsForfait : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet LigneFraisHorsForfait.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété id.</param>
+        /// <param name="idVisiteur">Valeur initiale de la propriété idVisiteur.</param>
+        /// <param name="mois">Valeur initiale de la propriété mois.</param>
+        public static LigneFraisHorsForfait CreateLigneFraisHorsForfait(global::System.Int32 id, global::System.String idVisiteur, global::System.String mois)
+        {
+            LigneFraisHorsForfait ligneFraisHorsForfait = new LigneFraisHorsForfait();
+            ligneFraisHorsForfait.id = id;
+            ligneFraisHorsForfait.idVisiteur = idVisiteur;
+            ligneFraisHorsForfait.mois = mois;
+            return ligneFraisHorsForfait;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value, "id");
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String idVisiteur
+        {
+            get
+            {
+                return _idVisiteur;
+            }
+            set
+            {
+                OnidVisiteurChanging(value);
+                ReportPropertyChanging("idVisiteur");
+                _idVisiteur = StructuralObject.SetValidValue(value, false, "idVisiteur");
+                ReportPropertyChanged("idVisiteur");
+                OnidVisiteurChanged();
+            }
+        }
+        private global::System.String _idVisiteur;
+        partial void OnidVisiteurChanging(global::System.String value);
+        partial void OnidVisiteurChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String mois
+        {
+            get
+            {
+                return _mois;
+            }
+            set
+            {
+                OnmoisChanging(value);
+                ReportPropertyChanging("mois");
+                _mois = StructuralObject.SetValidValue(value, false, "mois");
+                ReportPropertyChanged("mois");
+                OnmoisChanged();
+            }
+        }
+        private global::System.String _mois;
+        partial void OnmoisChanging(global::System.String value);
+        partial void OnmoisChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String libelle
+        {
+            get
+            {
+                return _libelle;
+            }
+            set
+            {
+                OnlibelleChanging(value);
+                ReportPropertyChanging("libelle");
+                _libelle = StructuralObject.SetValidValue(value, true, "libelle");
+                ReportPropertyChanged("libelle");
+                OnlibelleChanged();
+            }
+        }
+        private global::System.String _libelle;
+        partial void OnlibelleChanging(global::System.String value);
+        partial void OnlibelleChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> date
+        {
+            get
+            {
+                return _date;
+            }
+            set
+            {
+                OndateChanging(value);
+                ReportPropertyChanging("date");
+                _date = StructuralObject.SetValidValue(value, "date");
+                ReportPropertyChanged("date");
+                OndateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _date;
+        partial void OndateChanging(Nullable<global::System.DateTime> value);
+        partial void OndateChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> montant
+        {
+            get
+            {
+                return _montant;
+            }
+            set
+            {
+                OnmontantChanging(value);
+                ReportPropertyChanging("montant");
+                _montant = StructuralObject.SetValidValue(value, "montant");
+                ReportPropertyChanged("montant");
+                OnmontantChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _montant;
+        partial void OnmontantChanging(Nullable<global::System.Decimal> value);
+        partial void OnmontantChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK__LigneFraisHorsFo__1332DBDC", "fichefrais")]
+        public fichefrais fichefrais
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<fichefrais>("mdlGSB.FK__LigneFraisHorsFo__1332DBDC", "fichefrais").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<fichefrais>("mdlGSB.FK__LigneFraisHorsFo__1332DBDC", "fichefrais").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<fichefrais> fichefraisReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<fichefrais>("mdlGSB.FK__LigneFraisHorsFo__1332DBDC", "fichefrais");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<fichefrais>("mdlGSB.FK__LigneFraisHorsFo__1332DBDC", "fichefrais", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
     
     /// <summary>
     /// Aucune documentation sur les métadonnées n'est disponible.
@@ -409,6 +1931,44 @@ namespace PPE3GSB
                 }
             }
         }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "medecin_fk", "SPECIALITE")]
+        public SPECIALITE SPECIALITE
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SPECIALITE>("mdlGSB.medecin_fk", "SPECIALITE").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SPECIALITE>("mdlGSB.medecin_fk", "SPECIALITE").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<SPECIALITE> SPECIALITEReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SPECIALITE>("mdlGSB.medecin_fk", "SPECIALITE");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SPECIALITE>("mdlGSB.medecin_fk", "SPECIALITE", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -595,6 +2155,365 @@ namespace PPE3GSB
         private global::System.String _contreIndications;
         partial void OncontreIndicationsChanging(global::System.String value);
         partial void OncontreIndicationsChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "medicament_fk", "FAMILLE")]
+        public FAMILLE FAMILLE
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FAMILLE>("mdlGSB.medicament_fk", "FAMILLE").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FAMILLE>("mdlGSB.medicament_fk", "FAMILLE").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<FAMILLE> FAMILLEReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<FAMILLE>("mdlGSB.medicament_fk", "FAMILLE");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<FAMILLE>("mdlGSB.medicament_fk", "FAMILLE", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "offrir_fk2", "OFFRIR")]
+        public EntityCollection<OFFRIR> OFFRIR
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<OFFRIR>("mdlGSB.offrir_fk2", "OFFRIR");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OFFRIR>("mdlGSB.offrir_fk2", "OFFRIR", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="MOTIF")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class MOTIF : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet MOTIF.
+        /// </summary>
+        /// <param name="idMotif">Valeur initiale de la propriété idMotif.</param>
+        public static MOTIF CreateMOTIF(global::System.Int32 idMotif)
+        {
+            MOTIF mOTIF = new MOTIF();
+            mOTIF.idMotif = idMotif;
+            return mOTIF;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idMotif
+        {
+            get
+            {
+                return _idMotif;
+            }
+            set
+            {
+                if (_idMotif != value)
+                {
+                    OnidMotifChanging(value);
+                    ReportPropertyChanging("idMotif");
+                    _idMotif = StructuralObject.SetValidValue(value, "idMotif");
+                    ReportPropertyChanged("idMotif");
+                    OnidMotifChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idMotif;
+        partial void OnidMotifChanging(global::System.Int32 value);
+        partial void OnidMotifChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String libMotif
+        {
+            get
+            {
+                return _libMotif;
+            }
+            set
+            {
+                OnlibMotifChanging(value);
+                ReportPropertyChanging("libMotif");
+                _libMotif = StructuralObject.SetValidValue(value, true, "libMotif");
+                ReportPropertyChanged("libMotif");
+                OnlibMotifChanged();
+            }
+        }
+        private global::System.String _libMotif;
+        partial void OnlibMotifChanging(global::System.String value);
+        partial void OnlibMotifChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "rapport_fk3", "RAPPORT")]
+        public EntityCollection<RAPPORT> RAPPORT
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RAPPORT>("mdlGSB.rapport_fk3", "RAPPORT");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RAPPORT>("mdlGSB.rapport_fk3", "RAPPORT", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="OFFRIR")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class OFFRIR : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet OFFRIR.
+        /// </summary>
+        /// <param name="idRapport">Valeur initiale de la propriété idRapport.</param>
+        /// <param name="idMedicament">Valeur initiale de la propriété idMedicament.</param>
+        public static OFFRIR CreateOFFRIR(global::System.Int32 idRapport, global::System.String idMedicament)
+        {
+            OFFRIR oFFRIR = new OFFRIR();
+            oFFRIR.idRapport = idRapport;
+            oFFRIR.idMedicament = idMedicament;
+            return oFFRIR;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idRapport
+        {
+            get
+            {
+                return _idRapport;
+            }
+            set
+            {
+                if (_idRapport != value)
+                {
+                    OnidRapportChanging(value);
+                    ReportPropertyChanging("idRapport");
+                    _idRapport = StructuralObject.SetValidValue(value, "idRapport");
+                    ReportPropertyChanged("idRapport");
+                    OnidRapportChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idRapport;
+        partial void OnidRapportChanging(global::System.Int32 value);
+        partial void OnidRapportChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String idMedicament
+        {
+            get
+            {
+                return _idMedicament;
+            }
+            set
+            {
+                if (_idMedicament != value)
+                {
+                    OnidMedicamentChanging(value);
+                    ReportPropertyChanging("idMedicament");
+                    _idMedicament = StructuralObject.SetValidValue(value, false, "idMedicament");
+                    ReportPropertyChanged("idMedicament");
+                    OnidMedicamentChanged();
+                }
+            }
+        }
+        private global::System.String _idMedicament;
+        partial void OnidMedicamentChanging(global::System.String value);
+        partial void OnidMedicamentChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> quantite
+        {
+            get
+            {
+                return _quantite;
+            }
+            set
+            {
+                OnquantiteChanging(value);
+                ReportPropertyChanging("quantite");
+                _quantite = StructuralObject.SetValidValue(value, "quantite");
+                ReportPropertyChanged("quantite");
+                OnquantiteChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _quantite;
+        partial void OnquantiteChanging(Nullable<global::System.Int32> value);
+        partial void OnquantiteChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "offrir_fk2", "MEDICAMENT")]
+        public MEDICAMENT MEDICAMENT
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MEDICAMENT>("mdlGSB.offrir_fk2", "MEDICAMENT").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MEDICAMENT>("mdlGSB.offrir_fk2", "MEDICAMENT").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<MEDICAMENT> MEDICAMENTReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MEDICAMENT>("mdlGSB.offrir_fk2", "MEDICAMENT");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MEDICAMENT>("mdlGSB.offrir_fk2", "MEDICAMENT", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "offrir_fk1", "RAPPORT")]
+        public RAPPORT RAPPORT
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RAPPORT>("mdlGSB.offrir_fk1", "RAPPORT").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RAPPORT>("mdlGSB.offrir_fk1", "RAPPORT").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RAPPORT> RAPPORTReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RAPPORT>("mdlGSB.offrir_fk1", "RAPPORT");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RAPPORT>("mdlGSB.offrir_fk1", "RAPPORT", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -855,6 +2774,734 @@ namespace PPE3GSB
                 }
             }
         }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "rapport_fk3", "MOTIF")]
+        public MOTIF MOTIF
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MOTIF>("mdlGSB.rapport_fk3", "MOTIF").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MOTIF>("mdlGSB.rapport_fk3", "MOTIF").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<MOTIF> MOTIFReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<MOTIF>("mdlGSB.rapport_fk3", "MOTIF");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<MOTIF>("mdlGSB.rapport_fk3", "MOTIF", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "offrir_fk1", "OFFRIR")]
+        public EntityCollection<OFFRIR> OFFRIR
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<OFFRIR>("mdlGSB.offrir_fk1", "OFFRIR");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OFFRIR>("mdlGSB.offrir_fk1", "OFFRIR", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="Region")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Region : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet Region.
+        /// </summary>
+        /// <param name="idRegion">Valeur initiale de la propriété idRegion.</param>
+        /// <param name="idVisiteur">Valeur initiale de la propriété idVisiteur.</param>
+        /// <param name="idSecteur">Valeur initiale de la propriété idSecteur.</param>
+        public static Region CreateRegion(global::System.Int32 idRegion, global::System.String idVisiteur, global::System.Int32 idSecteur)
+        {
+            Region region = new Region();
+            region.idRegion = idRegion;
+            region.idVisiteur = idVisiteur;
+            region.idSecteur = idSecteur;
+            return region;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idRegion
+        {
+            get
+            {
+                return _idRegion;
+            }
+            set
+            {
+                if (_idRegion != value)
+                {
+                    OnidRegionChanging(value);
+                    ReportPropertyChanging("idRegion");
+                    _idRegion = StructuralObject.SetValidValue(value, "idRegion");
+                    ReportPropertyChanged("idRegion");
+                    OnidRegionChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idRegion;
+        partial void OnidRegionChanging(global::System.Int32 value);
+        partial void OnidRegionChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String libRegion
+        {
+            get
+            {
+                return _libRegion;
+            }
+            set
+            {
+                OnlibRegionChanging(value);
+                ReportPropertyChanging("libRegion");
+                _libRegion = StructuralObject.SetValidValue(value, true, "libRegion");
+                ReportPropertyChanged("libRegion");
+                OnlibRegionChanged();
+            }
+        }
+        private global::System.String _libRegion;
+        partial void OnlibRegionChanging(global::System.String value);
+        partial void OnlibRegionChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String idVisiteur
+        {
+            get
+            {
+                return _idVisiteur;
+            }
+            set
+            {
+                OnidVisiteurChanging(value);
+                ReportPropertyChanging("idVisiteur");
+                _idVisiteur = StructuralObject.SetValidValue(value, false, "idVisiteur");
+                ReportPropertyChanged("idVisiteur");
+                OnidVisiteurChanged();
+            }
+        }
+        private global::System.String _idVisiteur;
+        partial void OnidVisiteurChanging(global::System.String value);
+        partial void OnidVisiteurChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idSecteur
+        {
+            get
+            {
+                return _idSecteur;
+            }
+            set
+            {
+                OnidSecteurChanging(value);
+                ReportPropertyChanging("idSecteur");
+                _idSecteur = StructuralObject.SetValidValue(value, "idSecteur");
+                ReportPropertyChanged("idSecteur");
+                OnidSecteurChanged();
+            }
+        }
+        private global::System.Int32 _idSecteur;
+        partial void OnidSecteurChanging(global::System.Int32 value);
+        partial void OnidSecteurChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK_SECTEUR", "Secteur")]
+        public Secteur Secteur
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Secteur>("mdlGSB.FK_SECTEUR", "Secteur").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Secteur>("mdlGSB.FK_SECTEUR", "Secteur").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Secteur> SecteurReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Secteur>("mdlGSB.FK_SECTEUR", "Secteur");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Secteur>("mdlGSB.FK_SECTEUR", "Secteur", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK_VISITEUR", "Visiteur")]
+        public Visiteur Visiteur
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Visiteur>("mdlGSB.FK_VISITEUR", "Visiteur").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Visiteur>("mdlGSB.FK_VISITEUR", "Visiteur").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Visiteur> VisiteurReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Visiteur>("mdlGSB.FK_VISITEUR", "Visiteur");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Visiteur>("mdlGSB.FK_VISITEUR", "Visiteur", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "Travailler", "Visiteur")]
+        public EntityCollection<Visiteur> Visiteur1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Visiteur>("mdlGSB.Travailler", "Visiteur");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Visiteur>("mdlGSB.Travailler", "Visiteur", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="Secteur")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Secteur : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet Secteur.
+        /// </summary>
+        /// <param name="idSecteur">Valeur initiale de la propriété idSecteur.</param>
+        /// <param name="idVisiteur">Valeur initiale de la propriété idVisiteur.</param>
+        public static Secteur CreateSecteur(global::System.Int32 idSecteur, global::System.String idVisiteur)
+        {
+            Secteur secteur = new Secteur();
+            secteur.idSecteur = idSecteur;
+            secteur.idVisiteur = idVisiteur;
+            return secteur;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 idSecteur
+        {
+            get
+            {
+                return _idSecteur;
+            }
+            set
+            {
+                if (_idSecteur != value)
+                {
+                    OnidSecteurChanging(value);
+                    ReportPropertyChanging("idSecteur");
+                    _idSecteur = StructuralObject.SetValidValue(value, "idSecteur");
+                    ReportPropertyChanged("idSecteur");
+                    OnidSecteurChanged();
+                }
+            }
+        }
+        private global::System.Int32 _idSecteur;
+        partial void OnidSecteurChanging(global::System.Int32 value);
+        partial void OnidSecteurChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String libSecteur
+        {
+            get
+            {
+                return _libSecteur;
+            }
+            set
+            {
+                OnlibSecteurChanging(value);
+                ReportPropertyChanging("libSecteur");
+                _libSecteur = StructuralObject.SetValidValue(value, true, "libSecteur");
+                ReportPropertyChanged("libSecteur");
+                OnlibSecteurChanged();
+            }
+        }
+        private global::System.String _libSecteur;
+        partial void OnlibSecteurChanging(global::System.String value);
+        partial void OnlibSecteurChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String idVisiteur
+        {
+            get
+            {
+                return _idVisiteur;
+            }
+            set
+            {
+                OnidVisiteurChanging(value);
+                ReportPropertyChanging("idVisiteur");
+                _idVisiteur = StructuralObject.SetValidValue(value, false, "idVisiteur");
+                ReportPropertyChanged("idVisiteur");
+                OnidVisiteurChanged();
+            }
+        }
+        private global::System.String _idVisiteur;
+        partial void OnidVisiteurChanging(global::System.String value);
+        partial void OnidVisiteurChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK_SECTEUR", "Region")]
+        public EntityCollection<Region> Region
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Region>("mdlGSB.FK_SECTEUR", "Region");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Region>("mdlGSB.FK_SECTEUR", "Region", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK_VISITEURSECTEUR", "Visiteur")]
+        public Visiteur Visiteur
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Visiteur>("mdlGSB.FK_VISITEURSECTEUR", "Visiteur").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Visiteur>("mdlGSB.FK_VISITEURSECTEUR", "Visiteur").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Visiteur> VisiteurReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Visiteur>("mdlGSB.FK_VISITEURSECTEUR", "Visiteur");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Visiteur>("mdlGSB.FK_VISITEURSECTEUR", "Visiteur", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="SPECIALITE")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SPECIALITE : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet SPECIALITE.
+        /// </summary>
+        /// <param name="idSpecialite">Valeur initiale de la propriété idSpecialite.</param>
+        /// <param name="libSpecialite">Valeur initiale de la propriété libSpecialite.</param>
+        public static SPECIALITE CreateSPECIALITE(global::System.String idSpecialite, global::System.String libSpecialite)
+        {
+            SPECIALITE sPECIALITE = new SPECIALITE();
+            sPECIALITE.idSpecialite = idSpecialite;
+            sPECIALITE.libSpecialite = libSpecialite;
+            return sPECIALITE;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String idSpecialite
+        {
+            get
+            {
+                return _idSpecialite;
+            }
+            set
+            {
+                if (_idSpecialite != value)
+                {
+                    OnidSpecialiteChanging(value);
+                    ReportPropertyChanging("idSpecialite");
+                    _idSpecialite = StructuralObject.SetValidValue(value, false, "idSpecialite");
+                    ReportPropertyChanged("idSpecialite");
+                    OnidSpecialiteChanged();
+                }
+            }
+        }
+        private global::System.String _idSpecialite;
+        partial void OnidSpecialiteChanging(global::System.String value);
+        partial void OnidSpecialiteChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String libSpecialite
+        {
+            get
+            {
+                return _libSpecialite;
+            }
+            set
+            {
+                OnlibSpecialiteChanging(value);
+                ReportPropertyChanging("libSpecialite");
+                _libSpecialite = StructuralObject.SetValidValue(value, false, "libSpecialite");
+                ReportPropertyChanged("libSpecialite");
+                OnlibSpecialiteChanged();
+            }
+        }
+        private global::System.String _libSpecialite;
+        partial void OnlibSpecialiteChanging(global::System.String value);
+        partial void OnlibSpecialiteChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "medecin_fk", "MEDECIN")]
+        public EntityCollection<MEDECIN> MEDECIN
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MEDECIN>("mdlGSB.medecin_fk", "MEDECIN");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MEDECIN>("mdlGSB.medecin_fk", "MEDECIN", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="sysdiagrams")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class sysdiagrams : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet sysdiagrams.
+        /// </summary>
+        /// <param name="name">Valeur initiale de la propriété name.</param>
+        /// <param name="principal_id">Valeur initiale de la propriété principal_id.</param>
+        /// <param name="diagram_id">Valeur initiale de la propriété diagram_id.</param>
+        public static sysdiagrams Createsysdiagrams(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
+        {
+            sysdiagrams sysdiagrams = new sysdiagrams();
+            sysdiagrams.name = name;
+            sysdiagrams.principal_id = principal_id;
+            sysdiagrams.diagram_id = diagram_id;
+            return sysdiagrams;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false, "name");
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 principal_id
+        {
+            get
+            {
+                return _principal_id;
+            }
+            set
+            {
+                Onprincipal_idChanging(value);
+                ReportPropertyChanging("principal_id");
+                _principal_id = StructuralObject.SetValidValue(value, "principal_id");
+                ReportPropertyChanged("principal_id");
+                Onprincipal_idChanged();
+            }
+        }
+        private global::System.Int32 _principal_id;
+        partial void Onprincipal_idChanging(global::System.Int32 value);
+        partial void Onprincipal_idChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 diagram_id
+        {
+            get
+            {
+                return _diagram_id;
+            }
+            set
+            {
+                if (_diagram_id != value)
+                {
+                    Ondiagram_idChanging(value);
+                    ReportPropertyChanging("diagram_id");
+                    _diagram_id = StructuralObject.SetValidValue(value, "diagram_id");
+                    ReportPropertyChanged("diagram_id");
+                    Ondiagram_idChanged();
+                }
+            }
+        }
+        private global::System.Int32 _diagram_id;
+        partial void Ondiagram_idChanging(global::System.Int32 value);
+        partial void Ondiagram_idChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> version
+        {
+            get
+            {
+                return _version;
+            }
+            set
+            {
+                OnversionChanging(value);
+                ReportPropertyChanging("version");
+                _version = StructuralObject.SetValidValue(value, "version");
+                ReportPropertyChanged("version");
+                OnversionChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _version;
+        partial void OnversionChanging(Nullable<global::System.Int32> value);
+        partial void OnversionChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] definition
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_definition);
+            }
+            set
+            {
+                OndefinitionChanging(value);
+                ReportPropertyChanging("definition");
+                _definition = StructuralObject.SetValidValue(value, true, "definition");
+                ReportPropertyChanged("definition");
+                OndefinitionChanged();
+            }
+        }
+        private global::System.Byte[] _definition;
+        partial void OndefinitionChanging(global::System.Byte[] value);
+        partial void OndefinitionChanged();
 
         #endregion
 
@@ -1156,6 +3803,132 @@ namespace PPE3GSB
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RAPPORT>("mdlGSB.rapport_fk1", "RAPPORT", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK__fichefrai__idVis__04E4BC85", "fichefrais")]
+        public EntityCollection<fichefrais> fichefrais
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<fichefrais>("mdlGSB.FK__fichefrai__idVis__04E4BC85", "fichefrais");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<fichefrais>("mdlGSB.FK__fichefrai__idVis__04E4BC85", "fichefrais", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK_Laboratoire", "Laboratoire")]
+        public Laboratoire Laboratoire
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Laboratoire>("mdlGSB.FK_Laboratoire", "Laboratoire").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Laboratoire>("mdlGSB.FK_Laboratoire", "Laboratoire").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Laboratoire> LaboratoireReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Laboratoire>("mdlGSB.FK_Laboratoire", "Laboratoire");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Laboratoire>("mdlGSB.FK_Laboratoire", "Laboratoire", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK_VISITEUR", "Region")]
+        public EntityCollection<Region> Region
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Region>("mdlGSB.FK_VISITEUR", "Region");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Region>("mdlGSB.FK_VISITEUR", "Region", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK_VISITEURSECTEUR", "Secteur")]
+        public EntityCollection<Secteur> Secteur
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Secteur>("mdlGSB.FK_VISITEURSECTEUR", "Secteur");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Secteur>("mdlGSB.FK_VISITEURSECTEUR", "Secteur", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "Travailler", "Region")]
+        public EntityCollection<Region> Region1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Region>("mdlGSB.Travailler", "Region");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Region>("mdlGSB.Travailler", "Region", value);
                 }
             }
         }

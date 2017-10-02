@@ -10,7 +10,7 @@ namespace PPE3GSB
     {
         private static connectGSB maConnexion;
         private static int vAction;
-        private static Visiteur vVisiteur;
+        private static Visiteur visiteurConnecte;
 
         public static connectGSB MaConnexion
         {
@@ -38,16 +38,16 @@ namespace PPE3GSB
             }
         }
 
-        public static Visiteur VVisiteur
+        public static Visiteur VisiteurConnecte
         {
             get
             {
-                return vVisiteur;
+                return visiteurConnecte;
             }
 
             set
             {
-                vVisiteur = value;
+                visiteurConnecte = value;
             }
         }
 

@@ -11,6 +11,34 @@
         <EntityTypeShape EntityType="mdlGSB.Visiteur" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
         <AssociationConnector Association="mdlGSB.rapport_fk2" ManuallyRouted="false" />
         <AssociationConnector Association="mdlGSB.rapport_fk1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="mdlGSB.Etat" Width="1.5" PointX="1" PointY="28.375" />
+        <EntityTypeShape EntityType="mdlGSB.FAMILLE" Width="1.5" PointX="0.75" PointY="14.25" />
+        <EntityTypeShape EntityType="mdlGSB.fichefrais" Width="1.5" PointX="3.25" PointY="8.75" />
+        <EntityTypeShape EntityType="mdlGSB.FraisForfait" Width="1.5" PointX="3.25" PointY="13.25" />
+        <EntityTypeShape EntityType="mdlGSB.Laboratoire" Width="1.5" PointX="1" PointY="22.875" />
+        <EntityTypeShape EntityType="mdlGSB.LigneFraisForfait" Width="1.5" PointX="5.5" PointY="8.125" />
+        <EntityTypeShape EntityType="mdlGSB.LigneFraisHorsForfait" Width="1.5" PointX="5.5" PointY="11.875" />
+        <EntityTypeShape EntityType="mdlGSB.MOTIF" Width="1.5" PointX="1" PointY="25.625" />
+        <EntityTypeShape EntityType="mdlGSB.OFFRIR" Width="1.5" PointX="5.5" PointY="3.125" />
+        <EntityTypeShape EntityType="mdlGSB.Region" Width="1.5" PointX="1" PointY="16.875" />
+        <EntityTypeShape EntityType="mdlGSB.Secteur" Width="1.5" PointX="1" PointY="20" />
+        <EntityTypeShape EntityType="mdlGSB.SPECIALITE" Width="1.5" PointX="1" PointY="11.625" />
+        <EntityTypeShape EntityType="mdlGSB.sysdiagrams" Width="1.5" PointX="7.625" PointY="0.75" />
+        <AssociationConnector Association="mdlGSB.FK__fichefrai__idEta__03F0984C" />
+        <AssociationConnector Association="mdlGSB.medicament_fk" />
+        <AssociationConnector Association="mdlGSB.FK__fichefrai__idVis__04E4BC85" />
+        <AssociationConnector Association="mdlGSB.FK__LigneFraisForfai__0A9D95DB" />
+        <AssociationConnector Association="mdlGSB.FK__LigneFraisHorsFo__1332DBDC" />
+        <AssociationConnector Association="mdlGSB.FK__LigneFrai__idFra__0B91BA14" />
+        <AssociationConnector Association="mdlGSB.FK_Laboratoire" />
+        <AssociationConnector Association="mdlGSB.medecin_fk" />
+        <AssociationConnector Association="mdlGSB.offrir_fk2" />
+        <AssociationConnector Association="mdlGSB.rapport_fk3" />
+        <AssociationConnector Association="mdlGSB.offrir_fk1" />
+        <AssociationConnector Association="mdlGSB.FK_SECTEUR" />
+        <AssociationConnector Association="mdlGSB.FK_VISITEUR" />
+        <AssociationConnector Association="mdlGSB.FK_VISITEURSECTEUR" />
+        <AssociationConnector Association="mdlGSB.Travailler" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

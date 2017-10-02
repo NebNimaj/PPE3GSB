@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionCptRendu));
             this.btnCptRendu = new System.Windows.Forms.Button();
             this.btnVisiteur = new System.Windows.Forms.Button();
             this.btnPracticiens = new System.Windows.Forms.Button();
@@ -39,8 +38,6 @@
             this.lblPracticiens = new System.Windows.Forms.Label();
             this.lblMedicament = new System.Windows.Forms.Label();
             this.lblQuitter = new System.Windows.Forms.Label();
-            this.pbGSB = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbGSB)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCptRendu
@@ -50,6 +47,7 @@
             this.btnCptRendu.Size = new System.Drawing.Size(20, 23);
             this.btnCptRendu.TabIndex = 0;
             this.btnCptRendu.UseVisualStyleBackColor = true;
+            this.btnCptRendu.Click += new System.EventHandler(this.btnCptRendu_Click);
             // 
             // btnVisiteur
             // 
@@ -86,6 +84,7 @@
             // lblCptRendus
             // 
             this.lblCptRendus.AutoSize = true;
+            this.lblCptRendus.BackColor = System.Drawing.Color.Transparent;
             this.lblCptRendus.Location = new System.Drawing.Point(382, 181);
             this.lblCptRendus.Name = "lblCptRendus";
             this.lblCptRendus.Size = new System.Drawing.Size(88, 13);
@@ -95,6 +94,7 @@
             // lblVisiteur
             // 
             this.lblVisiteur.AutoSize = true;
+            this.lblVisiteur.BackColor = System.Drawing.Color.Transparent;
             this.lblVisiteur.Location = new System.Drawing.Point(382, 210);
             this.lblVisiteur.Name = "lblVisiteur";
             this.lblVisiteur.Size = new System.Drawing.Size(41, 13);
@@ -104,6 +104,7 @@
             // lblPracticiens
             // 
             this.lblPracticiens.AutoSize = true;
+            this.lblPracticiens.BackColor = System.Drawing.Color.Transparent;
             this.lblPracticiens.Location = new System.Drawing.Point(382, 239);
             this.lblPracticiens.Name = "lblPracticiens";
             this.lblPracticiens.Size = new System.Drawing.Size(59, 13);
@@ -113,6 +114,7 @@
             // lblMedicament
             // 
             this.lblMedicament.AutoSize = true;
+            this.lblMedicament.BackColor = System.Drawing.Color.Transparent;
             this.lblMedicament.Location = new System.Drawing.Point(382, 268);
             this.lblMedicament.Name = "lblMedicament";
             this.lblMedicament.Size = new System.Drawing.Size(65, 13);
@@ -122,22 +124,12 @@
             // lblQuitter
             // 
             this.lblQuitter.AutoSize = true;
+            this.lblQuitter.BackColor = System.Drawing.Color.Transparent;
             this.lblQuitter.Location = new System.Drawing.Point(382, 297);
             this.lblQuitter.Name = "lblQuitter";
             this.lblQuitter.Size = new System.Drawing.Size(38, 13);
             this.lblQuitter.TabIndex = 9;
             this.lblQuitter.Text = "Quitter";
-            // 
-            // pbGSB
-            // 
-            this.pbGSB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pbGSB.Image = ((System.Drawing.Image)(resources.GetObject("pbGSB.Image")));
-            this.pbGSB.Location = new System.Drawing.Point(12, 138);
-            this.pbGSB.Name = "pbGSB";
-            this.pbGSB.Size = new System.Drawing.Size(227, 182);
-            this.pbGSB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbGSB.TabIndex = 10;
-            this.pbGSB.TabStop = false;
             // 
             // frmGestionCptRendu
             // 
@@ -145,7 +137,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(709, 396);
-            this.Controls.Add(this.pbGSB);
             this.Controls.Add(this.lblQuitter);
             this.Controls.Add(this.lblMedicament);
             this.Controls.Add(this.lblPracticiens);
@@ -158,7 +149,16 @@
             this.Controls.Add(this.btnCptRendu);
             this.Name = "frmGestionCptRendu";
             this.Text = "Gestion des comptes rendus";
-            ((System.ComponentModel.ISupportInitialize)(this.pbGSB)).EndInit();
+            this.Controls.SetChildIndex(this.btnCptRendu, 0);
+            this.Controls.SetChildIndex(this.btnVisiteur, 0);
+            this.Controls.SetChildIndex(this.btnPracticiens, 0);
+            this.Controls.SetChildIndex(this.btnMedicament, 0);
+            this.Controls.SetChildIndex(this.btnQuitter, 0);
+            this.Controls.SetChildIndex(this.lblCptRendus, 0);
+            this.Controls.SetChildIndex(this.lblVisiteur, 0);
+            this.Controls.SetChildIndex(this.lblPracticiens, 0);
+            this.Controls.SetChildIndex(this.lblMedicament, 0);
+            this.Controls.SetChildIndex(this.lblQuitter, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,6 +176,5 @@
         private System.Windows.Forms.Label lblPracticiens;
         private System.Windows.Forms.Label lblMedicament;
         private System.Windows.Forms.Label lblQuitter;
-        private System.Windows.Forms.PictureBox pbGSB;
     }
 }
