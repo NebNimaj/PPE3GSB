@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Configuration;
+using System.Data.SqlClient; 
 using System.Windows.Forms;
 
 namespace PPE3GSB
@@ -16,7 +18,8 @@ namespace PPE3GSB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new remboursementFrais());
+            Modele.initConnex();
+            Application.Run(new frmRapport());
         }
     }
 }
