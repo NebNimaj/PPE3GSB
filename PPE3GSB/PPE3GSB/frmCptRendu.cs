@@ -6,20 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace PPE3GSB
 {
-    public partial class frmCptRendu : Form
+    public partial class frmCptRendu : frmBase
     {
-        public frmCptRendu()
+        public frmCptRendu() : base()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+        bsPracticien.DataSource = Modele.MaConnexion.MEDECIN.ToList();
         }
     }
 }

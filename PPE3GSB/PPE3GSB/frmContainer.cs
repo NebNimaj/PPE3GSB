@@ -6,21 +6,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace PPE3GSB
 {
-    public partial class frmGestionCptRendu : frmBase
+    public partial class frmContainer : frmBase
     {
-        public frmGestionCptRendu() : base()
+        public frmContainer() :base()
         {
             InitializeComponent();
         }
 
-        private void btnCptRendu_Click(object sender, EventArgs e)
+        private void gestionRapportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmGestionCptRendu frapport = new frmGestionCptRendu();
+            frapport.MdiParent = this;
+            frapport.Show();
         }
     }
 }

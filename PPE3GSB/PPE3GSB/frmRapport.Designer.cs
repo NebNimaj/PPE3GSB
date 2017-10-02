@@ -28,12 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRapport));
             this.btnOK = new System.Windows.Forms.Button();
             this.txtIdent = new System.Windows.Forms.TextBox();
             this.txtMDP = new System.Windows.Forms.TextBox();
-            this.lblIdent = new System.Windows.Forms.Label();
+            this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblTitre
+            // 
+            this.lblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitre.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblTitre.Location = new System.Drawing.Point(259, 67);
+            this.lblTitre.Size = new System.Drawing.Size(163, 20);
+            this.lblTitre.Text = "IDENTIFIEZ VOUS";
             // 
             // btnOK
             // 
@@ -44,6 +54,7 @@
             this.btnOK.TabIndex = 0;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // txtIdent
             // 
@@ -56,35 +67,26 @@
             // 
             this.txtMDP.Location = new System.Drawing.Point(285, 142);
             this.txtMDP.Name = "txtMDP";
+            this.txtMDP.PasswordChar = '*';
             this.txtMDP.Size = new System.Drawing.Size(100, 20);
             this.txtMDP.TabIndex = 2;
-            // 
-            // lblIdent
-            // 
-            this.lblIdent.AutoSize = true;
-            this.lblIdent.BackColor = System.Drawing.Color.Transparent;
-            this.lblIdent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdent.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblIdent.Location = new System.Drawing.Point(258, 60);
-            this.lblIdent.Name = "lblIdent";
-            this.lblIdent.Size = new System.Drawing.Size(163, 20);
-            this.lblIdent.TabIndex = 3;
-            this.lblIdent.Text = "IDENTIFIEZ VOUS";
-            this.lblIdent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmRapport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(687, 388);
-            this.Controls.Add(this.lblIdent);
             this.Controls.Add(this.txtMDP);
             this.Controls.Add(this.txtIdent);
             this.Controls.Add(this.btnOK);
             this.Name = "frmRapport";
             this.Text = "Rapport_Visite";
+            this.Controls.SetChildIndex(this.lblTitre, 0);
+            this.Controls.SetChildIndex(this.btnOK, 0);
+            this.Controls.SetChildIndex(this.txtIdent, 0);
+            this.Controls.SetChildIndex(this.txtMDP, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,7 +97,7 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.TextBox txtIdent;
         private System.Windows.Forms.TextBox txtMDP;
-        private System.Windows.Forms.Label lblIdent;
+        private System.Windows.Forms.BindingSource bsVisiteur;
     }
 }
 
