@@ -30,21 +30,21 @@
         {
             this.butAccept = new System.Windows.Forms.Button();
             this.butAnnuler = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.labMontant = new System.Windows.Forms.Label();
-            this.labForfait = new System.Windows.Forms.Label();
-            this.labQuant = new System.Windows.Forms.Label();
-            this.labTot = new System.Windows.Forms.Label();
-            this.labMontUnit = new System.Windows.Forms.Label();
-            this.labDate = new System.Windows.Forms.Label();
-            this.labLibellé = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.labFrais = new System.Windows.Forms.Label();
+            this.txtQuantité = new System.Windows.Forms.TextBox();
+            this.txtMontantUnitaire = new System.Windows.Forms.TextBox();
+            this.cboTypeForfait = new System.Windows.Forms.ComboBox();
+            this.lblMontant = new System.Windows.Forms.Label();
+            this.lblTypeForfait = new System.Windows.Forms.Label();
+            this.lblQuantité = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblMontantUnitaire = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblLibellé = new System.Windows.Forms.Label();
+            this.txtMontant = new System.Windows.Forms.TextBox();
+            this.txtLibellé = new System.Windows.Forms.TextBox();
+            this.txtDate = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.lblFrais = new System.Windows.Forms.Label();
             this.cboTypeFrais = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -66,144 +66,145 @@
             this.butAnnuler.Text = "Annuler";
             this.butAnnuler.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtQuantité
             // 
-            this.textBox1.Location = new System.Drawing.Point(155, 74);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtQuantité.Location = new System.Drawing.Point(155, 74);
+            this.txtQuantité.Name = "txtQuantité";
+            this.txtQuantité.Size = new System.Drawing.Size(100, 20);
+            this.txtQuantité.TabIndex = 2;
             // 
-            // textBox2
+            // txtMontantUnitaire
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 100);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtMontantUnitaire.Location = new System.Drawing.Point(155, 100);
+            this.txtMontantUnitaire.Name = "txtMontantUnitaire";
+            this.txtMontantUnitaire.Size = new System.Drawing.Size(100, 20);
+            this.txtMontantUnitaire.TabIndex = 3;
             // 
-            // comboBox1
+            // cboTypeForfait
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cboTypeForfait.FormattingEnabled = true;
+            this.cboTypeForfait.Items.AddRange(new object[] {
             "Forfait étape",
             "Frais kilométrique",
             "Nuitée hôtel",
             "Repas restaurant"});
-            this.comboBox1.Location = new System.Drawing.Point(134, 47);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cboTypeForfait.Location = new System.Drawing.Point(134, 47);
+            this.cboTypeForfait.Name = "cboTypeForfait";
+            this.cboTypeForfait.Size = new System.Drawing.Size(121, 21);
+            this.cboTypeForfait.TabIndex = 4;
             // 
-            // labMontant
+            // lblMontant
             // 
-            this.labMontant.AutoSize = true;
-            this.labMontant.Location = new System.Drawing.Point(26, 294);
-            this.labMontant.Name = "labMontant";
-            this.labMontant.Size = new System.Drawing.Size(52, 13);
-            this.labMontant.TabIndex = 5;
-            this.labMontant.Text = "Montant :";
+            this.lblMontant.AutoSize = true;
+            this.lblMontant.Location = new System.Drawing.Point(26, 294);
+            this.lblMontant.Name = "lblMontant";
+            this.lblMontant.Size = new System.Drawing.Size(52, 13);
+            this.lblMontant.TabIndex = 5;
+            this.lblMontant.Text = "Montant :";
             // 
-            // labForfait
+            // lblTypeForfait
             // 
-            this.labForfait.AutoSize = true;
-            this.labForfait.Location = new System.Drawing.Point(26, 55);
-            this.labForfait.Name = "labForfait";
-            this.labForfait.Size = new System.Drawing.Size(86, 13);
-            this.labForfait.TabIndex = 6;
-            this.labForfait.Text = "Type de forfaits :";
+            this.lblTypeForfait.AutoSize = true;
+            this.lblTypeForfait.Location = new System.Drawing.Point(26, 55);
+            this.lblTypeForfait.Name = "lblTypeForfait";
+            this.lblTypeForfait.Size = new System.Drawing.Size(86, 13);
+            this.lblTypeForfait.TabIndex = 6;
+            this.lblTypeForfait.Text = "Type de forfaits :";
             // 
-            // labQuant
+            // lblQuantité
             // 
-            this.labQuant.AutoSize = true;
-            this.labQuant.Location = new System.Drawing.Point(26, 81);
-            this.labQuant.Name = "labQuant";
-            this.labQuant.Size = new System.Drawing.Size(53, 13);
-            this.labQuant.TabIndex = 7;
-            this.labQuant.Text = "Quantité :";
+            this.lblQuantité.AutoSize = true;
+            this.lblQuantité.Location = new System.Drawing.Point(26, 81);
+            this.lblQuantité.Name = "lblQuantité";
+            this.lblQuantité.Size = new System.Drawing.Size(53, 13);
+            this.lblQuantité.TabIndex = 7;
+            this.lblQuantité.Text = "Quantité :";
             // 
-            // labTot
+            // lblTotal
             // 
-            this.labTot.AutoSize = true;
-            this.labTot.Location = new System.Drawing.Point(26, 133);
-            this.labTot.Name = "labTot";
-            this.labTot.Size = new System.Drawing.Size(37, 13);
-            this.labTot.TabIndex = 8;
-            this.labTot.Text = "Total :";
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(26, 133);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(37, 13);
+            this.lblTotal.TabIndex = 8;
+            this.lblTotal.Text = "Total :";
             // 
-            // labMontUnit
+            // lblMontantUnitaire
             // 
-            this.labMontUnit.AutoSize = true;
-            this.labMontUnit.Location = new System.Drawing.Point(26, 107);
-            this.labMontUnit.Name = "labMontUnit";
-            this.labMontUnit.Size = new System.Drawing.Size(89, 13);
-            this.labMontUnit.TabIndex = 9;
-            this.labMontUnit.Text = "Montant unitaire :";
+            this.lblMontantUnitaire.AutoSize = true;
+            this.lblMontantUnitaire.Location = new System.Drawing.Point(26, 107);
+            this.lblMontantUnitaire.Name = "lblMontantUnitaire";
+            this.lblMontantUnitaire.Size = new System.Drawing.Size(89, 13);
+            this.lblMontantUnitaire.TabIndex = 9;
+            this.lblMontantUnitaire.Text = "Montant unitaire :";
             // 
-            // labDate
+            // lblDate
             // 
-            this.labDate.AutoSize = true;
-            this.labDate.Location = new System.Drawing.Point(26, 242);
-            this.labDate.Name = "labDate";
-            this.labDate.Size = new System.Drawing.Size(36, 13);
-            this.labDate.TabIndex = 10;
-            this.labDate.Text = "Date :";
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(26, 242);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(36, 13);
+            this.lblDate.TabIndex = 10;
+            this.lblDate.Text = "Date :";
             // 
-            // labLibellé
+            // lblLibellé
             // 
-            this.labLibellé.AutoSize = true;
-            this.labLibellé.Location = new System.Drawing.Point(26, 268);
-            this.labLibellé.Name = "labLibellé";
-            this.labLibellé.Size = new System.Drawing.Size(43, 13);
-            this.labLibellé.TabIndex = 11;
-            this.labLibellé.Text = "Libellé :";
+            this.lblLibellé.AutoSize = true;
+            this.lblLibellé.Location = new System.Drawing.Point(26, 268);
+            this.lblLibellé.Name = "lblLibellé";
+            this.lblLibellé.Size = new System.Drawing.Size(43, 13);
+            this.lblLibellé.TabIndex = 11;
+            this.lblLibellé.Text = "Libellé :";
             // 
-            // textBox3
+            // txtMontant
             // 
-            this.textBox3.Location = new System.Drawing.Point(155, 287);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 13;
+            this.txtMontant.Location = new System.Drawing.Point(155, 287);
+            this.txtMontant.Name = "txtMontant";
+            this.txtMontant.Size = new System.Drawing.Size(100, 20);
+            this.txtMontant.TabIndex = 13;
             // 
-            // textBox4
+            // txtLibellé
             // 
-            this.textBox4.Location = new System.Drawing.Point(155, 261);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 14;
+            this.txtLibellé.Location = new System.Drawing.Point(155, 261);
+            this.txtLibellé.Name = "txtLibellé";
+            this.txtLibellé.Size = new System.Drawing.Size(100, 20);
+            this.txtLibellé.TabIndex = 14;
             // 
-            // textBox5
+            // txtDate
             // 
-            this.textBox5.Location = new System.Drawing.Point(155, 235);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 15;
+            this.txtDate.Location = new System.Drawing.Point(155, 235);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(100, 20);
+            this.txtDate.TabIndex = 15;
             // 
-            // textBox6
+            // txtTotal
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(155, 126);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 16;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(155, 126);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtTotal.TabIndex = 16;
             // 
-            // labFrais
+            // lblFrais
             // 
-            this.labFrais.AutoSize = true;
-            this.labFrais.Location = new System.Drawing.Point(26, 28);
-            this.labFrais.Name = "labFrais";
-            this.labFrais.Size = new System.Drawing.Size(74, 13);
-            this.labFrais.TabIndex = 17;
-            this.labFrais.Text = "Type de frais :";
+            this.lblFrais.AutoSize = true;
+            this.lblFrais.Location = new System.Drawing.Point(26, 28);
+            this.lblFrais.Name = "lblFrais";
+            this.lblFrais.Size = new System.Drawing.Size(74, 13);
+            this.lblFrais.TabIndex = 17;
+            this.lblFrais.Text = "Type de frais :";
             // 
             // cboTypeFrais
             // 
             this.cboTypeFrais.FormattingEnabled = true;
             this.cboTypeFrais.Items.AddRange(new object[] {
-            "Frais forfaitisés ",
-            "Frais hors forfait "});
-            this.cboTypeFrais.Location = new System.Drawing.Point(134, 20);
+            "Forfaitisés",
+            "Hors forfait"});
+            this.cboTypeFrais.Location = new System.Drawing.Point(134, 28);
             this.cboTypeFrais.Name = "cboTypeFrais";
             this.cboTypeFrais.Size = new System.Drawing.Size(121, 21);
             this.cboTypeFrais.TabIndex = 18;
+            this.cboTypeFrais.SelectedIndexChanged += new System.EventHandler(this.cboTypeFrais_SelectedValueChanged);
             // 
             // modFrais
             // 
@@ -211,21 +212,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 410);
             this.Controls.Add(this.cboTypeFrais);
-            this.Controls.Add(this.labFrais);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.labLibellé);
-            this.Controls.Add(this.labDate);
-            this.Controls.Add(this.labMontUnit);
-            this.Controls.Add(this.labTot);
-            this.Controls.Add(this.labQuant);
-            this.Controls.Add(this.labForfait);
-            this.Controls.Add(this.labMontant);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblFrais);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.txtDate);
+            this.Controls.Add(this.txtLibellé);
+            this.Controls.Add(this.txtMontant);
+            this.Controls.Add(this.lblLibellé);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.lblMontantUnitaire);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.lblQuantité);
+            this.Controls.Add(this.lblTypeForfait);
+            this.Controls.Add(this.lblMontant);
+            this.Controls.Add(this.cboTypeForfait);
+            this.Controls.Add(this.txtMontantUnitaire);
+            this.Controls.Add(this.txtQuantité);
             this.Controls.Add(this.butAnnuler);
             this.Controls.Add(this.butAccept);
             this.Name = "modFrais";
@@ -239,21 +240,21 @@
 
         private System.Windows.Forms.Button butAccept;
         private System.Windows.Forms.Button butAnnuler;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label labMontant;
-        private System.Windows.Forms.Label labForfait;
-        private System.Windows.Forms.Label labQuant;
-        private System.Windows.Forms.Label labTot;
-        private System.Windows.Forms.Label labMontUnit;
-        private System.Windows.Forms.Label labDate;
-        private System.Windows.Forms.Label labLibellé;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label labFrais;
+        private System.Windows.Forms.TextBox txtQuantité;
+        private System.Windows.Forms.TextBox txtMontantUnitaire;
+        private System.Windows.Forms.ComboBox cboTypeForfait;
+        private System.Windows.Forms.Label lblMontant;
+        private System.Windows.Forms.Label lblTypeForfait;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblMontantUnitaire;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Label lblLibellé;
+        private System.Windows.Forms.TextBox txtMontant;
+        private System.Windows.Forms.TextBox txtLibellé;
+        private System.Windows.Forms.TextBox txtDate;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label lblFrais;
         private System.Windows.Forms.ComboBox cboTypeFrais;
+        private System.Windows.Forms.Label lblQuantité;
     }
 }
