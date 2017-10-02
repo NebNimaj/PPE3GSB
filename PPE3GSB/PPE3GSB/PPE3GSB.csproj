@@ -57,14 +57,19 @@
       <DependentUpon>frmBase.cs</DependentUpon>
     </Compile>
      <Compile Include="modFrais.cs">
-    <Compile Include="frmContainer.cs">
+      </Compile>
+     <Compile Include="frmContainer.cs">
       <SubType>Form</SubType>
-    </Compile>
-      <Compile Include="Program.cs" />
-      <Compile Include="Properties\AssemblyInfo.cs" />
-      <Compile Include="remboursementFrais.cs">
-      <Compile Include="modFrais.Designer.cs">
+     </Compile>
+     <Compile Include="Program.cs" />
+     </Compile>
+     <Compile Include="Properties\AssemblyInfo.cs" />
+     </Compile>
+     <Compile Include="remboursementFrais.cs">
+     </Compile>
+     <Compile Include="modFrais.Designer.cs">
        <DependentUpon>modFrais.cs</DependentUpon>
+     </Compile>
     <Compile Include="frmContainer.Designer.cs">
       <DependentUpon>frmContainer.cs</DependentUpon>
     </Compile>
