@@ -68,8 +68,9 @@
     <Compile Include="frmContainer.Designer.cs">
       <DependentUpon>frmContainer.cs</DependentUpon>
     </Compile>
-        <Compile Include="remboursementFrais.Designer.cs">
+    <Compile Include="remboursementFrais.Designer.cs">
     <DependentUpon>remboursementFrais.cs</DependentUpon>
+     </Compile>
     <Compile Include="frmRapport.cs">
       <SubType>Form</SubType>
     </Compile>
