@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -56,26 +56,12 @@
     <Compile Include="frmBase.Designer.cs">
       <DependentUpon>frmBase.cs</DependentUpon>
     </Compile>
-     <Compile Include="modFrais.cs">
-      </Compile>
-     <Compile Include="frmContainer.cs">
+    <Compile Include="frmContainer.cs">
       <SubType>Form</SubType>
-     </Compile>
-     <Compile Include="Program.cs" />
-     </Compile>
-     <Compile Include="Properties\AssemblyInfo.cs" />
-     </Compile>
-     <Compile Include="remboursementFrais.cs">
-     </Compile>
-     <Compile Include="modFrais.Designer.cs">
-       <DependentUpon>modFrais.cs</DependentUpon>
-     </Compile>
+    </Compile>
     <Compile Include="frmContainer.Designer.cs">
       <DependentUpon>frmContainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="remboursementFrais.Designer.cs">
-    <DependentUpon>remboursementFrais.cs</DependentUpon>
-     </Compile>
     <Compile Include="frmRapport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,9 +74,6 @@
     <Compile Include="frmCptRendu.Designer.cs">
       <DependentUpon>frmCptRendu.cs</DependentUpon>
     </Compile>
-      <EmbeddedResource Include="remboursementFrais.resx">
-      <DependentUpon>remboursementFrais.cs</DependentUpon>
-    </EmbeddedResource>
     <Compile Include="frmGestionCptRendu.cs">
       <SubType>Form</SubType>
     </Compile>
