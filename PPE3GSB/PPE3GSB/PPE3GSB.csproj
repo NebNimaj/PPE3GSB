@@ -88,6 +88,9 @@
     <Compile Include="frmCptRendu.Designer.cs">
       <DependentUpon>frmCptRendu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmModFrais.resx">
+      <DependentUpon>frmModFrais.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRemboursementFrais.resx">
       <DependentUpon>frmRemboursementFrais.cs</DependentUpon>
     </EmbeddedResource>

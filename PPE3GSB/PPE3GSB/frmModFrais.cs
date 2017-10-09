@@ -19,8 +19,13 @@ namespace PPE3GSB
 
         private void cboTypeFrais_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (cboTypeFrais.SelectedText == "Forfaitisés"  /*/ Frais hors forfait*/)
+            //lblDate.Visible = false;
+            //dateTime.Visible = false;
+            //lblLibellé.Visible = false;
+            //txtLibellé.Visible = false;
+            //lblMontant.Visible = false;
+            //txtMontant.Visible = false;
+            if ((string)cboTypeFrais.SelectedItem == "Forfaitisés")
                 {
                 lblTypeForfait.Visible = true;
                 cboTypeForfait.Visible = true;
@@ -31,13 +36,13 @@ namespace PPE3GSB
                 lblTotal.Visible = true;
                 txtTotal.Visible = true;
                 lblDate.Visible = false;
-                txtDate.Visible = false;
+                dateTime.Visible = false;
                 lblLibellé.Visible = false;
                 txtLibellé.Visible = false;
                 lblMontant.Visible = false;
                 txtMontant.Visible = false;
                 } 
-                else if(cboTypeFrais.SelectedText == "Hors forfait" )
+                else if((string)cboTypeFrais.SelectedItem =="Hors forfait")
                     {
                 lblTypeForfait.Visible = false;
                 cboTypeForfait.Visible = false;
@@ -48,7 +53,7 @@ namespace PPE3GSB
                 lblTotal.Visible = false;
                 txtTotal.Visible = false;
                 lblDate.Visible = true;
-                txtDate.Visible = true;
+                dateTime.Visible = true;
                 lblLibellé.Visible = true;
                 txtLibellé.Visible = true;
                 lblMontant.Visible = true;
@@ -57,6 +62,51 @@ namespace PPE3GSB
 
 
             }
+            private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar)
+            && !char.IsDigit(e.KeyChar)
+            && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void txtNoLettre(object sender, KeyPressEventArgs e)
+        {
+
+            //Vérifie la touche en entrée, en acceptant que les "," ou chiffres
+            if (!char.IsControl(e.KeyChar)
+            && !char.IsDigit(e.KeyChar)
+            && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            //Vérifie si une "," est déjà écris, si oui impossible d'en remmettre une
+            if (e.KeyChar == ','
+            && (sender as TextBox).Text.IndexOf(',') > -1)
+            {
+                e.Handled = true;
+            }
+    }
+
+        private void txtNoLettre_NoVirgule(object sender, KeyPressEventArgs e)
+        {
+
+            //Vérifie la touche en entrée, en acceptant que les chiffres
+            if (!char.IsControl(e.KeyChar)
+            && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+
+        private void txtForfaitisés_TextChanged(object sender, EventArgs e)
+        {
+            //Affiche le calcul de Quantité et Montant Unitaire dans la boîte Total
+            txtTotal.Text = Convert.ToString(Convert.ToDouble(txtQuantité.Text) * Convert.ToDouble(txtMontantUnitaire.Text));
         }
     }
+}
