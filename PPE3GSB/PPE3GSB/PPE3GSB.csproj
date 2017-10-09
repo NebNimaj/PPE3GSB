@@ -94,6 +94,12 @@
     <Compile Include="frmCptRendu.Designer.cs">
       <DependentUpon>frmCptRendu.cs</DependentUpon>
     </Compile>
+    <Compile Include="rfmVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rfmVisiteur.Designer.cs">
+      <DependentUpon>rfmVisiteur.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +143,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="rfmVisiteur.resx">
+      <DependentUpon>rfmVisiteur.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="mdlGSB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>mdlGSB.Designer.cs</LastGenOutput>
