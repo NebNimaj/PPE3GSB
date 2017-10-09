@@ -153,6 +153,10 @@
     <None Include="mdlGSB.edmx.diagram">
       <DependentUpon>mdlGSB.edmx</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\Laboratoire.datasource" />
+    <None Include="Properties\DataSources\Region.datasource" />
+    <None Include="Properties\DataSources\Secteur.datasource" />
+    <None Include="Properties\DataSources\Visiteur.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
