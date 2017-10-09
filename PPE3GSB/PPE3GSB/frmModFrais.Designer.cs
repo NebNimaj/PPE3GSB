@@ -1,6 +1,6 @@
 ﻿namespace PPE3GSB
 {
-    partial class modFrais
+    partial class frmModFrais
     {
         /// <summary>
         /// Required designer variable.

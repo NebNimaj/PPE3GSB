@@ -1,6 +1,6 @@
 ﻿namespace PPE3GSB
 {
-    partial class remboursementFrais
+    partial class frmRemboursementFrais
     {
         /// <summary>
         /// Required designer variable.

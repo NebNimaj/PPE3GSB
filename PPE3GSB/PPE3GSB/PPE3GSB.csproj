@@ -56,7 +56,7 @@
     <Compile Include="frmBase.Designer.cs">
       <DependentUpon>frmBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="modFrais.cs">
+    <Compile Include="frmModFrais.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmContainer.cs">
@@ -64,17 +64,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="remboursementFrais.cs">
+    <Compile Include="frmRemboursementFrais.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modFrais.Designer.cs">
-      <DependentUpon>modFrais.cs</DependentUpon>
+    <Compile Include="frmModFrais.Designer.cs">
+      <DependentUpon>frmModFrais.cs</DependentUpon>
     </Compile>
     <Compile Include="frmContainer.Designer.cs">
       <DependentUpon>frmContainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="remboursementFrais.Designer.cs">
-      <DependentUpon>remboursementFrais.cs</DependentUpon>
+    <Compile Include="frmRemboursementFrais.Designer.cs">
+      <DependentUpon>frmRemboursementFrais.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRapport.cs">
       <SubType>Form</SubType>
@@ -88,8 +88,8 @@
     <Compile Include="frmCptRendu.Designer.cs">
       <DependentUpon>frmCptRendu.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="remboursementFrais.resx">
-      <DependentUpon>remboursementFrais.cs</DependentUpon>
+    <EmbeddedResource Include="frmRemboursementFrais.resx">
+      <DependentUpon>frmRemboursementFrais.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="frmGestionCptRendu.cs">
       <SubType>Form</SubType>

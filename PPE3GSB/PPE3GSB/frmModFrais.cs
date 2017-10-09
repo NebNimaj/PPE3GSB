@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PPE3GSB
 {
-    public partial class modFrais : Form
+    public partial class frmModFrais : Form
     {
-        public modFrais()
+        public frmModFrais()
         {
             InitializeComponent();
         }

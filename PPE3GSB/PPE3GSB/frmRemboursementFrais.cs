@@ -10,22 +10,22 @@ using System.Windows.Forms;
 
 namespace PPE3GSB
 {
-    public partial class remboursementFrais : Form
+    public partial class frmRemboursementFrais : Form
     {
-        public remboursementFrais()
+        public frmRemboursementFrais()
         {
             InitializeComponent();
         }
 
         private void butModifier_Click(object sender, EventArgs e)
         {
-            modFrais frm = new modFrais();
+            frmModFrais frm = new frmModFrais();
             frm.Show();
         }
 
         private void butAjouter_Click(object sender, EventArgs e)
         {
-            modFrais frm = new modFrais();
+            frmModFrais frm = new frmModFrais();
             frm.Show();
         }
     }
