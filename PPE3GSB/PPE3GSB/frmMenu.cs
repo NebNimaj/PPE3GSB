@@ -16,5 +16,16 @@ namespace PPE3GSB
         {
             InitializeComponent();
         }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            Form frmVisiteur = new Form();
+            frmVisiteur.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

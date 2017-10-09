@@ -94,6 +94,9 @@
     <Compile Include="frmCptRendu.Designer.cs">
       <DependentUpon>frmCptRendu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="remboursementFrais.resx">
       <DependentUpon>remboursementFrais.cs</DependentUpon>
     </EmbeddedResource>
