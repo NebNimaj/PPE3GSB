@@ -62,6 +62,7 @@
             this.txtIdent.Name = "txtIdent";
             this.txtIdent.Size = new System.Drawing.Size(100, 20);
             this.txtIdent.TabIndex = 1;
+            this.txtIdent.Text = "dandre";
             // 
             // txtMDP
             // 
@@ -70,6 +71,7 @@
             this.txtMDP.PasswordChar = '*';
             this.txtMDP.Size = new System.Drawing.Size(100, 20);
             this.txtMDP.TabIndex = 2;
+            this.txtMDP.Text = "oppg5";
             // 
             // frmRapport
             // 

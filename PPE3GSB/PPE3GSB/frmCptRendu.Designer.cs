@@ -38,6 +38,16 @@
             this.lblOffre = new System.Windows.Forms.Label();
             this.btnDetails = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
+            this.bsPracticien = new System.Windows.Forms.BindingSource(this.components);
+            this.dgvEchantillons = new System.Windows.Forms.DataGridView();
+            this.txtNumRapport = new System.Windows.Forms.TextBox();
+            this.txtDateRapport = new System.Windows.Forms.TextBox();
+            this.txtMotif = new System.Windows.Forms.TextBox();
+            this.cboPracticiens = new System.Windows.Forms.ComboBox();
+            this.txtTitre = new System.Windows.Forms.TextBox();
+            this.bsEchantillon = new System.Windows.Forms.BindingSource(this.components);
+            this.bsRapport = new System.Windows.Forms.BindingSource(this.components);
+            this.txtBilan = new System.Windows.Forms.TextBox();
             this.bnRapport = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -50,20 +60,12 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.dgvEchantillons = new System.Windows.Forms.DataGridView();
-            this.txtNumRapport = new System.Windows.Forms.TextBox();
-            this.txtDateRapport = new System.Windows.Forms.TextBox();
-            this.txtMotif = new System.Windows.Forms.TextBox();
-            this.txtBilan = new System.Windows.Forms.TextBox();
-            this.cboPracticiens = new System.Windows.Forms.ComboBox();
-            this.txtTitre = new System.Windows.Forms.TextBox();
-            this.bsEchantillon = new System.Windows.Forms.BindingSource(this.components);
-            this.bsPracticien = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.bnRapport)).BeginInit();
-            this.bnRapport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bsPracticien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsEchantillon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsPracticien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsRapport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bnRapport)).BeginInit();
+            this.bnRapport.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblNumRap
@@ -128,7 +130,7 @@
             // btnDetails
             // 
             this.btnDetails.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnDetails.Location = new System.Drawing.Point(292, 118);
+            this.btnDetails.Location = new System.Drawing.Point(320, 118);
             this.btnDetails.Name = "btnDetails";
             this.btnDetails.Size = new System.Drawing.Size(49, 23);
             this.btnDetails.TabIndex = 6;
@@ -144,6 +146,64 @@
             this.btnFermer.TabIndex = 10;
             this.btnFermer.Text = "Fermer";
             this.btnFermer.UseVisualStyleBackColor = true;
+            // 
+            // dgvEchantillons
+            // 
+            this.dgvEchantillons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEchantillons.Location = new System.Drawing.Point(378, 163);
+            this.dgvEchantillons.Name = "dgvEchantillons";
+            this.dgvEchantillons.Size = new System.Drawing.Size(240, 150);
+            this.dgvEchantillons.TabIndex = 12;
+            // 
+            // txtNumRapport
+            // 
+            this.txtNumRapport.Enabled = false;
+            this.txtNumRapport.Location = new System.Drawing.Point(110, 85);
+            this.txtNumRapport.Name = "txtNumRapport";
+            this.txtNumRapport.Size = new System.Drawing.Size(100, 20);
+            this.txtNumRapport.TabIndex = 13;
+            // 
+            // txtDateRapport
+            // 
+            this.txtDateRapport.Location = new System.Drawing.Point(110, 145);
+            this.txtDateRapport.Name = "txtDateRapport";
+            this.txtDateRapport.Size = new System.Drawing.Size(100, 20);
+            this.txtDateRapport.TabIndex = 15;
+            // 
+            // txtMotif
+            // 
+            this.txtMotif.Location = new System.Drawing.Point(110, 171);
+            this.txtMotif.Name = "txtMotif";
+            this.txtMotif.Size = new System.Drawing.Size(156, 20);
+            this.txtMotif.TabIndex = 16;
+            // 
+            // cboPracticiens
+            // 
+            this.cboPracticiens.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cboPracticiens.FormattingEnabled = true;
+            this.cboPracticiens.Location = new System.Drawing.Point(110, 118);
+            this.cboPracticiens.Name = "cboPracticiens";
+            this.cboPracticiens.Size = new System.Drawing.Size(204, 21);
+            this.cboPracticiens.TabIndex = 18;
+            // 
+            // txtTitre
+            // 
+            this.txtTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitre.ForeColor = System.Drawing.Color.DarkBlue;
+            this.txtTitre.Location = new System.Drawing.Point(25, 37);
+            this.txtTitre.Name = "txtTitre";
+            this.txtTitre.Size = new System.Drawing.Size(593, 26);
+            this.txtTitre.TabIndex = 20;
+            this.txtTitre.Text = "RAPPORTS DE VISITE";
+            this.txtTitre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtBilan
+            // 
+            this.txtBilan.Location = new System.Drawing.Point(110, 200);
+            this.txtBilan.Multiline = true;
+            this.txtBilan.Name = "txtBilan";
+            this.txtBilan.Size = new System.Drawing.Size(183, 154);
+            this.txtBilan.TabIndex = 17;
             // 
             // bnRapport
             // 
@@ -169,9 +229,10 @@
             this.bnRapport.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bnRapport.Name = "bnRapport";
             this.bnRapport.PositionItem = this.bindingNavigatorPositionItem;
-            this.bnRapport.Size = new System.Drawing.Size(630, 25);
-            this.bnRapport.TabIndex = 11;
+            this.bnRapport.Size = new System.Drawing.Size(672, 25);
+            this.bnRapport.TabIndex = 21;
             this.bnRapport.Text = "bindingNavigator1";
+            this.bnRapport.TabIndexChanged += new System.EventHandler(this.bnRapport_TabIndexChanged);
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -192,6 +253,7 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
@@ -226,8 +288,9 @@
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.Text = "1";
             this.bindingNavigatorPositionItem.ToolTipText = "Position actuelle";
+            this.bindingNavigatorPositionItem.TextChanged += new System.EventHandler(this.bindingNavigatorPositionItem_TextChanged);
             // 
             // bindingNavigatorSeparator1
             // 
@@ -257,71 +320,14 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // dgvEchantillons
-            // 
-            this.dgvEchantillons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEchantillons.Location = new System.Drawing.Point(378, 163);
-            this.dgvEchantillons.Name = "dgvEchantillons";
-            this.dgvEchantillons.Size = new System.Drawing.Size(240, 150);
-            this.dgvEchantillons.TabIndex = 12;
-            // 
-            // txtNumRapport
-            // 
-            this.txtNumRapport.Enabled = false;
-            this.txtNumRapport.Location = new System.Drawing.Point(110, 85);
-            this.txtNumRapport.Name = "txtNumRapport";
-            this.txtNumRapport.Size = new System.Drawing.Size(100, 20);
-            this.txtNumRapport.TabIndex = 13;
-            // 
-            // txtDateRapport
-            // 
-            this.txtDateRapport.Location = new System.Drawing.Point(110, 145);
-            this.txtDateRapport.Name = "txtDateRapport";
-            this.txtDateRapport.Size = new System.Drawing.Size(100, 20);
-            this.txtDateRapport.TabIndex = 15;
-            // 
-            // txtMotif
-            // 
-            this.txtMotif.Location = new System.Drawing.Point(110, 171);
-            this.txtMotif.Name = "txtMotif";
-            this.txtMotif.Size = new System.Drawing.Size(156, 20);
-            this.txtMotif.TabIndex = 16;
-            // 
-            // txtBilan
-            // 
-            this.txtBilan.Location = new System.Drawing.Point(110, 200);
-            this.txtBilan.Multiline = true;
-            this.txtBilan.Name = "txtBilan";
-            this.txtBilan.Size = new System.Drawing.Size(183, 154);
-            this.txtBilan.TabIndex = 17;
-            // 
-            // cboPracticiens
-            // 
-            this.cboPracticiens.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.cboPracticiens.FormattingEnabled = true;
-            this.cboPracticiens.Location = new System.Drawing.Point(110, 118);
-            this.cboPracticiens.Name = "cboPracticiens";
-            this.cboPracticiens.Size = new System.Drawing.Size(156, 21);
-            this.cboPracticiens.TabIndex = 18;
-            // 
-            // txtTitre
-            // 
-            this.txtTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitre.ForeColor = System.Drawing.Color.DarkBlue;
-            this.txtTitre.Location = new System.Drawing.Point(25, 37);
-            this.txtTitre.Name = "txtTitre";
-            this.txtTitre.Size = new System.Drawing.Size(593, 26);
-            this.txtTitre.TabIndex = 20;
-            this.txtTitre.Text = "RAPPORTS DE VISITE";
-            this.txtTitre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // frmCptRendu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(630, 430);
+            this.ClientSize = new System.Drawing.Size(672, 406);
+            this.Controls.Add(this.bnRapport);
             this.Controls.Add(this.txtTitre);
             this.Controls.Add(this.cboPracticiens);
             this.Controls.Add(this.txtBilan);
@@ -329,7 +335,6 @@
             this.Controls.Add(this.txtDateRapport);
             this.Controls.Add(this.txtNumRapport);
             this.Controls.Add(this.dgvEchantillons);
-            this.Controls.Add(this.bnRapport);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.lblOffre);
@@ -340,12 +345,31 @@
             this.Controls.Add(this.lblNumRap);
             this.Name = "frmCptRendu";
             this.Text = "frmCptRendu";
+            this.Load += new System.EventHandler(this.frmCptRendu_Load);
+            this.Controls.SetChildIndex(this.lblNumRap, 0);
+            this.Controls.SetChildIndex(this.lblPractic, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.label5, 0);
+            this.Controls.SetChildIndex(this.lblOffre, 0);
+            this.Controls.SetChildIndex(this.btnDetails, 0);
+            this.Controls.SetChildIndex(this.btnFermer, 0);
+            this.Controls.SetChildIndex(this.dgvEchantillons, 0);
+            this.Controls.SetChildIndex(this.txtNumRapport, 0);
+            this.Controls.SetChildIndex(this.txtDateRapport, 0);
+            this.Controls.SetChildIndex(this.txtMotif, 0);
+            this.Controls.SetChildIndex(this.txtBilan, 0);
+            this.Controls.SetChildIndex(this.cboPracticiens, 0);
+            this.Controls.SetChildIndex(this.txtTitre, 0);
+            this.Controls.SetChildIndex(this.lblTitre, 0);
+            this.Controls.SetChildIndex(this.bnRapport, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.bsPracticien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEchantillon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsRapport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnRapport)).EndInit();
             this.bnRapport.ResumeLayout(false);
             this.bnRapport.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsEchantillon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsPracticien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,6 +385,16 @@
         private System.Windows.Forms.Label lblOffre;
         private System.Windows.Forms.Button btnDetails;
         private System.Windows.Forms.Button btnFermer;
+        private System.Windows.Forms.DataGridView dgvEchantillons;
+        private System.Windows.Forms.TextBox txtNumRapport;
+        private System.Windows.Forms.TextBox txtDateRapport;
+        private System.Windows.Forms.TextBox txtMotif;
+        private System.Windows.Forms.ComboBox cboPracticiens;
+        private System.Windows.Forms.TextBox txtTitre;
+        private System.Windows.Forms.BindingSource bsEchantillon;
+        private System.Windows.Forms.BindingSource bsPracticien;
+        private System.Windows.Forms.BindingSource bsRapport;
+        private System.Windows.Forms.TextBox txtBilan;
         private System.Windows.Forms.BindingNavigator bnRapport;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -373,14 +407,5 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.DataGridView dgvEchantillons;
-        private System.Windows.Forms.TextBox txtNumRapport;
-        private System.Windows.Forms.TextBox txtDateRapport;
-        private System.Windows.Forms.TextBox txtMotif;
-        private System.Windows.Forms.TextBox txtBilan;
-        private System.Windows.Forms.ComboBox cboPracticiens;
-        private System.Windows.Forms.TextBox txtTitre;
-        private System.Windows.Forms.BindingSource bsEchantillon;
-        private System.Windows.Forms.BindingSource bsPracticien;
     }
 }

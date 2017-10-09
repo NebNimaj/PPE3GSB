@@ -36,7 +36,7 @@
             // 
             // lblTitre
             // 
-            this.lblTitre.Location = new System.Drawing.Point(498, 0);
+            this.lblTitre.Location = new System.Drawing.Point(493, 0);
             this.lblTitre.Size = new System.Drawing.Size(58, 13);
             this.lblTitre.Text = "Bienvenue";
             // 
@@ -75,6 +75,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmContainer";
             this.Text = "frmContainer";
+            this.Load += new System.EventHandler(this.frmContainer_Load);
             this.Controls.SetChildIndex(this.menuStrip1, 0);
             this.Controls.SetChildIndex(this.lblTitre, 0);
             this.menuStrip1.ResumeLayout(false);

@@ -62,6 +62,7 @@
     <Compile Include="frmContainer.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MEDECIN.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="frmRemboursementFrais.cs">
@@ -135,6 +136,8 @@
     <None Include="mdlGSB.edmx.diagram">
       <DependentUpon>mdlGSB.edmx</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\MEDECIN.datasource" />
+    <None Include="Properties\DataSources\RAPPORT.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

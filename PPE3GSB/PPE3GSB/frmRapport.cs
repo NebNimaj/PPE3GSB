@@ -41,7 +41,6 @@ namespace PPE3GSB
                 if (pswdc.Equals(passwdCrypte) || monVisiteur.password.Equals(passwdCrypte))
                 {
                     Modele.VisiteurConnecte = monVisiteur;
-                    MessageBox.Show("ok");
                     return true;
                 }
                 else

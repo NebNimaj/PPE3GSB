@@ -23,7 +23,6 @@ namespace PPE3GSB
             frmCptRendu frmcptRendu = new frmCptRendu();
             frmcptRendu.MdiParent = this.MdiParent;
             frmcptRendu.Show();
-
         }
     }
 }

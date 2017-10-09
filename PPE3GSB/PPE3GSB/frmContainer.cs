@@ -30,5 +30,11 @@ namespace PPE3GSB
             frmremboursFrais.MdiParent = this;
             frmremboursFrais.Show();
         }
+
+        private void frmContainer_Load(object sender, EventArgs e)
+        {
+            lblTitre.Text +=" " + Modele.VisiteurConnecte.nom + " " + Modele.VisiteurConnecte.prenom;
+
+        }
     }
 }
