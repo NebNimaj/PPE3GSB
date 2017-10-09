@@ -70,7 +70,7 @@ namespace PPE3GSB
     }
     public static void ThreadProc()
     {
-        Application.Run(new frmGestionCptRendu());
+        Application.Run(new frmContainer());
     }
 
         private void btnOK_Click(object sender, EventArgs e)

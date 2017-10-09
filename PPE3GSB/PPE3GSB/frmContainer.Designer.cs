@@ -63,6 +63,7 @@
             this.gestionFraisToolStripMenuItem.Name = "gestionFraisToolStripMenuItem";
             this.gestionFraisToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.gestionFraisToolStripMenuItem.Text = "Gestion Frais";
+            this.gestionFraisToolStripMenuItem.Click += new System.EventHandler(this.gestionFraisToolStripMenuItem_Click);
             // 
             // frmContainer
             // 
@@ -70,6 +71,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 382);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmContainer";
             this.Text = "frmContainer";

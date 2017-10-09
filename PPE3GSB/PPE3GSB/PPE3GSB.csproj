@@ -56,11 +56,25 @@
     <Compile Include="frmBase.Designer.cs">
       <DependentUpon>frmBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModFrais.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmContainer.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="frmRemboursementFrais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModFrais.Designer.cs">
+      <DependentUpon>frmModFrais.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmContainer.Designer.cs">
       <DependentUpon>frmContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRemboursementFrais.Designer.cs">
+      <DependentUpon>frmRemboursementFrais.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRapport.cs">
       <SubType>Form</SubType>
@@ -74,6 +88,12 @@
     <Compile Include="frmCptRendu.Designer.cs">
       <DependentUpon>frmCptRendu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmModFrais.resx">
+      <DependentUpon>frmModFrais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRemboursementFrais.resx">
+      <DependentUpon>frmRemboursementFrais.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="frmGestionCptRendu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,8 +106,6 @@
       <DependentUpon>mdlGSB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Modele.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBase.resx">
       <DependentUpon>frmBase.cs</DependentUpon>
     </EmbeddedResource>
