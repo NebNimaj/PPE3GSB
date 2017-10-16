@@ -62,6 +62,12 @@
     <Compile Include="frmMenuGestion.Designer.cs">
       <DependentUpon>frmMenuGestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModification.Designer.cs">
+      <DependentUpon>frmModification.cs</DependentUpon>
+    </Compile>
     <Compile Include="modFrais.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </Compile>
     <EmbeddedResource Include="frmMenuGestion.resx">
       <DependentUpon>frmMenuGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModification.resx">
+      <DependentUpon>frmModification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modFrais.resx">
       <DependentUpon>modFrais.cs</DependentUpon>

@@ -120,9 +120,9 @@
             this.lblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitre.Location = new System.Drawing.Point(89, 21);
             this.lblTitre.Name = "lblTitre";
-            this.lblTitre.Size = new System.Drawing.Size(226, 29);
+            this.lblTitre.Size = new System.Drawing.Size(196, 29);
             this.lblTitre.TabIndex = 8;
-            this.lblTitre.Text = "Informations visiteur";
+            this.lblTitre.Text = "Mes informations";
             this.lblTitre.Click += new System.EventHandler(this.lbl1_Click);
             // 
             // txtNom
