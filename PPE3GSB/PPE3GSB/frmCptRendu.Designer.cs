@@ -41,7 +41,6 @@
             this.bsPracticien = new System.Windows.Forms.BindingSource(this.components);
             this.dgvEchantillons = new System.Windows.Forms.DataGridView();
             this.txtNumRapport = new System.Windows.Forms.TextBox();
-            this.txtDateRapport = new System.Windows.Forms.TextBox();
             this.txtMotif = new System.Windows.Forms.TextBox();
             this.cboPracticiens = new System.Windows.Forms.ComboBox();
             this.txtTitre = new System.Windows.Forms.TextBox();
@@ -60,6 +59,8 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnModifier = new System.Windows.Forms.Button();
+            this.dtpRapport = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.bsPracticien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOffreEchantillon)).BeginInit();
@@ -136,11 +137,12 @@
             this.btnDetails.TabIndex = 6;
             this.btnDetails.Text = "Détails";
             this.btnDetails.UseVisualStyleBackColor = true;
+            this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
             // btnFermer
             // 
             this.btnFermer.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnFermer.Location = new System.Drawing.Point(467, 328);
+            this.btnFermer.Location = new System.Drawing.Point(690, 331);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(75, 23);
             this.btnFermer.TabIndex = 10;
@@ -150,7 +152,9 @@
             // 
             // dgvEchantillons
             // 
+            this.dgvEchantillons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgvEchantillons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEchantillons.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.dgvEchantillons.Location = new System.Drawing.Point(378, 163);
             this.dgvEchantillons.Name = "dgvEchantillons";
             this.dgvEchantillons.Size = new System.Drawing.Size(403, 159);
@@ -164,15 +168,9 @@
             this.txtNumRapport.Size = new System.Drawing.Size(100, 20);
             this.txtNumRapport.TabIndex = 13;
             // 
-            // txtDateRapport
-            // 
-            this.txtDateRapport.Location = new System.Drawing.Point(110, 145);
-            this.txtDateRapport.Name = "txtDateRapport";
-            this.txtDateRapport.Size = new System.Drawing.Size(100, 20);
-            this.txtDateRapport.TabIndex = 15;
-            // 
             // txtMotif
             // 
+            this.txtMotif.Enabled = false;
             this.txtMotif.Location = new System.Drawing.Point(110, 171);
             this.txtMotif.Name = "txtMotif";
             this.txtMotif.Size = new System.Drawing.Size(156, 20);
@@ -204,6 +202,7 @@
             // 
             // txtBilan
             // 
+            this.txtBilan.Enabled = false;
             this.txtBilan.Location = new System.Drawing.Point(110, 200);
             this.txtBilan.Multiline = true;
             this.txtBilan.Name = "txtBilan";
@@ -247,6 +246,7 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -324,19 +324,38 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // btnModifier
+            // 
+            this.btnModifier.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnModifier.Location = new System.Drawing.Point(397, 331);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(75, 23);
+            this.btnModifier.TabIndex = 22;
+            this.btnModifier.Text = "Modifier";
+            this.btnModifier.UseVisualStyleBackColor = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
+            // 
+            // dtpRapport
+            // 
+            this.dtpRapport.Enabled = false;
+            this.dtpRapport.Location = new System.Drawing.Point(110, 146);
+            this.dtpRapport.Name = "dtpRapport";
+            this.dtpRapport.Size = new System.Drawing.Size(200, 20);
+            this.dtpRapport.TabIndex = 23;
+            // 
             // frmCptRendu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(844, 416);
+            this.Controls.Add(this.dtpRapport);
+            this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.bnRapport);
             this.Controls.Add(this.txtTitre);
             this.Controls.Add(this.cboPracticiens);
             this.Controls.Add(this.txtBilan);
             this.Controls.Add(this.txtMotif);
-            this.Controls.Add(this.txtDateRapport);
             this.Controls.Add(this.txtNumRapport);
             this.Controls.Add(this.dgvEchantillons);
             this.Controls.Add(this.btnFermer);
@@ -360,13 +379,14 @@
             this.Controls.SetChildIndex(this.btnFermer, 0);
             this.Controls.SetChildIndex(this.dgvEchantillons, 0);
             this.Controls.SetChildIndex(this.txtNumRapport, 0);
-            this.Controls.SetChildIndex(this.txtDateRapport, 0);
             this.Controls.SetChildIndex(this.txtMotif, 0);
             this.Controls.SetChildIndex(this.txtBilan, 0);
             this.Controls.SetChildIndex(this.cboPracticiens, 0);
             this.Controls.SetChildIndex(this.txtTitre, 0);
             this.Controls.SetChildIndex(this.lblTitre, 0);
             this.Controls.SetChildIndex(this.bnRapport, 0);
+            this.Controls.SetChildIndex(this.btnModifier, 0);
+            this.Controls.SetChildIndex(this.dtpRapport, 0);
             ((System.ComponentModel.ISupportInitialize)(this.bsPracticien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsOffreEchantillon)).EndInit();
@@ -391,7 +411,6 @@
         private System.Windows.Forms.Button btnFermer;
         private System.Windows.Forms.DataGridView dgvEchantillons;
         private System.Windows.Forms.TextBox txtNumRapport;
-        private System.Windows.Forms.TextBox txtDateRapport;
         private System.Windows.Forms.TextBox txtMotif;
         private System.Windows.Forms.ComboBox cboPracticiens;
         private System.Windows.Forms.TextBox txtTitre;
@@ -411,5 +430,7 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.Button btnModifier;
+        private System.Windows.Forms.DateTimePicker dtpRapport;
     }
 }
