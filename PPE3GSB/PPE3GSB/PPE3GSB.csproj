@@ -37,6 +37,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -89,6 +90,11 @@
     <Compile Include="frmCptRendu.Designer.cs">
       <DependentUpon>frmCptRendu.cs</DependentUpon>
     </Compile>
+    <Compile Include="SIO2_GSB1_BJJDDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SIO2_GSB1_BJJDDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmModFrais.resx">
       <DependentUpon>frmModFrais.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +146,7 @@
       <DependentUpon>mdlGSB.edmx</DependentUpon>
     </None>
     <None Include="Properties\DataSources\MEDECIN.datasource" />
+    <None Include="Properties\DataSources\PPE3GSB.SIO2_GSB1_BJJDDataSetTableAdapters.FraisForfaitTableAdapter.datasource" />
     <None Include="Properties\DataSources\RAPPORT.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -150,6 +157,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SIO2_GSB1_BJJDDataSet.xsc">
+      <DependentUpon>SIO2_GSB1_BJJDDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SIO2_GSB1_BJJDDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SIO2_GSB1_BJJDDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SIO2_GSB1_BJJDDataSet.xss">
+      <DependentUpon>SIO2_GSB1_BJJDDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

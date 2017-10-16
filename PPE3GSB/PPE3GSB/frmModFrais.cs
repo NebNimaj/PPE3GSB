@@ -19,14 +19,8 @@ namespace PPE3GSB
 
         private void cboTypeFrais_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //lblDate.Visible = false;
-            //dateTime.Visible = false;
-            //lblLibellé.Visible = false;
-            //txtLibellé.Visible = false;
-            //lblMontant.Visible = false;
-            //txtMontant.Visible = false;
             if ((string)cboTypeFrais.SelectedItem == "Forfaitisés")
-                {
+            {
                 lblTypeForfait.Visible = true;
                 cboTypeForfait.Visible = true;
                 lblQuantité.Visible = true;
@@ -36,14 +30,14 @@ namespace PPE3GSB
                 lblTotal.Visible = true;
                 txtTotal.Visible = true;
                 lblDate.Visible = false;
-                dateTime.Visible = false;
+                dateTimeP.Visible = false;
                 lblLibellé.Visible = false;
                 txtLibellé.Visible = false;
                 lblMontant.Visible = false;
                 txtMontant.Visible = false;
-                } 
-                else if((string)cboTypeFrais.SelectedItem =="Hors forfait")
-                    {
+            }
+            else if ((string)cboTypeFrais.SelectedItem == "Hors forfait")
+            {
                 lblTypeForfait.Visible = false;
                 cboTypeForfait.Visible = false;
                 lblQuantité.Visible = false;
@@ -53,24 +47,17 @@ namespace PPE3GSB
                 lblTotal.Visible = false;
                 txtTotal.Visible = false;
                 lblDate.Visible = true;
-                dateTime.Visible = true;
+                dateTimeP.Visible = true;
                 lblLibellé.Visible = true;
                 txtLibellé.Visible = true;
                 lblMontant.Visible = true;
                 txtMontant.Visible = true;
-                    }
+            }
 
 
-            }
-            private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar)
-            && !char.IsDigit(e.KeyChar)
-            && e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
         }
+
+
 
         private void txtNoLettre(object sender, KeyPressEventArgs e)
         {
@@ -89,7 +76,12 @@ namespace PPE3GSB
             {
                 e.Handled = true;
             }
-    }
+            if (this.Text == "")
+            {
+                this.Text = "0";
+            }
+
+        }
 
         private void txtNoLettre_NoVirgule(object sender, KeyPressEventArgs e)
         {
@@ -107,6 +99,35 @@ namespace PPE3GSB
         {
             //Affiche le calcul de Quantité et Montant Unitaire dans la boîte Total
             txtTotal.Text = Convert.ToString(Convert.ToDouble(txtQuantité.Text) * Convert.ToDouble(txtMontantUnitaire.Text));
+        }
+
+        private void butAnnuler_Click(object sender, EventArgs e)
+        {
+            // message confirmation quitter l'application
+            if (MessageBox.Show("Quitter sans enregistrer les modifications ?", "   ",
+                               MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                //Si oui, on ferme l'application
+                this.Close();
+            }
+        }
+
+        private void butAccept_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (((string)cboTypeFrais.SelectedItem == "Forfaitisés") && (int.Parse(txtTotal.Text) > 0) && ((string)cboTypeForfait.SelectedItem == "Forfait étape" || (string)cboTypeForfait.SelectedItem == "Frais kilométrique" || (string)cboTypeForfait.SelectedItem == "Nuitée hôtel" || (string)cboTypeForfait.SelectedItem == "Repas restaurant") || (((string)cboTypeFrais.SelectedItem == "Hors forfait") && (int.Parse(txtMontant.Text) > 0) && (txtLibellé.Text != null)))
+                {
+                    if (MessageBox.Show("Rajouter les frais inscrits ?", "   ",
+                        MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        //Si oui, on ferme l'application
+                        this.Close();
+                    }
+                }
+            } catch
+            {
+            }
         }
     }
 }
