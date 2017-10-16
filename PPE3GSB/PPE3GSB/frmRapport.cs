@@ -87,5 +87,10 @@ namespace PPE3GSB
 
             }
         }
+
+        private void frmRapport_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

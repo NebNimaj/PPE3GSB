@@ -10,26 +10,22 @@ using System.Windows.Forms;
 
 namespace PPE3GSB
 {
-    public partial class rfmVisiteur : Form
+    public partial class frmMenuGestion : Form
     {
-        public rfmVisiteur()
+        public frmMenuGestion()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btn2_Click(object sender, EventArgs e)
         {
-
+            Form frmVisiteur = new Form();
+            frmVisiteur.Show();
         }
 
-        private void lbl1_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
+            Application.Exit();
         }
     }
 }

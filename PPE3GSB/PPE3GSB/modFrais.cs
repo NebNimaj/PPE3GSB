@@ -58,5 +58,9 @@ namespace PPE3GSB
 
             }
 
+        private void modFrais_Load(object sender, EventArgs e)
+        {
+
         }
+    }
     }

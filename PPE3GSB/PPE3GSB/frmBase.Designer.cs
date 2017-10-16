@@ -51,6 +51,7 @@
             this.Controls.Add(this.lblTitre);
             this.Name = "frmBase";
             this.Text = "frmBase";
+            this.Load += new System.EventHandler(this.frmBase_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
