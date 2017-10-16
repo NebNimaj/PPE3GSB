@@ -45,7 +45,7 @@
             this.txtMotif = new System.Windows.Forms.TextBox();
             this.cboPracticiens = new System.Windows.Forms.ComboBox();
             this.txtTitre = new System.Windows.Forms.TextBox();
-            this.bsEchantillon = new System.Windows.Forms.BindingSource(this.components);
+            this.bsOffreEchantillon = new System.Windows.Forms.BindingSource(this.components);
             this.bsRapport = new System.Windows.Forms.BindingSource(this.components);
             this.txtBilan = new System.Windows.Forms.TextBox();
             this.bnRapport = new System.Windows.Forms.BindingNavigator(this.components);
@@ -62,7 +62,7 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.bsPracticien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsEchantillon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsOffreEchantillon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRapport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnRapport)).BeginInit();
             this.bnRapport.SuspendLayout();
@@ -146,13 +146,14 @@
             this.btnFermer.TabIndex = 10;
             this.btnFermer.Text = "Fermer";
             this.btnFermer.UseVisualStyleBackColor = true;
+            this.btnFermer.Click += new System.EventHandler(this.btnFermer_Click);
             // 
             // dgvEchantillons
             // 
             this.dgvEchantillons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEchantillons.Location = new System.Drawing.Point(378, 163);
             this.dgvEchantillons.Name = "dgvEchantillons";
-            this.dgvEchantillons.Size = new System.Drawing.Size(240, 150);
+            this.dgvEchantillons.Size = new System.Drawing.Size(403, 159);
             this.dgvEchantillons.TabIndex = 12;
             // 
             // txtNumRapport
@@ -197,6 +198,10 @@
             this.txtTitre.Text = "RAPPORTS DE VISITE";
             this.txtTitre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // bsRapport
+            // 
+            this.bsRapport.CurrentChanged += new System.EventHandler(this.bsRapport_CurrentChanged);
+            // 
             // txtBilan
             // 
             this.txtBilan.Location = new System.Drawing.Point(110, 200);
@@ -208,6 +213,7 @@
             // bnRapport
             // 
             this.bnRapport.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bnRapport.BindingSource = this.bsRapport;
             this.bnRapport.CountItem = this.bindingNavigatorCountItem;
             this.bnRapport.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bnRapport.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -229,10 +235,9 @@
             this.bnRapport.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bnRapport.Name = "bnRapport";
             this.bnRapport.PositionItem = this.bindingNavigatorPositionItem;
-            this.bnRapport.Size = new System.Drawing.Size(672, 25);
+            this.bnRapport.Size = new System.Drawing.Size(844, 25);
             this.bnRapport.TabIndex = 21;
             this.bnRapport.Text = "bindingNavigator1";
-            this.bnRapport.TabIndexChanged += new System.EventHandler(this.bnRapport_TabIndexChanged);
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -288,9 +293,8 @@
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "1";
+            this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Position actuelle";
-            this.bindingNavigatorPositionItem.TextChanged += new System.EventHandler(this.bindingNavigatorPositionItem_TextChanged);
             // 
             // bindingNavigatorSeparator1
             // 
@@ -326,7 +330,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(672, 406);
+            this.ClientSize = new System.Drawing.Size(844, 416);
             this.Controls.Add(this.bnRapport);
             this.Controls.Add(this.txtTitre);
             this.Controls.Add(this.cboPracticiens);
@@ -365,7 +369,7 @@
             this.Controls.SetChildIndex(this.bnRapport, 0);
             ((System.ComponentModel.ISupportInitialize)(this.bsPracticien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bsEchantillon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsOffreEchantillon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRapport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bnRapport)).EndInit();
             this.bnRapport.ResumeLayout(false);
@@ -391,7 +395,7 @@
         private System.Windows.Forms.TextBox txtMotif;
         private System.Windows.Forms.ComboBox cboPracticiens;
         private System.Windows.Forms.TextBox txtTitre;
-        private System.Windows.Forms.BindingSource bsEchantillon;
+        private System.Windows.Forms.BindingSource bsOffreEchantillon;
         private System.Windows.Forms.BindingSource bsPracticien;
         private System.Windows.Forms.BindingSource bsRapport;
         private System.Windows.Forms.TextBox txtBilan;

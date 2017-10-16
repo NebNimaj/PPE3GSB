@@ -20,37 +20,48 @@ namespace PPE3GSB
         }
 
         private void frmCptRendu_Load(object sender, EventArgs e)
-        {   
-           //permet de stocker l'identifiant
-            var rapport = Modele.MaConnexion.RAPPORT.ToList();
-            BindingSource bsRapport = new BindingSource();
-            bsRapport.DataSource = rapport;
-            bnRapport.BindingSource = bsRapport;
-            RAPPORT rapportBS = new RAPPORT();
-            txtNumRapport.Text = rapportBS.idRapport.ToString();
+        {
+
+            bsRapport.DataSource = Modele.MaConnexion.RAPPORT.ToList();
+            RAPPORT vcurrent = (RAPPORT)bsRapport.Current;
+            txtNumRapport.Text = vcurrent.idRapport.ToString();
+            txtDateRapport.Text = vcurrent.dateRapport.ToString().Substring(0, 10);
+            txtMotif.Text = vcurrent.MOTIF.libMotif.ToString();
+            txtBilan.Text = vcurrent.bilan.ToString();
 
             cboPracticiens.ValueMember = "idMedecin";//permet de stocker l'identifiant
             cboPracticiens.DisplayMember = "NP";
-            bsPracticien.DataSource = Modele.MaConnexion.MEDECIN.ToList();
+            bsPracticien.DataSource = Modele.MaConnexion.MEDECIN.ToList()
+                .Where(x=> x.idMedecin ==vcurrent.idMedecin);
                        cboPracticiens.DataSource = bsPracticien;
+
+            bsOffreEchantillon.DataSource = Modele.MaConnexion.OFFRIR.ToList()
+                .Where(x=> x.idRapport == vcurrent.idRapport) ;
+            dgvEchantillons.DataSource = bsOffreEchantillon;
         }
 
-        private void bnRapport_TabIndexChanged(object sender, EventArgs e)
+        private void bsRapport_CurrentChanged(object sender, EventArgs e)
         {
+            RAPPORT vcurrent = (RAPPORT)bsRapport.Current;
+            bsPracticien.DataSource = Modele.MaConnexion.MEDECIN.ToList()
+                .Where(x => x.idMedecin == vcurrent.idMedecin);
+            cboPracticiens.DataSource = bsPracticien;
+
+            txtNumRapport.Text = vcurrent.idRapport.ToString();
+            txtDateRapport.Text = vcurrent.dateRapport.ToString().Substring(0, 10);
+            txtMotif.Text = vcurrent.MOTIF.libMotif.ToString();
+            txtBilan.Text = vcurrent.bilan.ToString();
+
+
+            bsOffreEchantillon.DataSource = Modele.MaConnexion.OFFRIR.ToList()
+                .Where(x => x.idRapport == vcurrent.idRapport);
+            dgvEchantillons.DataSource = bsOffreEchantillon;
+
         }
 
-        private void bindingNavigatorPositionItem_TextChanged(object sender, EventArgs e)
+        private void btnFermer_Click(object sender, EventArgs e)
         {
-            int emplacement=0;
-            try
-            {
-               emplacement= int.Parse(bnRapport.PositionItem.Text.ToString());
-            }
-            catch
-            {
-                txtNumRapport.Text = "Entier non valide";
-            }
-            txtNumRapport.Text = emplacement.ToString();
+            this.Close();
         }
     }
 }
