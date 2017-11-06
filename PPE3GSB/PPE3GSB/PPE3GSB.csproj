@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAjoutVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjoutVisiteur.Designer.cs">
+      <DependentUpon>frmAjoutVisiteur.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     <Compile Include="frmVisiteur.Designer.cs">
       <DependentUpon>frmVisiteur.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAjoutVisiteur.resx">
+      <DependentUpon>frmAjoutVisiteur.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMenuGestion.resx">
       <DependentUpon>frmMenuGestion.cs</DependentUpon>
     </EmbeddedResource>

@@ -106,6 +106,7 @@
             this.Controls.Add(this.lblTitre);
             this.Name = "frmMenuGestion";
             this.Text = "frmMenuGestion";
+            this.Load += new System.EventHandler(this.frmMenuGestion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

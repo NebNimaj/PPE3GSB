@@ -28,24 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitre = new System.Windows.Forms.Label();
             this.lblRue = new System.Windows.Forms.Label();
             this.lblCp = new System.Windows.Forms.Label();
             this.lblVille = new System.Windows.Forms.Label();
             this.lblIdentifiant = new System.Windows.Forms.Label();
             this.btnEnregistrement = new System.Windows.Forms.Button();
-            this.lblTitreMotDePasse = new System.Windows.Forms.Label();
             this.txtRue = new System.Windows.Forms.TextBox();
             this.txtCP = new System.Windows.Forms.TextBox();
             this.txtVille = new System.Windows.Forms.TextBox();
             this.txtIdentifiant = new System.Windows.Forms.TextBox();
-            this.lblMotDePasseActuel = new System.Windows.Forms.Label();
-            this.lblNouveauMotDePasse = new System.Windows.Forms.Label();
-            this.txtMotDePasseActuel = new System.Windows.Forms.TextBox();
-            this.txtNouveauMotDePasse = new System.Windows.Forms.TextBox();
-            this.lblConfirmation = new System.Windows.Forms.Label();
-            this.txtConfirmation = new System.Windows.Forms.TextBox();
-            this.btnEnregistrerMotDePasse = new System.Windows.Forms.Button();
+            this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
+            this.txtMotDePasse = new System.Windows.Forms.TextBox();
+            this.lblMotDePasse = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitre
@@ -96,26 +93,17 @@
             // 
             // btnEnregistrement
             // 
-            this.btnEnregistrement.Location = new System.Drawing.Point(264, 206);
+            this.btnEnregistrement.Location = new System.Drawing.Point(232, 267);
             this.btnEnregistrement.Name = "btnEnregistrement";
             this.btnEnregistrement.Size = new System.Drawing.Size(154, 23);
             this.btnEnregistrement.TabIndex = 5;
             this.btnEnregistrement.Text = "Enregistrez les modifications";
             this.btnEnregistrement.UseVisualStyleBackColor = true;
-            // 
-            // lblTitreMotDePasse
-            // 
-            this.lblTitreMotDePasse.AutoSize = true;
-            this.lblTitreMotDePasse.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitreMotDePasse.Location = new System.Drawing.Point(187, 250);
-            this.lblTitreMotDePasse.Name = "lblTitreMotDePasse";
-            this.lblTitreMotDePasse.Size = new System.Drawing.Size(241, 24);
-            this.lblTitreMotDePasse.TabIndex = 6;
-            this.lblTitreMotDePasse.Text = "Modifiez mon mot de passe";
-            this.lblTitreMotDePasse.Click += new System.EventHandler(this.lblTitreMotDePasse_Click);
+            this.btnEnregistrement.Click += new System.EventHandler(this.btnEnregistrement_Click);
             // 
             // txtRue
             // 
+            this.txtRue.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVisiteur, "rue", true));
             this.txtRue.Location = new System.Drawing.Point(264, 56);
             this.txtRue.Name = "txtRue";
             this.txtRue.Size = new System.Drawing.Size(100, 20);
@@ -123,6 +111,7 @@
             // 
             // txtCP
             // 
+            this.txtCP.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVisiteur, "cp", true));
             this.txtCP.Location = new System.Drawing.Point(264, 95);
             this.txtCP.Name = "txtCP";
             this.txtCP.Size = new System.Drawing.Size(100, 20);
@@ -130,6 +119,7 @@
             // 
             // txtVille
             // 
+            this.txtVille.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVisiteur, "ville", true));
             this.txtVille.Location = new System.Drawing.Point(264, 131);
             this.txtVille.Name = "txtVille";
             this.txtVille.Size = new System.Drawing.Size(100, 20);
@@ -137,85 +127,44 @@
             // 
             // txtIdentifiant
             // 
+            this.txtIdentifiant.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVisiteur, "identifiant", true));
             this.txtIdentifiant.Location = new System.Drawing.Point(264, 170);
             this.txtIdentifiant.Name = "txtIdentifiant";
             this.txtIdentifiant.Size = new System.Drawing.Size(100, 20);
             this.txtIdentifiant.TabIndex = 10;
             // 
-            // lblMotDePasseActuel
+            // bsVisiteur
             // 
-            this.lblMotDePasseActuel.AutoSize = true;
-            this.lblMotDePasseActuel.Location = new System.Drawing.Point(119, 336);
-            this.lblMotDePasseActuel.Name = "lblMotDePasseActuel";
-            this.lblMotDePasseActuel.Size = new System.Drawing.Size(109, 13);
-            this.lblMotDePasseActuel.TabIndex = 11;
-            this.lblMotDePasseActuel.Text = "Mot de passe actuel :";
+            this.bsVisiteur.DataSource = typeof(PPE3GSB.Visiteur);
             // 
-            // lblNouveauMotDePasse
+            // txtMotDePasse
             // 
-            this.lblNouveauMotDePasse.AutoSize = true;
-            this.lblNouveauMotDePasse.Location = new System.Drawing.Point(105, 378);
-            this.lblNouveauMotDePasse.Name = "lblNouveauMotDePasse";
-            this.lblNouveauMotDePasse.Size = new System.Drawing.Size(123, 13);
-            this.lblNouveauMotDePasse.TabIndex = 12;
-            this.lblNouveauMotDePasse.Text = "Nouveau mot de passe :";
+            this.txtMotDePasse.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVisiteur, "password", true));
+            this.txtMotDePasse.Location = new System.Drawing.Point(264, 221);
+            this.txtMotDePasse.Name = "txtMotDePasse";
+            this.txtMotDePasse.Size = new System.Drawing.Size(100, 20);
+            this.txtMotDePasse.TabIndex = 13;
             // 
-            // txtMotDePasseActuel
+            // lblMotDePasse
             // 
-            this.txtMotDePasseActuel.Location = new System.Drawing.Point(264, 333);
-            this.txtMotDePasseActuel.Name = "txtMotDePasseActuel";
-            this.txtMotDePasseActuel.Size = new System.Drawing.Size(100, 20);
-            this.txtMotDePasseActuel.TabIndex = 13;
-            // 
-            // txtNouveauMotDePasse
-            // 
-            this.txtNouveauMotDePasse.Location = new System.Drawing.Point(264, 371);
-            this.txtNouveauMotDePasse.Name = "txtNouveauMotDePasse";
-            this.txtNouveauMotDePasse.Size = new System.Drawing.Size(100, 20);
-            this.txtNouveauMotDePasse.TabIndex = 14;
-            // 
-            // lblConfirmation
-            // 
-            this.lblConfirmation.AutoSize = true;
-            this.lblConfirmation.Location = new System.Drawing.Point(31, 417);
-            this.lblConfirmation.Name = "lblConfirmation";
-            this.lblConfirmation.Size = new System.Drawing.Size(197, 13);
-            this.lblConfirmation.TabIndex = 15;
-            this.lblConfirmation.Text = "Confirmation du nouveau mot de passe :";
-            // 
-            // txtConfirmation
-            // 
-            this.txtConfirmation.Location = new System.Drawing.Point(264, 414);
-            this.txtConfirmation.Name = "txtConfirmation";
-            this.txtConfirmation.Size = new System.Drawing.Size(100, 20);
-            this.txtConfirmation.TabIndex = 16;
-            // 
-            // btnEnregistrerMotDePasse
-            // 
-            this.btnEnregistrerMotDePasse.Location = new System.Drawing.Point(255, 458);
-            this.btnEnregistrerMotDePasse.Name = "btnEnregistrerMotDePasse";
-            this.btnEnregistrerMotDePasse.Size = new System.Drawing.Size(151, 23);
-            this.btnEnregistrerMotDePasse.TabIndex = 17;
-            this.btnEnregistrerMotDePasse.Text = "Enregistrer les modifications";
-            this.btnEnregistrerMotDePasse.UseVisualStyleBackColor = true;
+            this.lblMotDePasse.AutoSize = true;
+            this.lblMotDePasse.Location = new System.Drawing.Point(143, 224);
+            this.lblMotDePasse.Name = "lblMotDePasse";
+            this.lblMotDePasse.Size = new System.Drawing.Size(77, 13);
+            this.lblMotDePasse.TabIndex = 11;
+            this.lblMotDePasse.Text = "Mot de passe :";
             // 
             // frmModification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(762, 493);
-            this.Controls.Add(this.btnEnregistrerMotDePasse);
-            this.Controls.Add(this.txtConfirmation);
-            this.Controls.Add(this.lblConfirmation);
-            this.Controls.Add(this.txtNouveauMotDePasse);
-            this.Controls.Add(this.txtMotDePasseActuel);
-            this.Controls.Add(this.lblNouveauMotDePasse);
-            this.Controls.Add(this.lblMotDePasseActuel);
+            this.ClientSize = new System.Drawing.Size(831, 314);
+            this.Controls.Add(this.txtMotDePasse);
+            this.Controls.Add(this.lblMotDePasse);
             this.Controls.Add(this.txtIdentifiant);
             this.Controls.Add(this.txtVille);
             this.Controls.Add(this.txtCP);
             this.Controls.Add(this.txtRue);
-            this.Controls.Add(this.lblTitreMotDePasse);
             this.Controls.Add(this.btnEnregistrement);
             this.Controls.Add(this.lblIdentifiant);
             this.Controls.Add(this.lblVille);
@@ -224,6 +173,7 @@
             this.Controls.Add(this.lblTitre);
             this.Name = "frmModification";
             this.Text = "frmModification";
+            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,17 +187,12 @@
         private System.Windows.Forms.Label lblVille;
         private System.Windows.Forms.Label lblIdentifiant;
         private System.Windows.Forms.Button btnEnregistrement;
-        private System.Windows.Forms.Label lblTitreMotDePasse;
         private System.Windows.Forms.TextBox txtRue;
         private System.Windows.Forms.TextBox txtCP;
         private System.Windows.Forms.TextBox txtVille;
         private System.Windows.Forms.TextBox txtIdentifiant;
-        private System.Windows.Forms.Label lblMotDePasseActuel;
-        private System.Windows.Forms.Label lblNouveauMotDePasse;
-        private System.Windows.Forms.TextBox txtMotDePasseActuel;
-        private System.Windows.Forms.TextBox txtNouveauMotDePasse;
-        private System.Windows.Forms.Label lblConfirmation;
-        private System.Windows.Forms.TextBox txtConfirmation;
-        private System.Windows.Forms.Button btnEnregistrerMotDePasse;
+        private System.Windows.Forms.BindingSource bsVisiteur;
+        private System.Windows.Forms.TextBox txtMotDePasse;
+        private System.Windows.Forms.Label lblMotDePasse;
     }
 }

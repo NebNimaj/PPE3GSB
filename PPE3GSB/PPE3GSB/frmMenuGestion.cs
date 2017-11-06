@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace PPE3GSB
 {
     public partial class frmMenuGestion : Form
@@ -19,13 +18,18 @@ namespace PPE3GSB
 
         private void btn2_Click(object sender, EventArgs e)
         {
-            Form frmVisiteur = new Form();
-            frmVisiteur.Show();
+            frmVisiteur f1 = new frmVisiteur();
+            f1.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void frmMenuGestion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

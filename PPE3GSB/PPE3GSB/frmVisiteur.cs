@@ -52,7 +52,8 @@ namespace PPE3GSB
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            frmModification f1 = new frmModification();
+            f1.Show();
         }
     }
 }
