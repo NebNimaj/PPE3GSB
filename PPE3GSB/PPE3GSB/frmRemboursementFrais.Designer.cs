@@ -29,24 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.butAjouter = new System.Windows.Forms.Button();
             this.butCloture = new System.Windows.Forms.Button();
             this.butSuppr = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
+            this.ligneFraisForfaitDataGridView = new System.Windows.Forms.DataGridView();
+            this.bsFrais = new System.Windows.Forms.BindingSource(this.components);
+            this.sIO2_GSB1_BJJDDataSet = new PPE3GSB.SIO2_GSB1_BJJDDataSet();
+            this.idVisiteurDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nbJustificatifsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montantValideDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateModifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEtatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.ligneFraisForfaitDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFrais)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIO2_GSB1_BJJDDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(313, 56);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(257, 319);
-            this.dataGridView1.TabIndex = 0;
             // 
             // butAjouter
             // 
@@ -76,31 +74,101 @@
             this.butSuppr.Text = "Supprimer";
             this.butSuppr.UseVisualStyleBackColor = true;
             // 
-            // remboursementFrais
+            // ligneFraisForfaitDataGridView
+            // 
+            this.ligneFraisForfaitDataGridView.AutoGenerateColumns = false;
+            this.ligneFraisForfaitDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ligneFraisForfaitDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idVisiteurDataGridViewTextBoxColumn,
+            this.moisDataGridViewTextBoxColumn,
+            this.nbJustificatifsDataGridViewTextBoxColumn,
+            this.montantValideDataGridViewTextBoxColumn,
+            this.dateModifDataGridViewTextBoxColumn,
+            this.idEtatDataGridViewTextBoxColumn});
+            this.ligneFraisForfaitDataGridView.DataSource = this.bsFrais;
+            this.ligneFraisForfaitDataGridView.Location = new System.Drawing.Point(313, 56);
+            this.ligneFraisForfaitDataGridView.Name = "ligneFraisForfaitDataGridView";
+            this.ligneFraisForfaitDataGridView.Size = new System.Drawing.Size(320, 315);
+            this.ligneFraisForfaitDataGridView.TabIndex = 4;
+            this.ligneFraisForfaitDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ligneFraisForfaitDataGridView_CellContentClick);
+            // 
+            // bsFrais
+            // 
+            this.bsFrais.DataMember = "fichefrais";
+            this.bsFrais.DataSource = this.sIO2_GSB1_BJJDDataSet;
+            // 
+            // sIO2_GSB1_BJJDDataSet
+            // 
+            this.sIO2_GSB1_BJJDDataSet.DataSetName = "SIO2_GSB1_BJJDDataSet";
+            this.sIO2_GSB1_BJJDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // idVisiteurDataGridViewTextBoxColumn
+            // 
+            this.idVisiteurDataGridViewTextBoxColumn.DataPropertyName = "idVisiteur";
+            this.idVisiteurDataGridViewTextBoxColumn.HeaderText = "idVisiteur";
+            this.idVisiteurDataGridViewTextBoxColumn.Name = "idVisiteurDataGridViewTextBoxColumn";
+            // 
+            // moisDataGridViewTextBoxColumn
+            // 
+            this.moisDataGridViewTextBoxColumn.DataPropertyName = "mois";
+            this.moisDataGridViewTextBoxColumn.HeaderText = "mois";
+            this.moisDataGridViewTextBoxColumn.Name = "moisDataGridViewTextBoxColumn";
+            // 
+            // nbJustificatifsDataGridViewTextBoxColumn
+            // 
+            this.nbJustificatifsDataGridViewTextBoxColumn.DataPropertyName = "nbJustificatifs";
+            this.nbJustificatifsDataGridViewTextBoxColumn.HeaderText = "nbJustificatifs";
+            this.nbJustificatifsDataGridViewTextBoxColumn.Name = "nbJustificatifsDataGridViewTextBoxColumn";
+            // 
+            // montantValideDataGridViewTextBoxColumn
+            // 
+            this.montantValideDataGridViewTextBoxColumn.DataPropertyName = "montantValide";
+            this.montantValideDataGridViewTextBoxColumn.HeaderText = "montantValide";
+            this.montantValideDataGridViewTextBoxColumn.Name = "montantValideDataGridViewTextBoxColumn";
+            // 
+            // dateModifDataGridViewTextBoxColumn
+            // 
+            this.dateModifDataGridViewTextBoxColumn.DataPropertyName = "dateModif";
+            this.dateModifDataGridViewTextBoxColumn.HeaderText = "dateModif";
+            this.dateModifDataGridViewTextBoxColumn.Name = "dateModifDataGridViewTextBoxColumn";
+            // 
+            // idEtatDataGridViewTextBoxColumn
+            // 
+            this.idEtatDataGridViewTextBoxColumn.DataPropertyName = "idEtat";
+            this.idEtatDataGridViewTextBoxColumn.HeaderText = "idEtat";
+            this.idEtatDataGridViewTextBoxColumn.Name = "idEtatDataGridViewTextBoxColumn";
+            // 
+            // frmRemboursementFrais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(645, 424);
+            this.Controls.Add(this.ligneFraisForfaitDataGridView);
             this.Controls.Add(this.butSuppr);
             this.Controls.Add(this.butCloture);
             this.Controls.Add(this.butAjouter);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "remboursementFrais";
+            this.Name = "frmRemboursementFrais";
             this.Text = "remboursementFrais";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
+            this.Load += new System.EventHandler(this.frmRemboursementFrais_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ligneFraisForfaitDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsFrais)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sIO2_GSB1_BJJDDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.BindingSource bindingSource2;
         private System.Windows.Forms.Button butAjouter;
         private System.Windows.Forms.Button butCloture;
         private System.Windows.Forms.Button butSuppr;
+        private System.Windows.Forms.DataGridView ligneFraisForfaitDataGridView;
+        private System.Windows.Forms.BindingSource bsFrais;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idVisiteurDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn moisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nbJustificatifsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn montantValideDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateModifDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEtatDataGridViewTextBoxColumn;
+        private SIO2_GSB1_BJJDDataSet sIO2_GSB1_BJJDDataSet;
     }
 }

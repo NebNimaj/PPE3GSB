@@ -45,7 +45,7 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.lblFrais = new System.Windows.Forms.Label();
             this.cboTypeFrais = new System.Windows.Forms.ComboBox();
-            this.dateTime = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeP = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // butAccept
@@ -56,6 +56,7 @@
             this.butAccept.TabIndex = 0;
             this.butAccept.Text = "Accepter";
             this.butAccept.UseVisualStyleBackColor = true;
+            this.butAccept.Click += new System.EventHandler(this.butAccept_Click);
             // 
             // butAnnuler
             // 
@@ -65,6 +66,7 @@
             this.butAnnuler.TabIndex = 1;
             this.butAnnuler.Text = "Annuler";
             this.butAnnuler.UseVisualStyleBackColor = true;
+            this.butAnnuler.Click += new System.EventHandler(this.butAnnuler_Click);
             // 
             // txtQuantité
             // 
@@ -178,6 +180,7 @@
             this.txtMontant.Name = "txtMontant";
             this.txtMontant.Size = new System.Drawing.Size(100, 20);
             this.txtMontant.TabIndex = 13;
+            this.txtMontant.Text = "0\r\n";
             this.txtMontant.Visible = false;
             this.txtMontant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNoLettre);
             // 
@@ -220,21 +223,21 @@
             this.cboTypeFrais.TabIndex = 18;
             this.cboTypeFrais.SelectedIndexChanged += new System.EventHandler(this.cboTypeFrais_SelectedIndexChanged);
             // 
-            // dateTime
+            // dateTimeP
             // 
-            this.dateTime.Location = new System.Drawing.Point(134, 235);
-            this.dateTime.Name = "dateTime";
-            this.dateTime.Size = new System.Drawing.Size(199, 20);
-            this.dateTime.TabIndex = 19;
-            this.dateTime.Value = new System.DateTime(2017, 10, 9, 15, 59, 11, 0);
-            this.dateTime.Visible = false;
+            this.dateTimeP.Location = new System.Drawing.Point(134, 235);
+            this.dateTimeP.Name = "dateTimeP";
+            this.dateTimeP.Size = new System.Drawing.Size(199, 20);
+            this.dateTimeP.TabIndex = 19;
+            this.dateTimeP.Value = new System.DateTime(2017, 10, 9, 15, 59, 11, 0);
+            this.dateTimeP.Visible = false;
             // 
             // frmModFrais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 410);
-            this.Controls.Add(this.dateTime);
+            this.Controls.Add(this.dateTimeP);
             this.Controls.Add(this.cboTypeFrais);
             this.Controls.Add(this.lblFrais);
             this.Controls.Add(this.txtTotal);
@@ -278,6 +281,6 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label lblFrais;
         private System.Windows.Forms.ComboBox cboTypeFrais;
-        private System.Windows.Forms.DateTimePicker dateTime;
+        private System.Windows.Forms.DateTimePicker dateTimeP;
     }
 }
