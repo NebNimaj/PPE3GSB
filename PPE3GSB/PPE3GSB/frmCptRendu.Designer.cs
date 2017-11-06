@@ -71,11 +71,8 @@
             this.nupQuantite = new System.Windows.Forms.NumericUpDown();
             this.oFFRIRBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvEchantillon = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bnRapport)).BeginInit();
             this.bnRapport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsRapport)).BeginInit();
@@ -437,27 +434,18 @@
             this.dgvEchantillon.AutoGenerateColumns = false;
             this.dgvEchantillon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEchantillon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
+            this.dataGridViewTextBoxColumn3});
             this.dgvEchantillon.DataSource = this.oFFRIRBindingSource;
             this.dgvEchantillon.Location = new System.Drawing.Point(389, 104);
             this.dgvEchantillon.Name = "dgvEchantillon";
             this.dgvEchantillon.Size = new System.Drawing.Size(423, 154);
             this.dgvEchantillon.TabIndex = 31;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "idRapport";
-            this.dataGridViewTextBoxColumn1.HeaderText = "idRapport";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "idMedicament";
-            this.dataGridViewTextBoxColumn2.HeaderText = "idMedicament";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Medicament";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
@@ -465,18 +453,6 @@
             this.dataGridViewTextBoxColumn3.DataPropertyName = "quantite";
             this.dataGridViewTextBoxColumn3.HeaderText = "quantite";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "MEDICAMENT";
-            this.dataGridViewTextBoxColumn4.HeaderText = "MEDICAMENT";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "RAPPORT";
-            this.dataGridViewTextBoxColumn5.HeaderText = "RAPPORT";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // frmCptRendu
             // 
@@ -510,6 +486,7 @@
             this.Name = "frmCptRendu";
             this.Text = "frmCptRendu";
             this.Load += new System.EventHandler(this.frmCptRendu_Load);
+            this.Controls.SetChildIndex(this.lblTitre, 0);
             this.Controls.SetChildIndex(this.lblNumRap, 0);
             this.Controls.SetChildIndex(this.lblPractic, 0);
             this.Controls.SetChildIndex(this.label3, 0);
@@ -532,7 +509,6 @@
             this.Controls.SetChildIndex(this.lblQuantite, 0);
             this.Controls.SetChildIndex(this.btnAjoutMedicament, 0);
             this.Controls.SetChildIndex(this.nupQuantite, 0);
-            this.Controls.SetChildIndex(this.lblTitre, 0);
             this.Controls.SetChildIndex(this.dgvEchantillon, 0);
             ((System.ComponentModel.ISupportInitialize)(this.bnRapport)).EndInit();
             this.bnRapport.ResumeLayout(false);
@@ -593,10 +569,7 @@
         private System.Windows.Forms.NumericUpDown nupQuantite;
         private System.Windows.Forms.BindingSource oFFRIRBindingSource;
         private System.Windows.Forms.DataGridView dgvEchantillon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
