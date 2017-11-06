@@ -149,6 +149,8 @@
       <DependentUpon>mdlGSB.edmx</DependentUpon>
     </None>
     <None Include="Properties\DataSources\MEDECIN.datasource" />
+    <None Include="Properties\DataSources\MOTIF.datasource" />
+    <None Include="Properties\DataSources\OFFRIR.datasource" />
     <None Include="Properties\DataSources\RAPPORT.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -165,6 +167,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bouton-modifier_318-77528.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

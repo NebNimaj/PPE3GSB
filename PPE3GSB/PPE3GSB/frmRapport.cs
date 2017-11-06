@@ -12,7 +12,7 @@ using System.Security.Cryptography;
 
 namespace PPE3GSB
 {
-    public partial class frmRapport : frmBase
+    public partial class frmRapport :frmBase
     {
         public frmRapport() :base()
         {
