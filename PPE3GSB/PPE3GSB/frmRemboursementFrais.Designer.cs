@@ -34,7 +34,7 @@
             this.butSuppr = new System.Windows.Forms.Button();
             this.ligneFraisForfaitDataGridView = new System.Windows.Forms.DataGridView();
             this.bsFrais = new System.Windows.Forms.BindingSource(this.components);
-            this.sIO2_GSB1_BJJDDataSet = new PPE3GSB.SIO2_GSB1_BJJDDataSet();
+            //this.sIO2_GSB1_BJJDDataSet = new PPE3GSB.SIO2_GSB1_BJJDDataSet();
             this.idVisiteurDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.moisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nbJustificatifsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +43,7 @@
             this.idEtatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ligneFraisForfaitDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFrais)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIO2_GSB1_BJJDDataSet)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.sIO2_GSB1_BJJDDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // butAjouter
@@ -95,12 +95,12 @@
             // bsFrais
             // 
             this.bsFrais.DataMember = "fichefrais";
-            this.bsFrais.DataSource = this.sIO2_GSB1_BJJDDataSet;
+            //this.bsFrais.DataSource = this.sIO2_GSB1_BJJDDataSet;
             // 
             // sIO2_GSB1_BJJDDataSet
             // 
-            this.sIO2_GSB1_BJJDDataSet.DataSetName = "SIO2_GSB1_BJJDDataSet";
-            this.sIO2_GSB1_BJJDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            //this.sIO2_GSB1_BJJDDataSet.DataSetName = "SIO2_GSB1_BJJDDataSet";
+            //this.sIO2_GSB1_BJJDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // idVisiteurDataGridViewTextBoxColumn
             // 
@@ -152,7 +152,7 @@
             this.Load += new System.EventHandler(this.frmRemboursementFrais_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ligneFraisForfaitDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFrais)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sIO2_GSB1_BJJDDataSet)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.sIO2_GSB1_BJJDDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -169,6 +169,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn montantValideDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateModifDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEtatDataGridViewTextBoxColumn;
-        private SIO2_GSB1_BJJDDataSet sIO2_GSB1_BJJDDataSet;
+        //private SIO2_GSB1_BJJDDataSet sIO2_GSB1_BJJDDataSet;
     }
 }
