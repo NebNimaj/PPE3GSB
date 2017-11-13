@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblNom = new System.Windows.Forms.Label();
             this.lblPrenom = new System.Windows.Forms.Label();
             this.lblRue = new System.Windows.Forms.Label();
@@ -41,13 +42,15 @@
             this.txtRue = new System.Windows.Forms.TextBox();
             this.txtCP = new System.Windows.Forms.TextBox();
             this.txtVille = new System.Windows.Forms.TextBox();
-            this.txtDateEmbauche = new System.Windows.Forms.TextBox();
-            this.txtIdentifiant = new System.Windows.Forms.TextBox();
             this.txtMotDePasse = new System.Windows.Forms.TextBox();
             this.btnEnregistrer = new System.Windows.Forms.Button();
             this.lblTitre = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtIdentifiant = new System.Windows.Forms.TextBox();
+            this.lblLaboratoire = new System.Windows.Forms.Label();
+            this.cboLaboratoire = new System.Windows.Forms.ComboBox();
+            this.bsLaboratoire = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bsLaboratoire)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNom
@@ -98,25 +101,26 @@
             // lblDateEmbauche
             // 
             this.lblDateEmbauche.AutoSize = true;
-            this.lblDateEmbauche.Location = new System.Drawing.Point(35, 393);
+            this.lblDateEmbauche.Location = new System.Drawing.Point(35, 364);
             this.lblDateEmbauche.Name = "lblDateEmbauche";
             this.lblDateEmbauche.Size = new System.Drawing.Size(95, 13);
             this.lblDateEmbauche.TabIndex = 5;
             this.lblDateEmbauche.Text = "date d\'embauche :";
+            this.lblDateEmbauche.Click += new System.EventHandler(this.lblDateEmbauche_Click);
             // 
             // lblIdentifiant
             // 
             this.lblIdentifiant.AutoSize = true;
-            this.lblIdentifiant.Location = new System.Drawing.Point(37, 428);
+            this.lblIdentifiant.Location = new System.Drawing.Point(37, 411);
             this.lblIdentifiant.Name = "lblIdentifiant";
-            this.lblIdentifiant.Size = new System.Drawing.Size(58, 13);
+            this.lblIdentifiant.Size = new System.Drawing.Size(39, 13);
             this.lblIdentifiant.TabIndex = 6;
-            this.lblIdentifiant.Text = "identifiant :";
+            this.lblIdentifiant.Text = "Login :";
             // 
             // lblMotDePasse
             // 
             this.lblMotDePasse.AutoSize = true;
-            this.lblMotDePasse.Location = new System.Drawing.Point(37, 469);
+            this.lblMotDePasse.Location = new System.Drawing.Point(37, 456);
             this.lblMotDePasse.Name = "lblMotDePasse";
             this.lblMotDePasse.Size = new System.Drawing.Size(78, 13);
             this.lblMotDePasse.TabIndex = 7;
@@ -145,35 +149,21 @@
             // 
             // txtCP
             // 
-            this.txtCP.Location = new System.Drawing.Point(151, 255);
+            this.txtCP.Location = new System.Drawing.Point(151, 299);
             this.txtCP.Name = "txtCP";
             this.txtCP.Size = new System.Drawing.Size(100, 20);
             this.txtCP.TabIndex = 11;
             // 
             // txtVille
             // 
-            this.txtVille.Location = new System.Drawing.Point(151, 303);
+            this.txtVille.Location = new System.Drawing.Point(151, 251);
             this.txtVille.Name = "txtVille";
             this.txtVille.Size = new System.Drawing.Size(100, 20);
             this.txtVille.TabIndex = 12;
             // 
-            // txtDateEmbauche
-            // 
-            this.txtDateEmbauche.Location = new System.Drawing.Point(151, 425);
-            this.txtDateEmbauche.Name = "txtDateEmbauche";
-            this.txtDateEmbauche.Size = new System.Drawing.Size(100, 20);
-            this.txtDateEmbauche.TabIndex = 13;
-            // 
-            // txtIdentifiant
-            // 
-            this.txtIdentifiant.Location = new System.Drawing.Point(151, 390);
-            this.txtIdentifiant.Name = "txtIdentifiant";
-            this.txtIdentifiant.Size = new System.Drawing.Size(100, 20);
-            this.txtIdentifiant.TabIndex = 14;
-            // 
             // txtMotDePasse
             // 
-            this.txtMotDePasse.Location = new System.Drawing.Point(151, 466);
+            this.txtMotDePasse.Location = new System.Drawing.Point(151, 456);
             this.txtMotDePasse.Name = "txtMotDePasse";
             this.txtMotDePasse.Size = new System.Drawing.Size(100, 20);
             this.txtMotDePasse.TabIndex = 15;
@@ -181,7 +171,7 @@
             // 
             // btnEnregistrer
             // 
-            this.btnEnregistrer.Location = new System.Drawing.Point(151, 509);
+            this.btnEnregistrer.Location = new System.Drawing.Point(151, 578);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(75, 23);
             this.btnEnregistrer.TabIndex = 16;
@@ -199,34 +189,54 @@
             this.lblTitre.TabIndex = 17;
             this.lblTitre.Text = "Ajout d\'un nouveau visiteur";
             // 
-            // label1
+            // dateTimePicker1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 344);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Laboratoire :";
+            this.dateTimePicker1.CustomFormat = "YYYY-MM-dd";
+            this.dateTimePicker1.Location = new System.Drawing.Point(151, 358);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 18;
             // 
-            // textBox1
+            // txtIdentifiant
             // 
-            this.textBox1.Location = new System.Drawing.Point(151, 341);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 19;
+            this.txtIdentifiant.Location = new System.Drawing.Point(151, 408);
+            this.txtIdentifiant.Name = "txtIdentifiant";
+            this.txtIdentifiant.Size = new System.Drawing.Size(100, 20);
+            this.txtIdentifiant.TabIndex = 14;
+            // 
+            // lblLaboratoire
+            // 
+            this.lblLaboratoire.AutoSize = true;
+            this.lblLaboratoire.Location = new System.Drawing.Point(37, 511);
+            this.lblLaboratoire.Name = "lblLaboratoire";
+            this.lblLaboratoire.Size = new System.Drawing.Size(66, 13);
+            this.lblLaboratoire.TabIndex = 19;
+            this.lblLaboratoire.Text = "Laboratoire :";
+            // 
+            // cboLaboratoire
+            // 
+            this.cboLaboratoire.FormattingEnabled = true;
+            this.cboLaboratoire.Location = new System.Drawing.Point(151, 508);
+            this.cboLaboratoire.Name = "cboLaboratoire";
+            this.cboLaboratoire.Size = new System.Drawing.Size(121, 21);
+            this.cboLaboratoire.TabIndex = 20;
+            // 
+            // bsLaboratoire
+            // 
+            this.bsLaboratoire.DataSource = typeof(PPE3GSB.Laboratoire);
             // 
             // frmAjoutVisiteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(551, 544);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(507, 635);
+            this.Controls.Add(this.cboLaboratoire);
+            this.Controls.Add(this.lblLaboratoire);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.lblTitre);
             this.Controls.Add(this.btnEnregistrer);
             this.Controls.Add(this.txtMotDePasse);
             this.Controls.Add(this.txtIdentifiant);
-            this.Controls.Add(this.txtDateEmbauche);
             this.Controls.Add(this.txtVille);
             this.Controls.Add(this.txtCP);
             this.Controls.Add(this.txtRue);
@@ -242,6 +252,8 @@
             this.Controls.Add(this.lblNom);
             this.Name = "frmAjoutVisiteur";
             this.Text = "frmAjoutVisiteur";
+            this.Load += new System.EventHandler(this.frmAjoutVisiteur_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bsLaboratoire)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,12 +274,13 @@
         private System.Windows.Forms.TextBox txtRue;
         private System.Windows.Forms.TextBox txtCP;
         private System.Windows.Forms.TextBox txtVille;
-        private System.Windows.Forms.TextBox txtDateEmbauche;
-        private System.Windows.Forms.TextBox txtIdentifiant;
         private System.Windows.Forms.TextBox txtMotDePasse;
         private System.Windows.Forms.Button btnEnregistrer;
         private System.Windows.Forms.Label lblTitre;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txtIdentifiant;
+        private System.Windows.Forms.Label lblLaboratoire;
+        private System.Windows.Forms.ComboBox cboLaboratoire;
+        private System.Windows.Forms.BindingSource bsLaboratoire;
     }
 }

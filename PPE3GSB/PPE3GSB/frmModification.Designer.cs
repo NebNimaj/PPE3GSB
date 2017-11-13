@@ -36,10 +36,10 @@
             this.lblIdentifiant = new System.Windows.Forms.Label();
             this.btnEnregistrement = new System.Windows.Forms.Button();
             this.txtRue = new System.Windows.Forms.TextBox();
+            this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
             this.txtCP = new System.Windows.Forms.TextBox();
             this.txtVille = new System.Windows.Forms.TextBox();
             this.txtIdentifiant = new System.Windows.Forms.TextBox();
-            this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
             this.txtMotDePasse = new System.Windows.Forms.TextBox();
             this.lblMotDePasse = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).BeginInit();
@@ -109,6 +109,10 @@
             this.txtRue.Size = new System.Drawing.Size(100, 20);
             this.txtRue.TabIndex = 7;
             // 
+            // bsVisiteur
+            // 
+            this.bsVisiteur.DataSource = typeof(PPE3GSB.Visiteur);
+            // 
             // txtCP
             // 
             this.txtCP.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVisiteur, "cp", true));
@@ -133,10 +137,6 @@
             this.txtIdentifiant.Size = new System.Drawing.Size(100, 20);
             this.txtIdentifiant.TabIndex = 10;
             // 
-            // bsVisiteur
-            // 
-            this.bsVisiteur.DataSource = typeof(PPE3GSB.Visiteur);
-            // 
             // txtMotDePasse
             // 
             this.txtMotDePasse.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVisiteur, "password", true));
@@ -158,7 +158,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(831, 314);
+            this.ClientSize = new System.Drawing.Size(629, 314);
             this.Controls.Add(this.txtMotDePasse);
             this.Controls.Add(this.lblMotDePasse);
             this.Controls.Add(this.txtIdentifiant);
