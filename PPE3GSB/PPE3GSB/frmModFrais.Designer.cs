@@ -81,6 +81,7 @@
             // 
             // txtMontantUnitaire
             // 
+            this.txtMontantUnitaire.Enabled = false;
             this.txtMontantUnitaire.Location = new System.Drawing.Point(134, 100);
             this.txtMontantUnitaire.Name = "txtMontantUnitaire";
             this.txtMontantUnitaire.Size = new System.Drawing.Size(100, 20);
@@ -103,6 +104,7 @@
             this.cboTypeForfait.Size = new System.Drawing.Size(199, 21);
             this.cboTypeForfait.TabIndex = 4;
             this.cboTypeForfait.Visible = false;
+            this.cboTypeForfait.SelectedIndexChanged += new System.EventHandler(this.cboTypeForfait_SelectedIndexChanged);
             // 
             // lblMontant
             // 

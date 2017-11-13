@@ -121,12 +121,55 @@ namespace PPE3GSB
                     if (MessageBox.Show("Rajouter les frais inscrits ?", "   ",
                         MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        //Si oui, on ferme l'application
+                        LigneFraisForfait monFrais = new LigneFraisForfait();
+                        monFrais.idVisiteur = "a17";
+                        monFrais.mois = "juin";
+                        if ((string) cboTypeForfait.SelectedItem == "Frais kilométrique")
+                            monFrais.idFraisForfait = "KM";
+                        if ((string)cboTypeForfait.SelectedItem == "Forfait étape")
+                            monFrais.idFraisForfait = "ETP";
+                        if ((string)cboTypeForfait.SelectedItem == "Nuitée hôtel")
+                            monFrais.idFraisForfait = "NUI";
+                        if ((string)cboTypeForfait.SelectedItem == "Repas restaurant")
+                            monFrais.idFraisForfait = "REP";
+                        monFrais.quantite = int.Parse(txtQuantité.Text);
+                        Modele.MaConnexion.LigneFraisForfait.AddObject(monFrais);
+                        Modele.MaConnexion.SaveChanges();
+                        MessageBox.Show("Enregistrement ok", "Action");
                         this.Close();
                     }
                 }
             } catch
             {
+            }
+        }
+
+        private void cboTypeForfait_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((string)cboTypeForfait.SelectedItem == "Forfait étape")
+            {
+                txtMontantUnitaire.Enabled = false;
+                txtMontantUnitaire.Text = "109";
+            }
+            else if ((string)cboTypeForfait.SelectedItem == "Frais kilométrique")
+            {
+                txtMontantUnitaire.Enabled = true;
+                txtMontantUnitaire.Text = "0";
+            }
+            else if ((string)cboTypeForfait.SelectedItem == "Nuitée hôtel")
+            {
+                txtMontantUnitaire.Enabled = false;
+                txtMontantUnitaire.Text = "80";
+            }
+            else if ((string)cboTypeForfait.SelectedItem == "Repas restaurant")
+            {
+                txtMontantUnitaire.Enabled = false;
+                txtMontantUnitaire.Text = "29";
+            }
+            else
+            {
+                txtMontantUnitaire.Enabled = false;
+                txtMontantUnitaire.Text = "0";
             }
         }
     }
