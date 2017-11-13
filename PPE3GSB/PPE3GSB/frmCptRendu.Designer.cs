@@ -69,10 +69,12 @@
             this.btnAjoutMedicament = new System.Windows.Forms.Button();
             this.bsMedicament = new System.Windows.Forms.BindingSource(this.components);
             this.nupQuantite = new System.Windows.Forms.NumericUpDown();
-            this.oFFRIRBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvEchantillon = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMedicamentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantiteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsOffrir = new System.Windows.Forms.BindingSource(this.components);
+            this.lblAjoutEchantillons = new System.Windows.Forms.Label();
+            this.dgvAjoutEchantillons = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.bnRapport)).BeginInit();
             this.bnRapport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bsRapport)).BeginInit();
@@ -81,8 +83,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsMotif)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMedicament)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupQuantite)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.oFFRIRBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsOffrir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAjoutEchantillons)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNumRap
@@ -129,7 +132,7 @@
             this.lblOffre.BackColor = System.Drawing.Color.Transparent;
             this.lblOffre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOffre.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblOffre.Location = new System.Drawing.Point(386, 84);
+            this.lblOffre.Location = new System.Drawing.Point(386, 66);
             this.lblOffre.Name = "lblOffre";
             this.lblOffre.Size = new System.Drawing.Size(130, 17);
             this.lblOffre.TabIndex = 5;
@@ -220,7 +223,7 @@
             this.bnRapport.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bnRapport.Name = "bnRapport";
             this.bnRapport.PositionItem = this.bindingNavigatorPositionItem;
-            this.bnRapport.Size = new System.Drawing.Size(846, 25);
+            this.bnRapport.Size = new System.Drawing.Size(930, 25);
             this.bnRapport.TabIndex = 21;
             this.bnRapport.Text = "bindingNavigator1";
             // 
@@ -380,8 +383,9 @@
             // 
             // cboMedicament
             // 
+            this.cboMedicament.DataSource = this.bsOffrir;
             this.cboMedicament.FormattingEnabled = true;
-            this.cboMedicament.Location = new System.Drawing.Point(457, 264);
+            this.cboMedicament.Location = new System.Drawing.Point(450, 269);
             this.cboMedicament.Name = "cboMedicament";
             this.cboMedicament.Size = new System.Drawing.Size(121, 21);
             this.cboMedicament.TabIndex = 26;
@@ -390,7 +394,7 @@
             // lblMedicament
             // 
             this.lblMedicament.AutoSize = true;
-            this.lblMedicament.Location = new System.Drawing.Point(388, 268);
+            this.lblMedicament.Location = new System.Drawing.Point(379, 272);
             this.lblMedicament.Name = "lblMedicament";
             this.lblMedicament.Size = new System.Drawing.Size(65, 13);
             this.lblMedicament.TabIndex = 27;
@@ -400,7 +404,7 @@
             // lblQuantite
             // 
             this.lblQuantite.AutoSize = true;
-            this.lblQuantite.Location = new System.Drawing.Point(639, 268);
+            this.lblQuantite.Location = new System.Drawing.Point(654, 272);
             this.lblQuantite.Name = "lblQuantite";
             this.lblQuantite.Size = new System.Drawing.Size(47, 13);
             this.lblQuantite.TabIndex = 28;
@@ -409,57 +413,83 @@
             // 
             // btnAjoutMedicament
             // 
-            this.btnAjoutMedicament.Location = new System.Drawing.Point(524, 307);
+            this.btnAjoutMedicament.ForeColor = System.Drawing.Color.DarkBlue;
+            this.btnAjoutMedicament.Location = new System.Drawing.Point(572, 309);
             this.btnAjoutMedicament.Name = "btnAjoutMedicament";
             this.btnAjoutMedicament.Size = new System.Drawing.Size(118, 23);
             this.btnAjoutMedicament.TabIndex = 30;
             this.btnAjoutMedicament.Text = "Ajout medicament";
             this.btnAjoutMedicament.UseVisualStyleBackColor = true;
+            this.btnAjoutMedicament.Visible = false;
             this.btnAjoutMedicament.Click += new System.EventHandler(this.btnAjoutMedicament_Click);
             // 
             // nupQuantite
             // 
-            this.nupQuantite.Location = new System.Drawing.Point(692, 265);
+            this.nupQuantite.Location = new System.Drawing.Point(718, 270);
             this.nupQuantite.Name = "nupQuantite";
             this.nupQuantite.Size = new System.Drawing.Size(100, 20);
             this.nupQuantite.TabIndex = 31;
             this.nupQuantite.Visible = false;
-            // 
-            // oFFRIRBindingSource
-            // 
-            this.oFFRIRBindingSource.DataSource = typeof(PPE3GSB.OFFRIR);
             // 
             // dgvEchantillon
             // 
             this.dgvEchantillon.AutoGenerateColumns = false;
             this.dgvEchantillon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEchantillon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.dgvEchantillon.DataSource = this.oFFRIRBindingSource;
-            this.dgvEchantillon.Location = new System.Drawing.Point(389, 104);
+            this.idMedicamentDataGridViewTextBoxColumn,
+            this.quantiteDataGridViewTextBoxColumn});
+            this.dgvEchantillon.DataSource = this.bsOffrir;
+            this.dgvEchantillon.Location = new System.Drawing.Point(389, 85);
             this.dgvEchantillon.Name = "dgvEchantillon";
-            this.dgvEchantillon.Size = new System.Drawing.Size(423, 154);
+            this.dgvEchantillon.Size = new System.Drawing.Size(246, 178);
             this.dgvEchantillon.TabIndex = 31;
             // 
-            // dataGridViewTextBoxColumn2
+            // idMedicamentDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "idMedicament";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Medicament";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.idMedicamentDataGridViewTextBoxColumn.DataPropertyName = "idMedicament";
+            this.idMedicamentDataGridViewTextBoxColumn.HeaderText = "idMedicament";
+            this.idMedicamentDataGridViewTextBoxColumn.Name = "idMedicamentDataGridViewTextBoxColumn";
             // 
-            // dataGridViewTextBoxColumn3
+            // quantiteDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "quantite";
-            this.dataGridViewTextBoxColumn3.HeaderText = "quantite";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.quantiteDataGridViewTextBoxColumn.DataPropertyName = "quantite";
+            this.quantiteDataGridViewTextBoxColumn.HeaderText = "quantite";
+            this.quantiteDataGridViewTextBoxColumn.Name = "quantiteDataGridViewTextBoxColumn";
+            // 
+            // bsOffrir
+            // 
+            this.bsOffrir.DataSource = typeof(PPE3GSB.OFFRIR);
+            // 
+            // lblAjoutEchantillons
+            // 
+            this.lblAjoutEchantillons.AutoSize = true;
+            this.lblAjoutEchantillons.BackColor = System.Drawing.Color.Transparent;
+            this.lblAjoutEchantillons.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAjoutEchantillons.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblAjoutEchantillons.Location = new System.Drawing.Point(637, 66);
+            this.lblAjoutEchantillons.Name = "lblAjoutEchantillons";
+            this.lblAjoutEchantillons.Size = new System.Drawing.Size(150, 17);
+            this.lblAjoutEchantillons.TabIndex = 32;
+            this.lblAjoutEchantillons.Text = "Echantillons a modifier";
+            this.lblAjoutEchantillons.Visible = false;
+            // 
+            // dgvAjoutEchantillons
+            // 
+            this.dgvAjoutEchantillons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAjoutEchantillons.Location = new System.Drawing.Point(640, 85);
+            this.dgvAjoutEchantillons.Name = "dgvAjoutEchantillons";
+            this.dgvAjoutEchantillons.Size = new System.Drawing.Size(246, 178);
+            this.dgvAjoutEchantillons.TabIndex = 33;
+            this.dgvAjoutEchantillons.Visible = false;
             // 
             // frmCptRendu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(846, 416);
+            this.ClientSize = new System.Drawing.Size(930, 416);
+            this.Controls.Add(this.dgvAjoutEchantillons);
+            this.Controls.Add(this.lblAjoutEchantillons);
             this.Controls.Add(this.dgvEchantillon);
             this.Controls.Add(this.nupQuantite);
             this.Controls.Add(this.btnAjoutMedicament);
@@ -486,7 +516,6 @@
             this.Name = "frmCptRendu";
             this.Text = "frmCptRendu";
             this.Load += new System.EventHandler(this.frmCptRendu_Load);
-            this.Controls.SetChildIndex(this.lblTitre, 0);
             this.Controls.SetChildIndex(this.lblNumRap, 0);
             this.Controls.SetChildIndex(this.lblPractic, 0);
             this.Controls.SetChildIndex(this.label3, 0);
@@ -510,6 +539,9 @@
             this.Controls.SetChildIndex(this.btnAjoutMedicament, 0);
             this.Controls.SetChildIndex(this.nupQuantite, 0);
             this.Controls.SetChildIndex(this.dgvEchantillon, 0);
+            this.Controls.SetChildIndex(this.lblTitre, 0);
+            this.Controls.SetChildIndex(this.lblAjoutEchantillons, 0);
+            this.Controls.SetChildIndex(this.dgvAjoutEchantillons, 0);
             ((System.ComponentModel.ISupportInitialize)(this.bnRapport)).EndInit();
             this.bnRapport.ResumeLayout(false);
             this.bnRapport.PerformLayout();
@@ -519,8 +551,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsMotif)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMedicament)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupQuantite)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.oFFRIRBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsOffrir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAjoutEchantillons)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -567,9 +600,11 @@
         private System.Windows.Forms.Button btnAjoutMedicament;
         private System.Windows.Forms.BindingSource bsMedicament;
         private System.Windows.Forms.NumericUpDown nupQuantite;
-        private System.Windows.Forms.BindingSource oFFRIRBindingSource;
         private System.Windows.Forms.DataGridView dgvEchantillon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Label lblAjoutEchantillons;
+        private System.Windows.Forms.DataGridView dgvAjoutEchantillons;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMedicamentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantiteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bsOffrir;
     }
 }
