@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.butAccept = new System.Windows.Forms.Button();
             this.butAnnuler = new System.Windows.Forms.Button();
             this.txtQuantité = new System.Windows.Forms.TextBox();
@@ -46,6 +47,8 @@
             this.lblFrais = new System.Windows.Forms.Label();
             this.cboTypeFrais = new System.Windows.Forms.ComboBox();
             this.dateTimeP = new System.Windows.Forms.DateTimePicker();
+            this.bsTypeFrais = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.bsTypeFrais)).BeginInit();
             this.SuspendLayout();
             // 
             // butAccept
@@ -234,6 +237,10 @@
             this.dateTimeP.Value = new System.DateTime(2017, 10, 9, 15, 59, 11, 0);
             this.dateTimeP.Visible = false;
             // 
+            // bsTypeFrais
+            // 
+            this.bsTypeFrais.DataSource = typeof(PPE3GSB.FraisForfait);
+            // 
             // frmModFrais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,6 +266,7 @@
             this.Controls.Add(this.butAccept);
             this.Name = "frmModFrais";
             this.Text = "modFrais";
+            ((System.ComponentModel.ISupportInitialize)(this.bsTypeFrais)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +292,6 @@
         private System.Windows.Forms.Label lblFrais;
         private System.Windows.Forms.ComboBox cboTypeFrais;
         private System.Windows.Forms.DateTimePicker dateTimeP;
+        private System.Windows.Forms.BindingSource bsTypeFrais;
     }
 }

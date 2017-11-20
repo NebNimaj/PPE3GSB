@@ -21,6 +21,9 @@ namespace PPE3GSB
         {
             if ((string)cboTypeFrais.SelectedItem == "Forfaitisés")
             {
+
+                // Rend visible les parties concernant les forfait forfaitisés
+
                 lblTypeForfait.Visible = true;
                 cboTypeForfait.Visible = true;
                 lblQuantité.Visible = true;
@@ -38,6 +41,9 @@ namespace PPE3GSB
             }
             else if ((string)cboTypeFrais.SelectedItem == "Hors forfait")
             {
+
+                // Rend visible les parties concernant les forfait hors forfait
+
                 lblTypeForfait.Visible = false;
                 cboTypeForfait.Visible = false;
                 lblQuantité.Visible = false;
@@ -116,61 +122,113 @@ namespace PPE3GSB
         {
             try
             {
-                if (((string)cboTypeFrais.SelectedItem == "Forfaitisés") && (int.Parse(txtTotal.Text) > 0) && ((string)cboTypeForfait.SelectedItem == "Forfait étape" || (string)cboTypeForfait.SelectedItem == "Frais kilométrique" || (string)cboTypeForfait.SelectedItem == "Nuitée hôtel" || (string)cboTypeForfait.SelectedItem == "Repas restaurant") || (((string)cboTypeFrais.SelectedItem == "Hors forfait") && (int.Parse(txtMontant.Text) > 0) && (txtLibellé.Text != null)))
+                if (((string)cboTypeFrais.SelectedItem == "Forfaitisés") && (int.Parse(txtTotal.Text) > 0) && ((string)cboTypeForfait.SelectedItem == "Forfait étape" || (string)cboTypeForfait.SelectedItem == "Frais kilométrique" || (string)cboTypeForfait.SelectedItem == "Nuitée hôtel" || (string)cboTypeForfait.SelectedItem == "Repas restaurant") || (((string)cboTypeFrais.SelectedItem == "Hors forfait") && (int.Parse(txtMontant.Text) > 0) && (txtLibellé.Text != null))) //Vérifie si il y a des valeurs inscrite dans les TextBox et que c'est possible de d'insérer (Pas de valeur total nul)
                 {
                     if (MessageBox.Show("Rajouter les frais inscrits ?", "   ",
                         MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        LigneFraisForfait monFrais = new LigneFraisForfait();
-                        monFrais.idVisiteur = "a17";
-                        monFrais.mois = "juin";
-                        if ((string) cboTypeForfait.SelectedItem == "Frais kilométrique")
-                            monFrais.idFraisForfait = "KM";
-                        if ((string)cboTypeForfait.SelectedItem == "Forfait étape")
-                            monFrais.idFraisForfait = "ETP";
-                        if ((string)cboTypeForfait.SelectedItem == "Nuitée hôtel")
-                            monFrais.idFraisForfait = "NUI";
-                        if ((string)cboTypeForfait.SelectedItem == "Repas restaurant")
-                            monFrais.idFraisForfait = "REP";
-                        monFrais.quantite = int.Parse(txtQuantité.Text);
-                        Modele.MaConnexion.LigneFraisForfait.AddObject(monFrais);
-                        Modele.MaConnexion.SaveChanges();
-                        MessageBox.Show("Enregistrement ok", "Action");
-                        this.Close();
+                        
+                        
+                        if ((string)cboTypeFrais.SelectedItem == "Forfaitisés")
+                        {
+                            LigneFraisForfait monFrais = new LigneFraisForfait();
+                            if ((string)cboTypeForfait.SelectedItem == "Frais kilométrique")
+                                monFrais.idFraisForfait = "KM";
+                            if ((string)cboTypeForfait.SelectedItem == "Forfait étape")
+                                monFrais.idFraisForfait = "ETP";
+                            if ((string)cboTypeForfait.SelectedItem == "Nuitée hôtel")
+                                monFrais.idFraisForfait = "NUI";
+                            if ((string)cboTypeForfait.SelectedItem == "Repas restaurant")
+                                monFrais.idFraisForfait = "REP";
+                            monFrais.quantite = int.Parse(txtQuantité.Text);
+                            monFrais.idVisiteur = Modele.VisiteurConnecte.idVisiteur; // Récupère l'id de l'utilisateur connecté
+                            monFrais.mois = "juin"; //Récupère le dernier mois non accepté
+                            Modele.MaConnexion.LigneFraisForfait.AddObject(monFrais);
+                            Modele.MaConnexion.SaveChanges();
+                            MessageBox.Show("L'enregistrement a réussis", "Action");
+                            this.Close();
+
+                        } else if ((string)cboTypeFrais.SelectedItem == "Hors forfait") 
+                        {
+                            LigneFraisHorsForfait monFraisHF = new LigneFraisHorsForfait();
+                            monFraisHF.montant = int.Parse(txtQuantité.Text);
+                            monFraisHF.idVisiteur = Modele.VisiteurConnecte.idVisiteur; // Récupère l'id de l'utilisateur connecté
+                            monFraisHF.mois = "juin"; //Récupère le dernier mois non accepté ou moins en cours
+                            //monFraisHF.date = dateTimeP; //La date du forfait
+                            monFraisHF.libelle = txtLibellé.Text; //Le libellé du forfait
+                            Modele.MaConnexion.LigneFraisHorsForfait.AddObject(monFraisHF);
+                            Modele.MaConnexion.SaveChanges();
+                            MessageBox.Show("L'enregistrement a réussis", "Action");
+                            this.Close();
+
+
+
+                        }
                     }
                 }
             } catch
             {
+                MessageBox.Show("L'enregistrement n'a pas réussis", "Action");
+                this.Close();
             }
         }
 
         private void cboTypeForfait_SelectedIndexChanged(object sender, EventArgs e)
         {
+            bsTypeFrais.DataSource = Modele.MaConnexion.FraisForfait.ToList();
             if ((string)cboTypeForfait.SelectedItem == "Forfait étape")
             {
-                txtMontantUnitaire.Enabled = false;
-                txtMontantUnitaire.Text = "109";
+                var MontantUnitaire = Modele.MaConnexion.FraisForfait.ToList()
+                .Where(x => x.id == "ETP")
+                .Select(x => new { x.montant });
+                txtMontantUnitaire.Text = MontantUnitaire.ElementAt(0).montant.ToString();
             }
             else if ((string)cboTypeForfait.SelectedItem == "Frais kilométrique")
             {
-                txtMontantUnitaire.Enabled = true;
-                txtMontantUnitaire.Text = "0";
+                //txtMontantUnitaire.Enabled = true;
+                var MontantUnitaire = Modele.MaConnexion.FraisForfait.ToList()
+                .Where(x => x.id == "KM")
+                .Select(x => new { x.montant });
+                txtMontantUnitaire.Text = MontantUnitaire.ElementAt(0).montant.ToString();
             }
             else if ((string)cboTypeForfait.SelectedItem == "Nuitée hôtel")
             {
-                txtMontantUnitaire.Enabled = false;
-                txtMontantUnitaire.Text = "80";
+                var MontantUnitaire = Modele.MaConnexion.FraisForfait.ToList()
+                .Where(x => x.id == "NUI")
+                .Select(x => new { x.montant });
+                txtMontantUnitaire.Text = MontantUnitaire.ElementAt(0).montant.ToString();
+
             }
             else if ((string)cboTypeForfait.SelectedItem == "Repas restaurant")
             {
-                txtMontantUnitaire.Enabled = false;
-                txtMontantUnitaire.Text = "29";
+                var MontantUnitaire = Modele.MaConnexion.FraisForfait.ToList()
+                .Where(x => x.id == "REP")
+                .Select(x => new { x.montant });
+                txtMontantUnitaire.Text = MontantUnitaire.ElementAt(0).montant.ToString();
             }
             else
             {
                 txtMontantUnitaire.Enabled = false;
                 txtMontantUnitaire.Text = "0";
             }
+
+
+            /*var MontantUnitaire = Modele.MaConnexion.FraisForfait.ToList()
+            .Where(x => x.id == "NUI")
+            .Select(x => new { x.montant });
+            nupMontantUnitaireNuitee.Value = decimal.Parse(MontantUnitaire.ElementAt(0).montant.ToString());
+
+            MontantUnitaire = Modele.MaConnexion.FraisForfait.ToList()
+                 .Where(x => x.id == "REP")
+                 .Select(x => new { x.montant });
+            nupMontantUnitaireRepasMidi.Value = decimal.Parse(MontantUnitaire.ElementAt(0).montant.ToString());
+
+            MontantUnitaire = Modele.MaConnexion.FraisForfait.ToList()
+                .Where(x => x.id == "ETP")
+                .Select(x => new { x.montant });
+            nupMontantUnitaireRelaisEtape.Value = decimal.Parse(MontantUnitaire.ElementAt(0).montant.ToString());
+
+            nupMontantUnitaireKilometrage.Value = 0.52M;*/
         }
     }
 }

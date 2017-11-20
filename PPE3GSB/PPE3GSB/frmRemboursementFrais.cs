@@ -43,21 +43,27 @@ namespace PPE3GSB
 
         private void butSuppr_Click(object sender, EventArgs e)
         {
-            //Modele.MaConnexion.LigneFraisForfait.DeleteObject(vCompositeur);
-            //this.dgvligneFraisForfait.Rows.RemoveAt(this.dgvligneFraisForfait.CurrentRow.Index);
-            //Modele.MaConnexion.SaveChanges();
-            //Pas idVisiteur, mais la ligne selectioné
-         /* var filteredData = Modele.MaConnexion.LigneFraisForfait.ToList().Where(x => x.idVisiteur == (dgvligneFraisForfait.SelectedRows[0].Cells[0].Value.ToString()));
-
-            BindingSource bsFrais = new BindingSource();
-            bsFrais.DataSource = filteredData; // application du filtre
-            bsFrais.MoveFirst();
-
-            LigneFraisForfait monFrais = (LigneFraisForfait)bsFrais.Current;
-            Modele.MaConnexion.LigneFraisForfait.DeleteObject(monFrais);
-            Modele.MaConnexion.SaveChanges();
-            MessageBox.Show("Frais supprimé", "Action");*/
-
+            try
+            {
+                LigneFraisForfait monLigneFrais = (LigneFraisForfait)bsFrais.Current;
+                Modele.MaConnexion.LigneFraisForfait.DeleteObject(monLigneFrais);
+                Modele.MaConnexion.SaveChanges();
+                MessageBox.Show("Frais supprimé", "Action");
+            }
+            catch
+            {
+                try
+                {
+                    LigneFraisHorsForfait monLigneHorsFrais = (LigneFraisHorsForfait)bsFrais.Current;
+                    Modele.MaConnexion.LigneFraisHorsForfait.DeleteObject(monLigneHorsFrais);
+                    Modele.MaConnexion.SaveChanges();
+                    MessageBox.Show("Frais supprimé", "Action");
+                }
+                catch
+                {
+                    MessageBox.Show("Erreur lors de la suppréssion", "Action");
+                }
+            }
         }
     }
 }
