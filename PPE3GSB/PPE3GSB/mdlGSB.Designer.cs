@@ -36,6 +36,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("mdlGSB", "FK_VISITEUR", "Visiteur", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.Visiteur), "Region", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Region), true)]
 [assembly: EdmRelationshipAttribute("mdlGSB", "FK_VISITEURSECTEUR", "Visiteur", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.Visiteur), "Secteur", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Secteur), true)]
 [assembly: EdmRelationshipAttribute("mdlGSB", "Travailler", "Region", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Region), "Visiteur", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Visiteur))]
+[assembly: EdmRelationshipAttribute("mdlGSB", "FK_REMPLACANT_RAPPORT", "REMPLACANT", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(PPE3GSB.REMPLACANT), "RAPPORT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.RAPPORT), true)]
+[assembly: EdmRelationshipAttribute("mdlGSB", "PRESENTATION", "MEDICAMENT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.MEDICAMENT), "RAPPORT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.RAPPORT))]
 
 #endregion
 
@@ -358,6 +360,22 @@ namespace PPE3GSB
             }
         }
         private ObjectSet<sysdiagrams> _sysdiagrams;
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        public ObjectSet<REMPLACANT> REMPLACANT
+        {
+            get
+            {
+                if ((_REMPLACANT == null))
+                {
+                    _REMPLACANT = base.CreateObjectSet<REMPLACANT>("REMPLACANT");
+                }
+                return _REMPLACANT;
+            }
+        }
+        private ObjectSet<REMPLACANT> _REMPLACANT;
 
         #endregion
 
@@ -497,6 +515,14 @@ namespace PPE3GSB
         public void AddTosysdiagrams(sysdiagrams sysdiagrams)
         {
             base.AddObject("sysdiagrams", sysdiagrams);
+        }
+    
+        /// <summary>
+        /// Méthode déconseillée pour ajouter un nouvel objet à l'EntitySet REMPLACANT. Utilisez la méthode .Add de la propriété ObjectSet&lt;T&gt; associée à la place.
+        /// </summary>
+        public void AddToREMPLACANT(REMPLACANT rEMPLACANT)
+        {
+            base.AddObject("REMPLACANT", rEMPLACANT);
         }
 
         #endregion
@@ -2219,6 +2245,28 @@ namespace PPE3GSB
                 }
             }
         }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "PRESENTATION", "RAPPORT")]
+        public EntityCollection<RAPPORT> RAPPORT
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RAPPORT>("mdlGSB.PRESENTATION", "RAPPORT");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RAPPORT>("mdlGSB.PRESENTATION", "RAPPORT", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -2694,6 +2742,54 @@ namespace PPE3GSB
         private global::System.Int32 _idMedecin;
         partial void OnidMedecinChanging(global::System.Int32 value);
         partial void OnidMedecinChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> idRemplacant
+        {
+            get
+            {
+                return _idRemplacant;
+            }
+            set
+            {
+                OnidRemplacantChanging(value);
+                ReportPropertyChanging("idRemplacant");
+                _idRemplacant = StructuralObject.SetValidValue(value, "idRemplacant");
+                ReportPropertyChanged("idRemplacant");
+                OnidRemplacantChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _idRemplacant;
+        partial void OnidRemplacantChanging(Nullable<global::System.Int32> value);
+        partial void OnidRemplacantChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> coefficient
+        {
+            get
+            {
+                return _coefficient;
+            }
+            set
+            {
+                OncoefficientChanging(value);
+                ReportPropertyChanging("coefficient");
+                _coefficient = StructuralObject.SetValidValue(value, "coefficient");
+                ReportPropertyChanged("coefficient");
+                OncoefficientChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _coefficient;
+        partial void OncoefficientChanging(Nullable<global::System.Int32> value);
+        partial void OncoefficientChanged();
 
         #endregion
 
@@ -2831,6 +2927,66 @@ namespace PPE3GSB
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OFFRIR>("mdlGSB.offrir_fk1", "OFFRIR", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK_REMPLACANT_RAPPORT", "REMPLACANT")]
+        public REMPLACANT REMPLACANT
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REMPLACANT>("mdlGSB.FK_REMPLACANT_RAPPORT", "REMPLACANT").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REMPLACANT>("mdlGSB.FK_REMPLACANT_RAPPORT", "REMPLACANT").Value = value;
+            }
+        }
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<REMPLACANT> REMPLACANTReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<REMPLACANT>("mdlGSB.FK_REMPLACANT_RAPPORT", "REMPLACANT");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<REMPLACANT>("mdlGSB.FK_REMPLACANT_RAPPORT", "REMPLACANT", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "PRESENTATION", "MEDICAMENT")]
+        public EntityCollection<MEDICAMENT> MEDICAMENT
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MEDICAMENT>("mdlGSB.PRESENTATION", "MEDICAMENT");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MEDICAMENT>("mdlGSB.PRESENTATION", "MEDICAMENT", value);
                 }
             }
         }
@@ -3065,6 +3221,160 @@ namespace PPE3GSB
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Visiteur>("mdlGSB.Travailler", "Visiteur", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// Aucune documentation sur les métadonnées n'est disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="mdlGSB", Name="REMPLACANT")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class REMPLACANT : EntityObject
+    {
+        #region Méthode de fabrique
+    
+        /// <summary>
+        /// Créez un nouvel objet REMPLACANT.
+        /// </summary>
+        /// <param name="id">Valeur initiale de la propriété id.</param>
+        public static REMPLACANT CreateREMPLACANT(global::System.Int32 id)
+        {
+            REMPLACANT rEMPLACANT = new REMPLACANT();
+            rEMPLACANT.id = id;
+            return rEMPLACANT;
+        }
+
+        #endregion
+
+        #region Propriétés simples
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    OnidChanging(value);
+                    ReportPropertyChanging("id");
+                    _id = StructuralObject.SetValidValue(value, "id");
+                    ReportPropertyChanged("id");
+                    OnidChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id;
+        partial void OnidChanging(global::System.Int32 value);
+        partial void OnidChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nom
+        {
+            get
+            {
+                return _nom;
+            }
+            set
+            {
+                OnnomChanging(value);
+                ReportPropertyChanging("nom");
+                _nom = StructuralObject.SetValidValue(value, true, "nom");
+                ReportPropertyChanged("nom");
+                OnnomChanged();
+            }
+        }
+        private global::System.String _nom;
+        partial void OnnomChanging(global::System.String value);
+        partial void OnnomChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String prenom
+        {
+            get
+            {
+                return _prenom;
+            }
+            set
+            {
+                OnprenomChanging(value);
+                ReportPropertyChanging("prenom");
+                _prenom = StructuralObject.SetValidValue(value, true, "prenom");
+                ReportPropertyChanged("prenom");
+                OnprenomChanged();
+            }
+        }
+        private global::System.String _prenom;
+        partial void OnprenomChanging(global::System.String value);
+        partial void OnprenomChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> coefficient
+        {
+            get
+            {
+                return _coefficient;
+            }
+            set
+            {
+                OncoefficientChanging(value);
+                ReportPropertyChanging("coefficient");
+                _coefficient = StructuralObject.SetValidValue(value, "coefficient");
+                ReportPropertyChanged("coefficient");
+                OncoefficientChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _coefficient;
+        partial void OncoefficientChanging(Nullable<global::System.Int32> value);
+        partial void OncoefficientChanged();
+
+        #endregion
+
+        #region Propriétés de navigation
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "FK_REMPLACANT_RAPPORT", "RAPPORT")]
+        public EntityCollection<RAPPORT> RAPPORT
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RAPPORT>("mdlGSB.FK_REMPLACANT_RAPPORT", "RAPPORT");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RAPPORT>("mdlGSB.FK_REMPLACANT_RAPPORT", "RAPPORT", value);
                 }
             }
         }

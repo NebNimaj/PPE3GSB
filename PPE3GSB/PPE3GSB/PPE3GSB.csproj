@@ -80,6 +80,12 @@
     <Compile Include="frmModification.Designer.cs">
       <DependentUpon>frmModification.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegionVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegionVisiteur.Designer.cs">
+      <DependentUpon>frmRegionVisiteur.cs</DependentUpon>
+    </Compile>
     <Compile Include="modFrais.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModification.resx">
       <DependentUpon>frmModification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegionVisiteur.resx">
+      <DependentUpon>frmRegionVisiteur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modFrais.resx">
       <DependentUpon>modFrais.cs</DependentUpon>

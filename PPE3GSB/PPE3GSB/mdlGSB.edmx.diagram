@@ -39,6 +39,9 @@
         <AssociationConnector Association="mdlGSB.FK_VISITEUR" />
         <AssociationConnector Association="mdlGSB.FK_VISITEURSECTEUR" />
         <AssociationConnector Association="mdlGSB.Travailler" />
+        <EntityTypeShape EntityType="mdlGSB.REMPLACANT" Width="1.5" PointX="8.375" PointY="3.875" />
+        <AssociationConnector Association="mdlGSB.FK_REMPLACANT_RAPPORT" />
+        <AssociationConnector Association="mdlGSB.PRESENTATION" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

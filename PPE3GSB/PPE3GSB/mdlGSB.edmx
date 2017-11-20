@@ -107,6 +107,14 @@
           <Property Name="idMedicament" Type="char" MaxLength="12" Nullable="false" />
           <Property Name="quantite" Type="int" />
         </EntityType>
+        <EntityType Name="PRESENTATION">
+          <Key>
+            <PropertyRef Name="idRapport" />
+            <PropertyRef Name="idMedicament" />
+          </Key>
+          <Property Name="idRapport" Type="int" Nullable="false" />
+          <Property Name="idMedicament" Type="char" MaxLength="12" Nullable="false" />
+        </EntityType>
         <EntityType Name="RAPPORT">
           <Key>
             <PropertyRef Name="idRapport" />
@@ -117,6 +125,8 @@
           <Property Name="bilan" Type="varchar" MaxLength="64" />
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="idMedecin" Type="int" Nullable="false" />
+          <Property Name="idRemplacant" Type="int" />
+          <Property Name="coefficient" Type="int" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
@@ -126,6 +136,15 @@
           <Property Name="libRegion" Type="varchar" MaxLength="64" />
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="idSecteur" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REMPLACANT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="50" />
+          <Property Name="prenom" Type="varchar" MaxLength="50" />
+          <Property Name="coefficient" Type="int" />
         </EntityType>
         <EntityType Name="Secteur">
           <Key>
@@ -251,6 +270,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PRESENTATION_MEDICAMENT1">
+          <End Role="MEDICAMENT" Type="Self.MEDICAMENT" Multiplicity="1" />
+          <End Role="PRESENTATION" Type="Self.PRESENTATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICAMENT">
+              <PropertyRef Name="idMedicament" />
+            </Principal>
+            <Dependent Role="PRESENTATION">
+              <PropertyRef Name="idMedicament" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRESENTATION_RAPPORT1">
+          <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="1" />
+          <End Role="PRESENTATION" Type="Self.PRESENTATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RAPPORT">
+              <PropertyRef Name="idRapport" />
+            </Principal>
+            <Dependent Role="PRESENTATION">
+              <PropertyRef Name="idRapport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REMPLACANT_RAPPORT">
+          <End Role="REMPLACANT" Type="Self.REMPLACANT" Multiplicity="0..1" />
+          <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REMPLACANT">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RAPPORT">
+              <PropertyRef Name="idRemplacant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SECTEUR">
           <End Role="Secteur" Type="Self.Secteur" Multiplicity="1" />
           <End Role="Region" Type="Self.Region" Multiplicity="*" />
@@ -335,66 +390,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="offrir_fk1">
-          <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="1" />
-          <End Role="OFFRIR" Type="Self.OFFRIR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RAPPORT">
-              <PropertyRef Name="idRapport" />
-            </Principal>
-            <Dependent Role="OFFRIR">
-              <PropertyRef Name="idRapport" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="offrir_fk2">
-          <End Role="MEDICAMENT" Type="Self.MEDICAMENT" Multiplicity="1" />
-          <End Role="OFFRIR" Type="Self.OFFRIR" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MEDICAMENT">
-              <PropertyRef Name="idMedicament" />
-            </Principal>
-            <Dependent Role="OFFRIR">
-              <PropertyRef Name="idMedicament" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="rapport_fk1">
-          <End Role="Visiteur" Type="Self.Visiteur" Multiplicity="1" />
-          <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Visiteur">
-              <PropertyRef Name="idVisiteur" />
-            </Principal>
-            <Dependent Role="RAPPORT">
-              <PropertyRef Name="idVisiteur" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="rapport_fk2">
-          <End Role="MEDECIN" Type="Self.MEDECIN" Multiplicity="1" />
-          <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MEDECIN">
-              <PropertyRef Name="idMedecin" />
-            </Principal>
-            <Dependent Role="RAPPORT">
-              <PropertyRef Name="idMedecin" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="rapport_fk3">
-          <End Role="MOTIF" Type="Self.MOTIF" Multiplicity="0..1" />
-          <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MOTIF">
-              <PropertyRef Name="idMotif" />
-            </Principal>
-            <Dependent Role="RAPPORT">
-              <PropertyRef Name="idMotif" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="mdlGSBStoreContainer">
           <EntitySet Name="Etat" EntityType="Self.Etat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FAMILLE" EntityType="Self.FAMILLE" Schema="dbo" store:Type="Tables" />
@@ -407,8 +402,10 @@
           <EntitySet Name="MEDICAMENT" EntityType="Self.MEDICAMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MOTIF" EntityType="Self.MOTIF" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OFFRIR" EntityType="Self.OFFRIR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRESENTATION" EntityType="Self.PRESENTATION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RAPPORT" EntityType="Self.RAPPORT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REMPLACANT" EntityType="Self.REMPLACANT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Secteur" EntityType="Self.Secteur" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SPECIALITE" EntityType="Self.SPECIALITE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -438,6 +435,18 @@
             <End Role="Laboratoire" EntitySet="Laboratoire" />
             <End Role="Visiteur" EntitySet="Visiteur" />
           </AssociationSet>
+          <AssociationSet Name="FK_PRESENTATION_MEDICAMENT1" Association="Self.FK_PRESENTATION_MEDICAMENT1">
+            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+            <End Role="PRESENTATION" EntitySet="PRESENTATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRESENTATION_RAPPORT1" Association="Self.FK_PRESENTATION_RAPPORT1">
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+            <End Role="PRESENTATION" EntitySet="PRESENTATION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REMPLACANT_RAPPORT" Association="Self.FK_REMPLACANT_RAPPORT">
+            <End Role="REMPLACANT" EntitySet="REMPLACANT" />
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+          </AssociationSet>
           <AssociationSet Name="FK_SECTEUR" Association="Self.FK_SECTEUR">
             <End Role="Secteur" EntitySet="Secteur" />
             <End Role="Region" EntitySet="Region" />
@@ -465,26 +474,6 @@
           <AssociationSet Name="medicament_fk" Association="Self.medicament_fk">
             <End Role="FAMILLE" EntitySet="FAMILLE" />
             <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
-          </AssociationSet>
-          <AssociationSet Name="offrir_fk1" Association="Self.offrir_fk1">
-            <End Role="RAPPORT" EntitySet="RAPPORT" />
-            <End Role="OFFRIR" EntitySet="OFFRIR" />
-          </AssociationSet>
-          <AssociationSet Name="offrir_fk2" Association="Self.offrir_fk2">
-            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
-            <End Role="OFFRIR" EntitySet="OFFRIR" />
-          </AssociationSet>
-          <AssociationSet Name="rapport_fk1" Association="Self.rapport_fk1">
-            <End Role="Visiteur" EntitySet="Visiteur" />
-            <End Role="RAPPORT" EntitySet="RAPPORT" />
-          </AssociationSet>
-          <AssociationSet Name="rapport_fk2" Association="Self.rapport_fk2">
-            <End Role="MEDECIN" EntitySet="MEDECIN" />
-            <End Role="RAPPORT" EntitySet="RAPPORT" />
-          </AssociationSet>
-          <AssociationSet Name="rapport_fk3" Association="Self.rapport_fk3">
-            <End Role="MOTIF" EntitySet="MOTIF" />
-            <End Role="RAPPORT" EntitySet="RAPPORT" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -517,6 +506,7 @@
           <Property Name="contreIndications" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="FAMILLE" Relationship="mdlGSB.medicament_fk" FromRole="MEDICAMENT" ToRole="FAMILLE" />
           <NavigationProperty Name="OFFRIR" Relationship="mdlGSB.offrir_fk2" FromRole="MEDICAMENT" ToRole="OFFRIR" />
+          <NavigationProperty Name="RAPPORT" Relationship="mdlGSB.PRESENTATION" FromRole="MEDICAMENT" ToRole="RAPPORT" />
         </EntityType>
         <EntityType Name="RAPPORT">
           <Key>
@@ -532,6 +522,10 @@
           <NavigationProperty Name="Visiteur" Relationship="Self.rapport_fk1" FromRole="RAPPORT" ToRole="Visiteur" />
           <NavigationProperty Name="MOTIF" Relationship="mdlGSB.rapport_fk3" FromRole="RAPPORT" ToRole="MOTIF" />
           <NavigationProperty Name="OFFRIR" Relationship="mdlGSB.offrir_fk1" FromRole="RAPPORT" ToRole="OFFRIR" />
+          <Property Name="idRemplacant" Type="Int32" />
+          <Property Name="coefficient" Type="Int32" />
+          <NavigationProperty Name="REMPLACANT" Relationship="mdlGSB.FK_REMPLACANT_RAPPORT" FromRole="RAPPORT" ToRole="REMPLACANT" />
+          <NavigationProperty Name="MEDICAMENT" Relationship="mdlGSB.PRESENTATION" FromRole="RAPPORT" ToRole="MEDICAMENT" />
         </EntityType>
         <EntityType Name="Visiteur">
           <Key>
@@ -663,6 +657,15 @@
           <AssociationSet Name="Travailler" Association="mdlGSB.Travailler">
             <End Role="Region" EntitySet="Region" />
             <End Role="Visiteur" EntitySet="Visiteur" />
+          </AssociationSet>
+          <EntitySet Name="REMPLACANT" EntityType="mdlGSB.REMPLACANT" />
+          <AssociationSet Name="FK_REMPLACANT_RAPPORT" Association="mdlGSB.FK_REMPLACANT_RAPPORT">
+            <End Role="REMPLACANT" EntitySet="REMPLACANT" />
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
+          </AssociationSet>
+          <AssociationSet Name="PRESENTATION" Association="mdlGSB.PRESENTATION">
+            <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
+            <End Role="RAPPORT" EntitySet="RAPPORT" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Etat">
@@ -974,6 +977,32 @@
           <End Type="mdlGSB.Region" Role="Region" Multiplicity="*" />
           <End Type="mdlGSB.Visiteur" Role="Visiteur" Multiplicity="*" />
         </Association>
+        <EntityType Name="REMPLACANT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="coefficient" Type="Int32" />
+          <NavigationProperty Name="RAPPORT" Relationship="mdlGSB.FK_REMPLACANT_RAPPORT" FromRole="REMPLACANT" ToRole="RAPPORT" />
+        </EntityType>
+        <Association Name="FK_REMPLACANT_RAPPORT">
+          <End Type="mdlGSB.REMPLACANT" Role="REMPLACANT" Multiplicity="0..1" />
+          <End Type="mdlGSB.RAPPORT" Role="RAPPORT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REMPLACANT">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="RAPPORT">
+              <PropertyRef Name="idRemplacant" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRESENTATION">
+          <End Type="mdlGSB.MEDICAMENT" Role="MEDICAMENT" Multiplicity="*" />
+          <End Type="mdlGSB.RAPPORT" Role="RAPPORT" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1008,6 +1037,8 @@
           <EntitySetMapping Name="RAPPORT">
             <EntityTypeMapping TypeName="mdlGSB.RAPPORT">
               <MappingFragment StoreEntitySet="RAPPORT">
+                <ScalarProperty Name="coefficient" ColumnName="coefficient" />
+                <ScalarProperty Name="idRemplacant" ColumnName="idRemplacant" />
                 <ScalarProperty Name="idRapport" ColumnName="idRapport" />
                 <ScalarProperty Name="dateRapport" ColumnName="dateRapport" />
                 <ScalarProperty Name="idMotif" ColumnName="idMotif" />
@@ -1161,6 +1192,24 @@
             </EndProperty>
             <EndProperty Name="Region">
               <ScalarProperty Name="idRegion" ColumnName="idRegion" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="REMPLACANT">
+            <EntityTypeMapping TypeName="mdlGSB.REMPLACANT">
+              <MappingFragment StoreEntitySet="REMPLACANT">
+                <ScalarProperty Name="coefficient" ColumnName="coefficient" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="PRESENTATION" TypeName="mdlGSB.PRESENTATION" StoreEntitySet="PRESENTATION">
+            <EndProperty Name="RAPPORT">
+              <ScalarProperty Name="idRapport" ColumnName="idRapport" />
+            </EndProperty>
+            <EndProperty Name="MEDICAMENT">
+              <ScalarProperty Name="idMedicament" ColumnName="idMedicament" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>
