@@ -50,44 +50,29 @@ namespace PPE3GSB
  
         }
 
-        private void txtMotDePasse_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDateEmbauche_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void txtNom_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar)
-            && char.IsDigit(e.KeyChar))
-            {
+            if (!char.IsLetter(e.KeyChar))
                 e.Handled = true;
-            }
 
         }
 
         private void txtPrenom_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar)
-            && char.IsDigit(e.KeyChar))
-            {
+            if (!char.IsLetter(e.KeyChar))
                 e.Handled = true;
-            }
 
         }
 
         private void txtVille_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar)
-            && char.IsDigit(e.KeyChar))
-            {
+            if (!char.IsLetter(e.KeyChar))
                 e.Handled = true;
-            }
 
         }
+
+   
     }
 }

@@ -128,6 +128,7 @@
             this.txtVille.Name = "txtVille";
             this.txtVille.Size = new System.Drawing.Size(100, 20);
             this.txtVille.TabIndex = 9;
+            this.txtVille.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVille_KeyPress);
             // 
             // txtIdentifiant
             // 

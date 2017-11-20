@@ -20,11 +20,6 @@ namespace PPE3GSB
             bsVisiteur.DataSource = Modele.VisiteurConnecte;
         }
 
-        private void lblTitreMotDePasse_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnEnregistrement_Click(object sender, EventArgs e)
         {
 
@@ -38,6 +33,14 @@ namespace PPE3GSB
                 this.Close();
             
            
+        }
+
+
+        private void txtVille_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar))
+                e.Handled = true;
+
         }
     }
 }

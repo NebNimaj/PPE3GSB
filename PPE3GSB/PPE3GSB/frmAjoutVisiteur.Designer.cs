@@ -106,7 +106,6 @@
             this.lblDateEmbauche.Size = new System.Drawing.Size(95, 13);
             this.lblDateEmbauche.TabIndex = 5;
             this.lblDateEmbauche.Text = "date d\'embauche :";
-            this.lblDateEmbauche.Click += new System.EventHandler(this.lblDateEmbauche_Click);
             // 
             // lblIdentifiant
             // 
@@ -132,6 +131,7 @@
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(100, 20);
             this.txtNom.TabIndex = 8;
+            this.txtNom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNom_KeyPress);
             // 
             // txtPrenom
             // 
@@ -139,6 +139,7 @@
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.Size = new System.Drawing.Size(100, 20);
             this.txtPrenom.TabIndex = 9;
+            this.txtPrenom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrenom_KeyPress);
             // 
             // txtRue
             // 
@@ -160,6 +161,7 @@
             this.txtVille.Name = "txtVille";
             this.txtVille.Size = new System.Drawing.Size(100, 20);
             this.txtVille.TabIndex = 12;
+            this.txtVille.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVille_KeyPress);
             // 
             // txtMotDePasse
             // 
@@ -167,7 +169,6 @@
             this.txtMotDePasse.Name = "txtMotDePasse";
             this.txtMotDePasse.Size = new System.Drawing.Size(100, 20);
             this.txtMotDePasse.TabIndex = 15;
-            this.txtMotDePasse.TextChanged += new System.EventHandler(this.txtMotDePasse_TextChanged);
             // 
             // btnEnregistrer
             // 
