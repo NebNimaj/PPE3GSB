@@ -28,10 +28,5 @@ namespace PPE3GSB
             modFrais frm = new modFrais();
             frm.Show();
         }
-
-        private void remboursementFrais_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
