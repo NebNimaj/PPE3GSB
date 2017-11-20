@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PPE3GSB
 {
-    public partial class frmContainer : frmBase
+    public partial class frmContainer :frmBase
     {
         public frmContainer() :base()
         {

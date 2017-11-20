@@ -14,7 +14,10 @@ namespace PPE3GSB
     
     public partial class frmCptRendu :frmBase
     {
+        //TODO : Remplacant, coefficient de confiance, presentation de medicament
         RAPPORT vcurrent;
+        BindingList<OFFRIR> lesOffres= new BindingList<OFFRIR>();
+        bool presentation = true;
         public frmCptRendu() : base()
         {
             InitializeComponent();
@@ -37,6 +40,11 @@ namespace PPE3GSB
             cboIdMotif.DisplayMember = "libMotif";
             cboIdMotif.SelectedValue = vcurrent.MOTIF.idMotif;
 
+            bsMedicament.DataSource = Modele.MaConnexion.MEDICAMENT.ToList();
+            cboMedicament.DataSource = bsMedicament;
+            cboMedicament.ValueMember = "idMedicament";//permet de stocker l'identifiant
+            cboMedicament.DisplayMember = "nomCommercial";
+
             cboPracticiens.ValueMember = "idMedecin";//permet de stocker l'identifiant
             cboPracticiens.DisplayMember = "NP";
             bsPracticien.DataSource = Modele.MaConnexion.MEDECIN.ToList()
@@ -47,7 +55,7 @@ namespace PPE3GSB
                 .Where(x=> x.idRapport == vcurrent.idRapport) ;
             dgvEchantillon.DataSource = bsOffreEchantillon;
 
-            
+
         }
 
         private void bsRapport_CurrentChanged(object sender, EventArgs e)
@@ -55,28 +63,38 @@ namespace PPE3GSB
             {
                 try
                 {
-                
-                RAPPORT vcurrent = (RAPPORT)bsRapport.Current;
-                bsPracticien.DataSource = Modele.MaConnexion.MEDECIN.ToList()
-                    .Where(x => x.idMedecin == vcurrent.idMedecin);
-                cboPracticiens.DataSource = bsPracticien;
+                    if (presentation)
+                    {
+
+                    }
+                    else
+                    {
+                        RAPPORT vcurrent = (RAPPORT)bsRapport.Current;
+                        bsPracticien.DataSource = Modele.MaConnexion.MEDECIN.ToList()
+                            .Where(x => x.idMedecin == vcurrent.idMedecin);
+                        cboPracticiens.DataSource = bsPracticien;
 
 
-                txtNumRapport.Text = vcurrent.idRapport.ToString();
-                dtpRapport.Value = Convert.ToDateTime(vcurrent.dateRapport);
-                cboIdMotif.SelectedValue = vcurrent.MOTIF.idMotif;
-                txtBilan.Text = vcurrent.bilan.ToString();
+                        txtNumRapport.Text = vcurrent.idRapport.ToString();
+                        dtpRapport.Value = Convert.ToDateTime(vcurrent.dateRapport);
+                        cboIdMotif.SelectedValue = vcurrent.MOTIF.idMotif;
+                        txtBilan.Text = vcurrent.bilan.ToString();
 
 
-                bsOffreEchantillon.DataSource = Modele.MaConnexion.OFFRIR.ToList()
-                    .Where(x => x.idRapport == vcurrent.idRapport);
-                dgvEchantillon.DataSource = bsOffreEchantillon;
+                        bsOffreEchantillon.DataSource = Modele.MaConnexion.OFFRIR.ToList()
+                            .Where(x => x.idRapport == vcurrent.idRapport);
+                        dgvEchantillon.DataSource = bsOffreEchantillon;
+
+                        bsOffrir.DataSource = lesOffres;
+                        dgvAjoutEchantillons.DataSource = bsOffrir;
+                    }
                 }
                 catch
                 {
                     //rien
                 }
             }
+            
 
         }
 
@@ -97,7 +115,11 @@ namespace PPE3GSB
             lblMedicament.Visible = true;
             lblQuantite.Visible = true;
             nupQuantite.Visible = true;
+            btnAjoutMedicament.Visible = true;
             cboMedicament.Visible = true;
+            dgvAjoutEchantillons.Visible = true;
+            lblAjoutEchantillons.Visible = true;
+
             btnAjout.Visible = true;
             dtpRapport.Enabled = true;
             txtBilan.Enabled = true;
@@ -133,6 +155,9 @@ namespace PPE3GSB
                 lblQuantite.Visible = false;
                 nupQuantite.Visible = false;
                 cboMedicament.Visible = false;
+                btnAjoutMedicament.Visible = false;
+                dgvAjoutEchantillons.Visible = false;
+                lblAjoutEchantillons.Visible = false;
             }
                 catch (Exception ex)
                 {
@@ -144,25 +169,44 @@ namespace PPE3GSB
         {
             try
             {
-                RAPPORT monRapport = new RAPPORT();
-                monRapport.idRapport = bsRapport.Count + 1;
-                monRapport.dateRapport = Convert.ToDateTime(dtpRapport.Value);
-                monRapport.idMotif = int.Parse(cboIdMotif.SelectedValue.ToString());
-                monRapport.bilan = txtBilan.Text;
-                monRapport.idVisiteur = Modele.VisiteurConnecte.idVisiteur;
-                monRapport.idMedecin = int.Parse(cboPracticiens.SelectedValue.ToString());
-                Modele.MaConnexion.RAPPORT.AddObject(monRapport);
-                Modele.MaConnexion.SaveChanges();
-                MessageBox.Show("Enregistrement ok", "Action");
-                btnAjout.Visible = false;
-                btnAjout.Visible = false;
-                dtpRapport.Enabled = false;
-                txtBilan.Enabled = false;
-                cboIdMotif.Enabled = false;
-                lblMedicament.Visible = false;
-                lblQuantite.Visible = false;
-                nupQuantite.Visible = false;
-                cboMedicament.Visible = false;
+                if (presentation)
+                {
+
+                }
+                else
+                {
+                    RAPPORT monRapport = new RAPPORT();
+                    monRapport.idRapport = bsRapport.Count + 1;
+                    monRapport.dateRapport = Convert.ToDateTime(dtpRapport.Value);
+                    monRapport.idMotif = int.Parse(cboIdMotif.SelectedValue.ToString());
+                    monRapport.bilan = txtBilan.Text;
+                    monRapport.idVisiteur = Modele.VisiteurConnecte.idVisiteur;
+                    monRapport.idMedecin = int.Parse(cboPracticiens.SelectedValue.ToString());
+                    Modele.MaConnexion.RAPPORT.AddObject(monRapport);
+                    if (lesOffres.Count != 0)
+                    {
+                        foreach (OFFRIR uneOffre in lesOffres)
+                        {
+                            Modele.MaConnexion.OFFRIR.AddObject(uneOffre);
+                        }
+                    }
+
+                    Modele.MaConnexion.SaveChanges();
+                    MessageBox.Show("Enregistrement ok", "Action");
+
+
+                    btnAjout.Visible = false;
+                    btnAjoutMedicament.Visible = false;
+                    dtpRapport.Enabled = false;
+                    txtBilan.Enabled = false;
+                    cboIdMotif.Enabled = false;
+                    lblMedicament.Visible = false;
+                    lblQuantite.Visible = false;
+                    nupQuantite.Visible = false;
+                    cboMedicament.Visible = false;
+                    dgvAjoutEchantillons.Visible = false;
+                    lblAjoutEchantillons.Visible = false;
+                }
             }
             catch (Exception ex)
             {
@@ -172,24 +216,68 @@ namespace PPE3GSB
 
         private void bindingNavigatorModifyItem_Click(object sender, EventArgs e)
         {
-            lblMedicament.Visible = true;
-            lblQuantite.Visible = true;
-            nupQuantite.Visible = true;
-            cboMedicament.Visible = true;
-            btnModifier.Visible = true;
-            dtpRapport.Enabled = true;
-            txtBilan.Enabled = true;
-            cboIdMotif.Enabled = true;
-            txtNumRapport.Text = (bsRapport.Count + 1).ToString();
-            bsPracticien.DataSource = Modele.MaConnexion.MEDECIN.ToList();
-            cboPracticiens.DataSource = bsPracticien;
+            if (presentation)
+            {
+
+            }
+            else
+            {
+                lblMedicament.Visible = true;
+                lblQuantite.Visible = true;
+                nupQuantite.Visible = true;
+                btnAjoutMedicament.Visible = true;
+                cboMedicament.Visible = true;
+                btnModifier.Visible = true;
+                dtpRapport.Enabled = true;
+                txtBilan.Enabled = true;
+                cboIdMotif.Enabled = true;
+                dgvAjoutEchantillons.Visible = true;
+                lblAjoutEchantillons.Visible = true;
+
+                txtNumRapport.Text = (bsRapport.Count + 1).ToString();
+                bsPracticien.DataSource = Modele.MaConnexion.MEDECIN.ToList();
+                cboPracticiens.DataSource = bsPracticien;
+            }
         }
 
         private void btnAjoutMedicament_Click(object sender, EventArgs e)
         {
+            
+            try
+            {
+                if (presentation)
+                {
 
+                }
+                else
+                {
+                    vcurrent = (RAPPORT)bsRapport.Current;
+                    OFFRIR ajoutOffre = new OFFRIR();
+                    ajoutOffre.idRapport = vcurrent.idRapport;
+                    ajoutOffre.idMedicament = cboMedicament.SelectedValue.ToString();
+                    ajoutOffre.quantite = int.Parse(nupQuantite.Value.ToString());
+                    lesOffres.Add(ajoutOffre);
+                }
+            }
+            catch
+            {
+
+            }
+            
         }
 
+        private void btnOffert_Click(object sender, EventArgs e)
+        {
+            dgvEchantillon.Visible = true;
+            lblOffre.Visible = true;
+            lblOffre.Text = "Echantillons offert";
+        }
 
+        private void btnPresentation_Click(object sender, EventArgs e)
+        {
+            dgvEchantillon.Visible = true;
+            lblOffre.Visible = true;
+            lblOffre.Text = "Echantillons présentés";
+        }
     }
 }

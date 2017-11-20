@@ -34,10 +34,14 @@
             this.butSuppr = new System.Windows.Forms.Button();
             this.dgvligneFraisForfait = new System.Windows.Forms.DataGridView();
             this.bsFrais = new System.Windows.Forms.BindingSource(this.components);
-            this.idVisiteur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idFraisForfait = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvligneFraisForfait)).BeginInit();
+            //this.sIO2_GSB1_BJJDDataSet = new PPE3GSB.SIO2_GSB1_BJJDDataSet();
+            this.idVisiteurDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.moisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nbJustificatifsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montantValideDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateModifDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idEtatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.ligneFraisForfaitDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFrais)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,12 +92,34 @@
             // 
             this.bsFrais.DataSource = typeof(PPE3GSB.LigneFraisForfait);
             // 
-            // idVisiteur
+            // sIO2_GSB1_BJJDDataSet
             // 
-            this.idVisiteur.DataPropertyName = "idVisiteur";
-            this.idVisiteur.HeaderText = "Visiteur";
-            this.idVisiteur.Name = "idVisiteur";
-            this.idVisiteur.Visible = false;
+            //this.sIO2_GSB1_BJJDDataSet.DataSetName = "SIO2_GSB1_BJJDDataSet";
+            //this.sIO2_GSB1_BJJDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // idVisiteurDataGridViewTextBoxColumn
+            // 
+            this.idVisiteurDataGridViewTextBoxColumn.DataPropertyName = "idVisiteur";
+            this.idVisiteurDataGridViewTextBoxColumn.HeaderText = "idVisiteur";
+            this.idVisiteurDataGridViewTextBoxColumn.Name = "idVisiteurDataGridViewTextBoxColumn";
+            // 
+            // moisDataGridViewTextBoxColumn
+            // 
+            this.moisDataGridViewTextBoxColumn.DataPropertyName = "mois";
+            this.moisDataGridViewTextBoxColumn.HeaderText = "mois";
+            this.moisDataGridViewTextBoxColumn.Name = "moisDataGridViewTextBoxColumn";
+            // 
+            // nbJustificatifsDataGridViewTextBoxColumn
+            // 
+            this.nbJustificatifsDataGridViewTextBoxColumn.DataPropertyName = "nbJustificatifs";
+            this.nbJustificatifsDataGridViewTextBoxColumn.HeaderText = "nbJustificatifs";
+            this.nbJustificatifsDataGridViewTextBoxColumn.Name = "nbJustificatifsDataGridViewTextBoxColumn";
+            // 
+            // montantValideDataGridViewTextBoxColumn
+            // 
+            this.montantValideDataGridViewTextBoxColumn.DataPropertyName = "montantValide";
+            this.montantValideDataGridViewTextBoxColumn.HeaderText = "montantValide";
+            this.montantValideDataGridViewTextBoxColumn.Name = "montantValideDataGridViewTextBoxColumn";
             // 
             // idFraisForfait
             // 
@@ -137,9 +163,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn montantValideDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateModifDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idEtatDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idVisiteur;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idFraisForfait;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantite;
         //private SIO2_GSB1_BJJDDataSet sIO2_GSB1_BJJDDataSet;
     }
 }
