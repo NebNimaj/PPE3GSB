@@ -36,7 +36,7 @@
             // 
             // lblTitre
             // 
-            this.lblTitre.Location = new System.Drawing.Point(493, 0);
+            this.lblTitre.Location = new System.Drawing.Point(498, 0);
             this.lblTitre.Size = new System.Drawing.Size(58, 13);
             this.lblTitre.Text = "Bienvenue";
             // 
@@ -47,7 +47,7 @@
             this.gestionFraisToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(912, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(636, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -63,15 +63,13 @@
             this.gestionFraisToolStripMenuItem.Name = "gestionFraisToolStripMenuItem";
             this.gestionFraisToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.gestionFraisToolStripMenuItem.Text = "Gestion Frais";
-            this.gestionFraisToolStripMenuItem.Click += new System.EventHandler(this.gestionFraisToolStripMenuItem_Click);
             // 
             // frmContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 436);
+            this.ClientSize = new System.Drawing.Size(636, 382);
             this.Controls.Add(this.menuStrip1);
-            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmContainer";
             this.Text = "frmContainer";

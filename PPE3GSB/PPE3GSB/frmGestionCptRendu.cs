@@ -20,9 +20,7 @@ namespace PPE3GSB
 
         private void btnCptRendu_Click(object sender, EventArgs e)
         {
-            frmCptRendu frmcptRendu = new frmCptRendu();
-            frmcptRendu.MdiParent = this.MdiParent;
-            frmcptRendu.Show();
+
         }
     }
 }

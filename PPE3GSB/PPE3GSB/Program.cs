@@ -20,7 +20,7 @@ namespace PPE3GSB
             Application.SetCompatibleTextRenderingDefault(false);
             Modele.initConnex();
             Application.Run(new frmRapport());
-            Application.Run(new frmVisiteurLaboratoire());
+            Application.Run(new frmLaboratoireVisiteur());
         }
     }
 }
