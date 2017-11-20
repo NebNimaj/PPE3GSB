@@ -25,31 +25,6 @@ namespace PPE3GSB
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void frmVisiteur_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bsVisiteur_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             frmModification f1 = new frmModification();

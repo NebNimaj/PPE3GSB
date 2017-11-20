@@ -62,7 +62,6 @@
             this.lblNom.Size = new System.Drawing.Size(43, 16);
             this.lblNom.TabIndex = 0;
             this.lblNom.Text = "Nom :";
-            this.lblNom.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblPrenom
             // 
@@ -123,7 +122,6 @@
             this.lblTitre.Size = new System.Drawing.Size(196, 29);
             this.lblTitre.TabIndex = 8;
             this.lblTitre.Text = "Mes informations";
-            this.lblTitre.Click += new System.EventHandler(this.lbl1_Click);
             // 
             // txtNom
             // 
@@ -133,10 +131,6 @@
             this.txtNom.Size = new System.Drawing.Size(100, 20);
             this.txtNom.TabIndex = 9;
             // 
-            // bsVisiteur
-            // 
-            this.bsVisiteur.CurrentChanged += new System.EventHandler(this.bsVisiteur_CurrentChanged);
-            // 
             // txtPrenom
             // 
             this.txtPrenom.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVisiteur, "prenom", true));
@@ -144,7 +138,6 @@
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.Size = new System.Drawing.Size(100, 20);
             this.txtPrenom.TabIndex = 10;
-            this.txtPrenom.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txtRue
             // 
@@ -249,7 +242,6 @@
             this.Controls.Add(this.lblNom);
             this.Name = "frmVisiteur";
             this.Text = "Visiteur";
-            this.Load += new System.EventHandler(this.frmVisiteur_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsLaboratoire)).EndInit();
             this.ResumeLayout(false);
