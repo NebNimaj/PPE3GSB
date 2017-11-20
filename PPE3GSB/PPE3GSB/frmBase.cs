@@ -16,5 +16,10 @@ namespace PPE3GSB
         {
             InitializeComponent();
         }
+
+        private void frmBase_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -36,5 +36,10 @@ namespace PPE3GSB
             lblTitre.Text +=" " + Modele.VisiteurConnecte.nom + " " + Modele.VisiteurConnecte.prenom;
 
         }
+
+        private void frmContainer_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
