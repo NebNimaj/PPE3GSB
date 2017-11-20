@@ -86,7 +86,7 @@
     </Compile>
     <Compile Include="frmVisiteurRegion.Designer.cs">
       <DependentUpon>frmVisiteurRegion.cs</DependentUpon>
-
+    /Compile>
     <Compile Include="MEDECIN.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
