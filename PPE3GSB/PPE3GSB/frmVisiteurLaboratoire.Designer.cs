@@ -61,6 +61,7 @@
             this.cboLaboratoire.Name = "cboLaboratoire";
             this.cboLaboratoire.Size = new System.Drawing.Size(121, 21);
             this.cboLaboratoire.TabIndex = 1;
+            this.cboLaboratoire.SelectedIndexChanged += new System.EventHandler(this.cboLaboratoire_SelectedIndexChanged);
             // 
             // bsVisiteur
             // 
