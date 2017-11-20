@@ -243,3 +243,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+PPE3GSB/PPE3GSB/PPE3GSB.csproj
+PPE3GSB/PPE3GSB/PPE3GSB.csproj
+PPE3GSB/PPE3GSB/modFrais.cs
+/PPE3GSB/PPE3GSB/remboursementFrais.cs
+/PPE3GSB/PPE3GSB/remboursementFrais.Designer.cs

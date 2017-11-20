@@ -50,24 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAjoutVisiteur.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAjoutVisiteur.Designer.cs">
-      <DependentUpon>frmAjoutVisiteur.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBase.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmBase.Designer.cs">
       <DependentUpon>frmBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMenuGestion.cs">
+    <Compile Include="frmDetailsMedecin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMenuGestion.Designer.cs">
-      <DependentUpon>frmMenuGestion.cs</DependentUpon>
+    <Compile Include="frmDetailsMedecin.Designer.cs">
+      <DependentUpon>frmDetailsMedecin.cs</DependentUpon>
     </Compile>
+
     <Compile Include="frmModification.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,11 +70,14 @@
       <DependentUpon>frmModification.cs</DependentUpon>
     </Compile>
     <Compile Include="frmContainer.cs">
+
+    <Compile Include="frmModFrais.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmVisiteurLaboratoire.cs">
       <SubType>Form</SubType>
     </Compile>
+
     <Compile Include="frmVisiteurLaboratoire.Designer.cs">
       <DependentUpon>frmVisiteurLaboratoire.cs</DependentUpon>
     </Compile>
@@ -88,12 +86,27 @@
     </Compile>
     <Compile Include="frmVisiteurRegion.Designer.cs">
       <DependentUpon>frmVisiteurRegion.cs</DependentUpon>
+
+    <Compile Include="MEDECIN.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="frmRemboursementFrais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModFrais.Designer.cs">
+      <DependentUpon>frmModFrais.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="frmContainer.Designer.cs">
       <DependentUpon>frmContainer.cs</DependentUpon>
     </Compile>
+
+    <Compile Include="frmRemboursementFrais.Designer.cs">
+      <DependentUpon>frmRemboursementFrais.cs</DependentUpon>
+    </Compile>
+
     <Compile Include="frmRapport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,21 +119,16 @@
     <Compile Include="frmCptRendu.Designer.cs">
       <DependentUpon>frmCptRendu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVisiteur.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVisiteur.Designer.cs">
-      <DependentUpon>frmVisiteur.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="frmAjoutVisiteur.resx">
-      <DependentUpon>frmAjoutVisiteur.cs</DependentUpon>
+    <EmbeddedResource Include="frmDetailsMedecin.resx">
+      <DependentUpon>frmDetailsMedecin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMenuGestion.resx">
-      <DependentUpon>frmMenuGestion.cs</DependentUpon>
+    <EmbeddedResource Include="frmModFrais.resx">
+      <DependentUpon>frmModFrais.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmModification.resx">
-      <DependentUpon>frmModification.cs</DependentUpon>
+    <EmbeddedResource Include="frmRemboursementFrais.resx">
+      <DependentUpon>frmRemboursementFrais.cs</DependentUpon>
     </EmbeddedResource>
+
     <Compile Include="frmGestionCptRendu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,9 +172,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="frmVisiteur.resx">
-      <DependentUpon>frmVisiteur.cs</DependentUpon>
-    </EmbeddedResource>
     <EntityDeploy Include="mdlGSB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>mdlGSB.Designer.cs</LastGenOutput>
@@ -174,10 +179,10 @@
     <None Include="mdlGSB.edmx.diagram">
       <DependentUpon>mdlGSB.edmx</DependentUpon>
     </None>
-    <None Include="Properties\DataSources\Laboratoire.datasource" />
-    <None Include="Properties\DataSources\Region.datasource" />
-    <None Include="Properties\DataSources\Secteur.datasource" />
-    <None Include="Properties\DataSources\Visiteur.datasource" />
+    <None Include="Properties\DataSources\MEDECIN.datasource" />
+    <None Include="Properties\DataSources\MOTIF.datasource" />
+    <None Include="Properties\DataSources\OFFRIR.datasource" />
+    <None Include="Properties\DataSources\RAPPORT.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -193,6 +198,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bouton-modifier_318-77528.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
