@@ -87,7 +87,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "remboursementFrais";
             this.Text = "remboursementFrais";
-            this.Load += new System.EventHandler(this.remboursementFrais_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();

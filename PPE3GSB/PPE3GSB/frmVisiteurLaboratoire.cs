@@ -28,7 +28,7 @@ namespace PPE3GSB
             cboLaboratoire.DataSource = bsLaboratoire;
         }
 
-        private void cboNation_SelectedIndexChanged(object sender, EventArgs e)
+        private void cboLaboratoire_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (fermeture) return;
             var LQuery = Modele.MaConnexion.Visiteur.ToList()
