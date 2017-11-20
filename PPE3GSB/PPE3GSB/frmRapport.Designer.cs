@@ -78,7 +78,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(687, 388);
+            this.ClientSize = new System.Drawing.Size(879, 422);
             this.Controls.Add(this.txtMDP);
             this.Controls.Add(this.txtIdent);
             this.Controls.Add(this.btnOK);
