@@ -84,7 +84,6 @@
             this.Controls.Add(this.btnOK);
             this.Name = "frmRapport";
             this.Text = "Rapport_Visite";
-            this.Load += new System.EventHandler(this.frmRapport_Load);
             this.Controls.SetChildIndex(this.lblTitre, 0);
             this.Controls.SetChildIndex(this.btnOK, 0);
             this.Controls.SetChildIndex(this.txtIdent, 0);

@@ -257,7 +257,6 @@
             this.Controls.Add(this.butAccept);
             this.Name = "frmModFrais";
             this.Text = "modFrais";
-            this.Load += new System.EventHandler(this.modFrais_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
