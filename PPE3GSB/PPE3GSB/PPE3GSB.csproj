@@ -153,6 +153,7 @@
     <None Include="Properties\DataSources\LigneFraisForfait.datasource" />
     <None Include="Properties\DataSources\LigneFraisHorsForfait.datasource" />
     <None Include="Properties\DataSources\MEDECIN.datasource" />
+    <None Include="Properties\DataSources\MEDICAMENT.datasource" />
     <None Include="Properties\DataSources\MOTIF.datasource" />
     <None Include="Properties\DataSources\OFFRIR.datasource" />
     <None Include="Properties\DataSources\RAPPORT.datasource" />
