@@ -18,7 +18,6 @@ namespace PPE3GSB
         public frmRemboursementFrais()
         {
             InitializeComponent();
-            //maConnexion = new connectFrais();
         }
 
 
@@ -34,19 +33,26 @@ namespace PPE3GSB
             frm.Show();
         }
 
+        public void loadBS()
+        {
+            bsLigneFraisForfait.DataSource = Modele.MaConnexion.LigneFraisForfait.ToList();
+            dgvLigneFraisForfait.DataSource = bsLigneFraisForfait;
+            bsFraisHorsForfait.DataSource = Modele.MaConnexion.LigneFraisHorsForfait.ToList();
+            dgvFraisHorsForfait.DataSource = bsFraisHorsForfait;
+
+        }
+
         private void frmRemboursementFrais_Load(object sender, EventArgs e)
         {
-            bsFrais.DataSource = Modele.MaConnexion.LigneFraisForfait.ToList();
-            dgvligneFraisForfait.DataSource = bsFrais;
-
+            loadBS();
         }
 
         private void butSuppr_Click(object sender, EventArgs e)
         {
             try
             {
-                LigneFraisForfait monLigneFrais = (LigneFraisForfait)bsFrais.Current;
-                Modele.MaConnexion.LigneFraisForfait.DeleteObject(monLigneFrais);
+                LigneFraisHorsForfait monLigneFraisHorsForfait = (LigneFraisHorsForfait)bsFraisHorsForfait.Current;
+                Modele.MaConnexion.LigneFraisHorsForfait.DeleteObject(monLigneFraisHorsForfait);
                 Modele.MaConnexion.SaveChanges();
                 MessageBox.Show("Frais supprimé", "Action");
             }
@@ -54,7 +60,7 @@ namespace PPE3GSB
             {
                 try
                 {
-                    LigneFraisHorsForfait monLigneHorsFrais = (LigneFraisHorsForfait)bsFrais.Current;
+                    LigneFraisHorsForfait monLigneHorsFrais = (LigneFraisHorsForfait)bsLigneFraisForfait.Current;
                     Modele.MaConnexion.LigneFraisHorsForfait.DeleteObject(monLigneHorsFrais);
                     Modele.MaConnexion.SaveChanges();
                     MessageBox.Show("Frais supprimé", "Action");
@@ -64,6 +70,12 @@ namespace PPE3GSB
                     MessageBox.Show("Erreur lors de la suppréssion", "Action");
                 }
             }
+            loadBS();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            loadBS();
         }
     }
 }
