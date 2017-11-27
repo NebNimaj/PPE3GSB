@@ -33,13 +33,27 @@
             this.cboRegion = new System.Windows.Forms.ComboBox();
             this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
             this.dgvVisiteur = new System.Windows.Forms.DataGridView();
+            this.bsRegion = new System.Windows.Forms.BindingSource(this.components);
+            this.idVisiteur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bsRegion = new System.Windows.Forms.BindingSource(this.components);
+            this.lblTitre = new System.Windows.Forms.Label();
+            this.lblNom = new System.Windows.Forms.Label();
+            this.lblPrenom = new System.Windows.Forms.Label();
+            this.lblRue = new System.Windows.Forms.Label();
+            this.lblVille = new System.Windows.Forms.Label();
+            this.lblCp = new System.Windows.Forms.Label();
+            this.lblDateEmbauche = new System.Windows.Forms.Label();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.txtPrenom = new System.Windows.Forms.TextBox();
+            this.txtRue = new System.Windows.Forms.TextBox();
+            this.txtVille = new System.Windows.Forms.TextBox();
+            this.txtCp = new System.Windows.Forms.TextBox();
+            this.txtDateEmbauche = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisiteur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsRegion)).BeginInit();
@@ -72,17 +86,28 @@
             this.dgvVisiteur.AutoGenerateColumns = false;
             this.dgvVisiteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVisiteur.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idVisiteur,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn8});
             this.dgvVisiteur.DataSource = this.bsVisiteur;
             this.dgvVisiteur.Location = new System.Drawing.Point(74, 103);
             this.dgvVisiteur.Name = "dgvVisiteur";
-            this.dgvVisiteur.Size = new System.Drawing.Size(645, 220);
+            this.dgvVisiteur.Size = new System.Drawing.Size(750, 220);
             this.dgvVisiteur.TabIndex = 3;
+            // 
+            // bsRegion
+            // 
+            this.bsRegion.DataSource = typeof(PPE3GSB.Region);
+            // 
+            // idVisiteur
+            // 
+            this.idVisiteur.DataPropertyName = "idVisiteur";
+            this.idVisiteur.HeaderText = "idVisiteur";
+            this.idVisiteur.Name = "idVisiteur";
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -102,17 +127,17 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "rue";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "cp";
-            this.dataGridViewTextBoxColumn6.HeaderText = "cp";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "ville";
             this.dataGridViewTextBoxColumn7.HeaderText = "ville";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "cp";
+            this.dataGridViewTextBoxColumn6.HeaderText = "cp";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // dataGridViewTextBoxColumn8
             // 
@@ -120,15 +145,130 @@
             this.dataGridViewTextBoxColumn8.HeaderText = "dateEmbauche";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
-            // bsRegion
+            // lblTitre
             // 
-            this.bsRegion.DataSource = typeof(PPE3GSB.Region);
+            this.lblTitre.AutoSize = true;
+            this.lblTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitre.Location = new System.Drawing.Point(320, 360);
+            this.lblTitre.Name = "lblTitre";
+            this.lblTitre.Size = new System.Drawing.Size(181, 20);
+            this.lblTitre.TabIndex = 5;
+            this.lblTitre.Text = "Responsable de region :";
+            // 
+            // lblNom
+            // 
+            this.lblNom.AutoSize = true;
+            this.lblNom.Location = new System.Drawing.Point(71, 410);
+            this.lblNom.Name = "lblNom";
+            this.lblNom.Size = new System.Drawing.Size(35, 13);
+            this.lblNom.TabIndex = 6;
+            this.lblNom.Text = "Nom :";
+            // 
+            // lblPrenom
+            // 
+            this.lblPrenom.AutoSize = true;
+            this.lblPrenom.Location = new System.Drawing.Point(71, 446);
+            this.lblPrenom.Name = "lblPrenom";
+            this.lblPrenom.Size = new System.Drawing.Size(49, 13);
+            this.lblPrenom.TabIndex = 7;
+            this.lblPrenom.Text = "Prénom :";
+            // 
+            // lblRue
+            // 
+            this.lblRue.AutoSize = true;
+            this.lblRue.Location = new System.Drawing.Point(71, 486);
+            this.lblRue.Name = "lblRue";
+            this.lblRue.Size = new System.Drawing.Size(33, 13);
+            this.lblRue.TabIndex = 8;
+            this.lblRue.Text = "Rue :";
+            // 
+            // lblVille
+            // 
+            this.lblVille.AutoSize = true;
+            this.lblVille.Location = new System.Drawing.Point(71, 523);
+            this.lblVille.Name = "lblVille";
+            this.lblVille.Size = new System.Drawing.Size(32, 13);
+            this.lblVille.TabIndex = 10;
+            this.lblVille.Text = "Ville :";
+            // 
+            // lblCp
+            // 
+            this.lblCp.AutoSize = true;
+            this.lblCp.Location = new System.Drawing.Point(71, 567);
+            this.lblCp.Name = "lblCp";
+            this.lblCp.Size = new System.Drawing.Size(30, 13);
+            this.lblCp.TabIndex = 11;
+            this.lblCp.Text = " CP :";
+            // 
+            // lblDateEmbauche
+            // 
+            this.lblDateEmbauche.AutoSize = true;
+            this.lblDateEmbauche.Location = new System.Drawing.Point(71, 610);
+            this.lblDateEmbauche.Name = "lblDateEmbauche";
+            this.lblDateEmbauche.Size = new System.Drawing.Size(97, 13);
+            this.lblDateEmbauche.TabIndex = 12;
+            this.lblDateEmbauche.Text = "Date d\'embauche :";
+            // 
+            // txtNom
+            // 
+            this.txtNom.Location = new System.Drawing.Point(190, 407);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(100, 20);
+            this.txtNom.TabIndex = 13;
+            // 
+            // txtPrenom
+            // 
+            this.txtPrenom.Location = new System.Drawing.Point(190, 443);
+            this.txtPrenom.Name = "txtPrenom";
+            this.txtPrenom.Size = new System.Drawing.Size(100, 20);
+            this.txtPrenom.TabIndex = 14;
+            // 
+            // txtRue
+            // 
+            this.txtRue.Location = new System.Drawing.Point(190, 483);
+            this.txtRue.Name = "txtRue";
+            this.txtRue.Size = new System.Drawing.Size(100, 20);
+            this.txtRue.TabIndex = 15;
+            // 
+            // txtVille
+            // 
+            this.txtVille.Location = new System.Drawing.Point(190, 520);
+            this.txtVille.Name = "txtVille";
+            this.txtVille.Size = new System.Drawing.Size(100, 20);
+            this.txtVille.TabIndex = 16;
+            // 
+            // txtCp
+            // 
+            this.txtCp.Location = new System.Drawing.Point(190, 564);
+            this.txtCp.Name = "txtCp";
+            this.txtCp.Size = new System.Drawing.Size(100, 20);
+            this.txtCp.TabIndex = 17;
+            // 
+            // txtDateEmbauche
+            // 
+            this.txtDateEmbauche.Location = new System.Drawing.Point(190, 607);
+            this.txtDateEmbauche.Name = "txtDateEmbauche";
+            this.txtDateEmbauche.Size = new System.Drawing.Size(100, 20);
+            this.txtDateEmbauche.TabIndex = 18;
             // 
             // frmRegionVisiteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 372);
+            this.ClientSize = new System.Drawing.Size(836, 656);
+            this.Controls.Add(this.txtDateEmbauche);
+            this.Controls.Add(this.txtCp);
+            this.Controls.Add(this.txtVille);
+            this.Controls.Add(this.txtRue);
+            this.Controls.Add(this.txtPrenom);
+            this.Controls.Add(this.txtNom);
+            this.Controls.Add(this.lblDateEmbauche);
+            this.Controls.Add(this.lblCp);
+            this.Controls.Add(this.lblVille);
+            this.Controls.Add(this.lblRue);
+            this.Controls.Add(this.lblPrenom);
+            this.Controls.Add(this.lblNom);
+            this.Controls.Add(this.lblTitre);
             this.Controls.Add(this.dgvVisiteur);
             this.Controls.Add(this.cboRegion);
             this.Controls.Add(this.label1);
@@ -149,12 +289,26 @@
         private System.Windows.Forms.ComboBox cboRegion;
         private System.Windows.Forms.BindingSource bsVisiteur;
         private System.Windows.Forms.DataGridView dgvVisiteur;
+        private System.Windows.Forms.BindingSource bsRegion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idVisiteur;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.BindingSource bsRegion;
+        private System.Windows.Forms.Label lblTitre;
+        private System.Windows.Forms.Label lblNom;
+        private System.Windows.Forms.Label lblPrenom;
+        private System.Windows.Forms.Label lblRue;
+        private System.Windows.Forms.Label lblVille;
+        private System.Windows.Forms.Label lblCp;
+        private System.Windows.Forms.Label lblDateEmbauche;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.TextBox txtPrenom;
+        private System.Windows.Forms.TextBox txtRue;
+        private System.Windows.Forms.TextBox txtVille;
+        private System.Windows.Forms.TextBox txtCp;
+        private System.Windows.Forms.TextBox txtDateEmbauche;
     }
 }

@@ -34,6 +34,7 @@
             this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
             this.dgvVisiteur = new System.Windows.Forms.DataGridView();
             this.bsLaboratoire = new System.Windows.Forms.BindingSource(this.components);
+            this.idVisiteur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,6 +73,7 @@
             this.dgvVisiteur.AutoGenerateColumns = false;
             this.dgvVisiteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVisiteur.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idVisiteur,
             this.nom,
             this.prenom,
             this.rue,
@@ -81,12 +83,18 @@
             this.dgvVisiteur.DataSource = this.bsVisiteur;
             this.dgvVisiteur.Location = new System.Drawing.Point(25, 102);
             this.dgvVisiteur.Name = "dgvVisiteur";
-            this.dgvVisiteur.Size = new System.Drawing.Size(645, 220);
+            this.dgvVisiteur.Size = new System.Drawing.Size(745, 220);
             this.dgvVisiteur.TabIndex = 3;
             // 
             // bsLaboratoire
             // 
             this.bsLaboratoire.DataSource = typeof(PPE3GSB.Laboratoire);
+            // 
+            // idVisiteur
+            // 
+            this.idVisiteur.DataPropertyName = "idVisiteur";
+            this.idVisiteur.HeaderText = "idVisiteur";
+            this.idVisiteur.Name = "idVisiteur";
             // 
             // nom
             // 
@@ -128,7 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 424);
+            this.ClientSize = new System.Drawing.Size(795, 367);
             this.Controls.Add(this.dgvVisiteur);
             this.Controls.Add(this.cboLaboratoire);
             this.Controls.Add(this.lblLaboratoire);
@@ -150,6 +158,7 @@
         private System.Windows.Forms.BindingSource bsVisiteur;
         private System.Windows.Forms.DataGridView dgvVisiteur;
         private System.Windows.Forms.BindingSource bsLaboratoire;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idVisiteur;
         private System.Windows.Forms.DataGridViewTextBoxColumn nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn prenom;
         private System.Windows.Forms.DataGridViewTextBoxColumn rue;

@@ -38,12 +38,14 @@ namespace PPE3GSB
 
             bsVisiteur.DataSource = LQuery;
             dgvVisiteur.DataSource = bsVisiteur;
-            dgvVisiteur.Columns[0].HeaderText = "Nom";
-            dgvVisiteur.Columns[1].HeaderText = "Prenom";
-            dgvVisiteur.Columns[2].HeaderText = "Rue";
-            dgvVisiteur.Columns[3].HeaderText = "Ville";
-            dgvVisiteur.Columns[4].HeaderText = "CP";
-            dgvVisiteur.Columns[5].HeaderText = "Date d'embauche";
+            dgvVisiteur.Columns[0].HeaderText = "Id";
+            dgvVisiteur.Columns[0].Visible = false;
+            dgvVisiteur.Columns[1].HeaderText = "Nom";
+            dgvVisiteur.Columns[2].HeaderText = "Prenom";
+            dgvVisiteur.Columns[3].HeaderText = "Rue";
+            dgvVisiteur.Columns[4].HeaderText = "Ville";
+            dgvVisiteur.Columns[5].HeaderText = "CP";
+            dgvVisiteur.Columns[6].HeaderText = "Date d'embauche";
 
 
         }

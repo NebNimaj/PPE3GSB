@@ -28,27 +28,19 @@ namespace PPE3GSB
         private void cboRegion_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            var innerJoinQuery =
-            from R in Region
-            join T in Travailler on R.idRegion equals V.idVisiteur
-            select new { V.nom, V.prenom, V.rue, V.ville, V.cp, V.dateEmbauche };
+            var LQuery = Modele.MaConnexion.Region.ToList().Where(x => x.idRegion == int.Parse(cboRegion.SelectedValue.ToString()));
+            Region maregion = (Region)LQuery.First();
+            bsVisiteur.DataSource = maregion.Visiteur1;
 
-
-
-            /*var LQuery = Modele.MaConnexion.Visiteur.ToList()
-                           .Where(x => x.idLabo == int.Parse(cboRegion.SelectedValue.ToString()))
-                           .Select(x => new { x.nom, x.prenom, x.rue, x.ville, x.cp, x.dateEmbauche })
-                           .OrderBy(x => x.nom);*/
-
-
-            bsVisiteur.DataSource = innerJoinQuery;
-            dgvVisiteur.DataSource = bsVisiteur;
-            dgvVisiteur.Columns[0].HeaderText = "Nom";
-            dgvVisiteur.Columns[1].HeaderText = "Prenom";
-            dgvVisiteur.Columns[2].HeaderText = "Rue";
-            dgvVisiteur.Columns[3].HeaderText = "Ville";
-            dgvVisiteur.Columns[4].HeaderText = "CP";
-            dgvVisiteur.Columns[5].HeaderText = "Date d'embauche";
+            dgvVisiteur.Columns[0].HeaderText = "Id";
+            dgvVisiteur.Columns[0].Visible = false;
+            dgvVisiteur.Columns[1].HeaderText = "Nom";
+            dgvVisiteur.Columns[2].HeaderText = "Prenom";
+            dgvVisiteur.Columns[3].HeaderText = "Rue";
+            dgvVisiteur.Columns[4].HeaderText = "Ville";
+            dgvVisiteur.Columns[5].HeaderText = "CP";
+            dgvVisiteur.Columns[6].HeaderText = "Date d'embauche";
+            
 
 
         }
