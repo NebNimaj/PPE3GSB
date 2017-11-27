@@ -149,6 +149,7 @@
       <DependentUpon>mdlGSB.edmx</DependentUpon>
     </None>
     <None Include="Properties\DataSources\MEDECIN.datasource" />
+    <None Include="Properties\DataSources\MEDICAMENT.datasource" />
     <None Include="Properties\DataSources\MOTIF.datasource" />
     <None Include="Properties\DataSources\OFFRIR.datasource" />
     <None Include="Properties\DataSources\RAPPORT.datasource" />

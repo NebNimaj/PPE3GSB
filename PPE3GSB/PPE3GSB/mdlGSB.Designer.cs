@@ -36,6 +36,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("mdlGSB", "FK_VISITEUR", "Visiteur", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.Visiteur), "Region", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Region), true)]
 [assembly: EdmRelationshipAttribute("mdlGSB", "FK_VISITEURSECTEUR", "Visiteur", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(PPE3GSB.Visiteur), "Secteur", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Secteur), true)]
 [assembly: EdmRelationshipAttribute("mdlGSB", "Travailler", "Region", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Region), "Visiteur", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.Visiteur))]
+[assembly: EdmRelationshipAttribute("mdlGSB", "PRESENTATION", "MEDICAMENT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.MEDICAMENT), "RAPPORT", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(PPE3GSB.RAPPORT))]
 
 #endregion
 
@@ -2219,6 +2220,28 @@ namespace PPE3GSB
                 }
             }
         }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "PRESENTATION", "RAPPORT")]
+        public EntityCollection<RAPPORT> RAPPORT
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RAPPORT>("mdlGSB.PRESENTATION", "RAPPORT");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RAPPORT>("mdlGSB.PRESENTATION", "RAPPORT", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -2694,6 +2717,102 @@ namespace PPE3GSB
         private global::System.Int32 _idMedecin;
         partial void OnidMedecinChanging(global::System.Int32 value);
         partial void OnidMedecinChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> coefficient
+        {
+            get
+            {
+                return _coefficient;
+            }
+            set
+            {
+                OncoefficientChanging(value);
+                ReportPropertyChanging("coefficient");
+                _coefficient = StructuralObject.SetValidValue(value, "coefficient");
+                ReportPropertyChanged("coefficient");
+                OncoefficientChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _coefficient;
+        partial void OncoefficientChanging(Nullable<global::System.Int32> value);
+        partial void OncoefficientChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String nom
+        {
+            get
+            {
+                return _nom;
+            }
+            set
+            {
+                OnnomChanging(value);
+                ReportPropertyChanging("nom");
+                _nom = StructuralObject.SetValidValue(value, true, "nom");
+                ReportPropertyChanged("nom");
+                OnnomChanged();
+            }
+        }
+        private global::System.String _nom;
+        partial void OnnomChanging(global::System.String value);
+        partial void OnnomChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String prenom
+        {
+            get
+            {
+                return _prenom;
+            }
+            set
+            {
+                OnprenomChanging(value);
+                ReportPropertyChanging("prenom");
+                _prenom = StructuralObject.SetValidValue(value, true, "prenom");
+                ReportPropertyChanged("prenom");
+                OnprenomChanged();
+            }
+        }
+        private global::System.String _prenom;
+        partial void OnprenomChanging(global::System.String value);
+        partial void OnprenomChanged();
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> remplace
+        {
+            get
+            {
+                return _remplace;
+            }
+            set
+            {
+                OnremplaceChanging(value);
+                ReportPropertyChanging("remplace");
+                _remplace = StructuralObject.SetValidValue(value, "remplace");
+                ReportPropertyChanged("remplace");
+                OnremplaceChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _remplace;
+        partial void OnremplaceChanging(Nullable<global::System.Int32> value);
+        partial void OnremplaceChanged();
 
         #endregion
 
@@ -2831,6 +2950,28 @@ namespace PPE3GSB
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<OFFRIR>("mdlGSB.offrir_fk1", "OFFRIR", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// Aucune documentation sur les métadonnées n'est disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("mdlGSB", "PRESENTATION", "MEDICAMENT")]
+        public EntityCollection<MEDICAMENT> MEDICAMENT
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MEDICAMENT>("mdlGSB.PRESENTATION", "MEDICAMENT");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MEDICAMENT>("mdlGSB.PRESENTATION", "MEDICAMENT", value);
                 }
             }
         }
