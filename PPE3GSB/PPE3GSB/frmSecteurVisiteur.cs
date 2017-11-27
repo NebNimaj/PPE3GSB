@@ -10,21 +10,19 @@ using System.Windows.Forms;
 
 namespace PPE3GSB
 {
-    public partial class frmRegionVisiteur : Form
+    public partial class frmSecteurVisiteur : Form
     {
-        public frmRegionVisiteur()
+        public frmSecteurVisiteur()
         {
             InitializeComponent();
-               
-
         }
 
         private void frmRegionVisiteur_Load(object sender, EventArgs e)
         {
-            cboRegion.ValueMember = "idRegion";//permet de stocker l'identifiant
-            cboRegion.DisplayMember = "libRegion";
-            bsRegion.DataSource = Modele.MaConnexion.Region.ToList();
-            cboRegion.DataSource = bsRegion;
+            cboRegion.ValueMember = "idSecteur";//permet de stocker l'identifiant
+            cboRegion.DisplayMember = "libSecteur";
+            bsSecteur.DataSource = Modele.MaConnexion.Secteur.ToList();
+            cboRegion.DataSource = bsSecteur;
         }
 
         private void cboRegion_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,11 +53,9 @@ namespace PPE3GSB
             Region maregion1 = (Region)bsRegion.Current;
             txtNom.Text = maregion.Visiteur.nom;
             txtPrenom.Text = maregion.Visiteur.prenom;
-            txtRue.Text = maregion.Visiteur.rue;
-            txtVille.Text = maregion.Visiteur.ville;
+            txtRue.Text = maregion.Visiteur.ville;
             txtCodePostal.Text = maregion.Visiteur.cp;
             txtDateEmbauche.Text = maregion.Visiteur.dateEmbauche;
-
         }
     }
 }
