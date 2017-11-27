@@ -123,7 +123,7 @@ namespace PPE3GSB
         {
             try
             {
-                if (((string)cboTypeFrais.SelectedItem == "Forfaitisés") && (int.Parse(txtTotal.Text) > 0) && ((string)cboTypeForfait.SelectedItem == "Forfait Etape" || (string)cboTypeForfait.SelectedItem == "Frais Kilométrique" || (string)cboTypeForfait.SelectedItem == "Nuitée Hôtel" || (string)cboTypeForfait.SelectedItem == "Repas Restaurant") || (((string)cboTypeFrais.SelectedItem == "Hors forfait") && (int.Parse(txtMontant.Text) > 0) && (txtLibellé.Text != null))) //Vérifie si il y a des valeurs inscrite dans les TextBox et que c'est possible de d'insérer (Pas de valeur total nul)
+                if (((string)cboTypeFrais.SelectedItem == "Forfaitisés") && (int.Parse(txtTotal.Text) > 0) && ((string)cboTypeForfait.SelectedItem == "Forfait Etape" || (string)cboTypeForfait.SelectedItem == "Frais Kilométrique" || (string)cboTypeForfait.SelectedItem == "Nuitée Hôtel" || (string)cboTypeForfait.SelectedItem == "Repas Restaurant") || (((string)cboTypeFrais.SelectedItem == "Hors forfait") && (decimal.Parse(txtMontant.Text) > 0) && (txtLibellé.Text != null))) //Vérifie si il y a des valeurs inscrite dans les TextBox et que c'est possible de d'insérer (Pas de valeur total nul)
                 {
                     if (MessageBox.Show("Rajouter les frais inscrits ?", "   ",
                         MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -148,6 +148,7 @@ namespace PPE3GSB
 
                         } else if ((string)cboTypeFrais.SelectedItem == "Hors forfait") 
                         {
+                           string mt= string.Format("{0:F2}", txtMontant.Text);
                             LigneFraisHorsForfait monFraisHF = new LigneFraisHorsForfait();
                             monFraisHF.montant = decimal.Parse(txtMontant.Text);
                             monFraisHF.id = 1000;
