@@ -148,6 +148,10 @@
     <None Include="mdlGSB.edmx.diagram">
       <DependentUpon>mdlGSB.edmx</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\fichefrais.datasource" />
+    <None Include="Properties\DataSources\FraisForfait.datasource" />
+    <None Include="Properties\DataSources\LigneFraisForfait.datasource" />
+    <None Include="Properties\DataSources\LigneFraisHorsForfait.datasource" />
     <None Include="Properties\DataSources\MEDECIN.datasource" />
     <None Include="Properties\DataSources\MEDICAMENT.datasource" />
     <None Include="Properties\DataSources\MOTIF.datasource" />
