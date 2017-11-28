@@ -125,8 +125,11 @@
           <Property Name="bilan" Type="varchar" MaxLength="64" />
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="idMedecin" Type="int" Nullable="false" />
-          <Property Name="idRemplacant" Type="int" />
+
+          <Property Name="remplace" Type="int" />
           <Property Name="coefficient" Type="int" />
+          <Property Name="nom" Type="varchar" MaxLength="50" />
+          <Property Name="prenom" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
@@ -294,18 +297,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_REMPLACANT_RAPPORT">
-          <End Role="REMPLACANT" Type="Self.REMPLACANT" Multiplicity="0..1" />
-          <End Role="RAPPORT" Type="Self.RAPPORT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="REMPLACANT">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="RAPPORT">
-              <PropertyRef Name="idRemplacant" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_SECTEUR">
           <End Role="Secteur" Type="Self.Secteur" Multiplicity="1" />
           <End Role="Region" Type="Self.Region" Multiplicity="*" />
@@ -443,10 +434,6 @@
             <End Role="RAPPORT" EntitySet="RAPPORT" />
             <End Role="PRESENTATION" EntitySet="PRESENTATION" />
           </AssociationSet>
-          <AssociationSet Name="FK_REMPLACANT_RAPPORT" Association="Self.FK_REMPLACANT_RAPPORT">
-            <End Role="REMPLACANT" EntitySet="REMPLACANT" />
-            <End Role="RAPPORT" EntitySet="RAPPORT" />
-          </AssociationSet>
           <AssociationSet Name="FK_SECTEUR" Association="Self.FK_SECTEUR">
             <End Role="Secteur" EntitySet="Secteur" />
             <End Role="Region" EntitySet="Region" />
@@ -522,10 +509,11 @@
           <NavigationProperty Name="Visiteur" Relationship="Self.rapport_fk1" FromRole="RAPPORT" ToRole="Visiteur" />
           <NavigationProperty Name="MOTIF" Relationship="mdlGSB.rapport_fk3" FromRole="RAPPORT" ToRole="MOTIF" />
           <NavigationProperty Name="OFFRIR" Relationship="mdlGSB.offrir_fk1" FromRole="RAPPORT" ToRole="OFFRIR" />
-          <Property Name="idRemplacant" Type="Int32" />
           <Property Name="coefficient" Type="Int32" />
-          <NavigationProperty Name="REMPLACANT" Relationship="mdlGSB.FK_REMPLACANT_RAPPORT" FromRole="RAPPORT" ToRole="REMPLACANT" />
           <NavigationProperty Name="MEDICAMENT" Relationship="mdlGSB.PRESENTATION" FromRole="RAPPORT" ToRole="MEDICAMENT" />
+          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="remplace" Type="Int32" />
         </EntityType>
         <EntityType Name="Visiteur">
           <Key>
@@ -657,11 +645,6 @@
           <AssociationSet Name="Travailler" Association="mdlGSB.Travailler">
             <End Role="Region" EntitySet="Region" />
             <End Role="Visiteur" EntitySet="Visiteur" />
-          </AssociationSet>
-          <EntitySet Name="REMPLACANT" EntityType="mdlGSB.REMPLACANT" />
-          <AssociationSet Name="FK_REMPLACANT_RAPPORT" Association="mdlGSB.FK_REMPLACANT_RAPPORT">
-            <End Role="REMPLACANT" EntitySet="REMPLACANT" />
-            <End Role="RAPPORT" EntitySet="RAPPORT" />
           </AssociationSet>
           <AssociationSet Name="PRESENTATION" Association="mdlGSB.PRESENTATION">
             <End Role="MEDICAMENT" EntitySet="MEDICAMENT" />
@@ -977,28 +960,6 @@
           <End Type="mdlGSB.Region" Role="Region" Multiplicity="*" />
           <End Type="mdlGSB.Visiteur" Role="Visiteur" Multiplicity="*" />
         </Association>
-        <EntityType Name="REMPLACANT">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="coefficient" Type="Int32" />
-          <NavigationProperty Name="RAPPORT" Relationship="mdlGSB.FK_REMPLACANT_RAPPORT" FromRole="REMPLACANT" ToRole="RAPPORT" />
-        </EntityType>
-        <Association Name="FK_REMPLACANT_RAPPORT">
-          <End Type="mdlGSB.REMPLACANT" Role="REMPLACANT" Multiplicity="0..1" />
-          <End Type="mdlGSB.RAPPORT" Role="RAPPORT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="REMPLACANT">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="RAPPORT">
-              <PropertyRef Name="idRemplacant" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="PRESENTATION">
           <End Type="mdlGSB.MEDICAMENT" Role="MEDICAMENT" Multiplicity="*" />
           <End Type="mdlGSB.RAPPORT" Role="RAPPORT" Multiplicity="*" />
@@ -1037,8 +998,10 @@
           <EntitySetMapping Name="RAPPORT">
             <EntityTypeMapping TypeName="mdlGSB.RAPPORT">
               <MappingFragment StoreEntitySet="RAPPORT">
+                <ScalarProperty Name="remplace" ColumnName="remplace" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
                 <ScalarProperty Name="coefficient" ColumnName="coefficient" />
-                <ScalarProperty Name="idRemplacant" ColumnName="idRemplacant" />
                 <ScalarProperty Name="idRapport" ColumnName="idRapport" />
                 <ScalarProperty Name="dateRapport" ColumnName="dateRapport" />
                 <ScalarProperty Name="idMotif" ColumnName="idMotif" />
@@ -1194,16 +1157,6 @@
               <ScalarProperty Name="idRegion" ColumnName="idRegion" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="REMPLACANT">
-            <EntityTypeMapping TypeName="mdlGSB.REMPLACANT">
-              <MappingFragment StoreEntitySet="REMPLACANT">
-                <ScalarProperty Name="coefficient" ColumnName="coefficient" />
-                <ScalarProperty Name="prenom" ColumnName="prenom" />
-                <ScalarProperty Name="nom" ColumnName="nom" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <AssociationSetMapping Name="PRESENTATION" TypeName="mdlGSB.PRESENTATION" StoreEntitySet="PRESENTATION">
             <EndProperty Name="RAPPORT">
               <ScalarProperty Name="idRapport" ColumnName="idRapport" />

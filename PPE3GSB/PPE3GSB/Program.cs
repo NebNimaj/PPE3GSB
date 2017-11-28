@@ -21,6 +21,7 @@ namespace PPE3GSB
             Modele.initConnex();
             Application.Run(new frmRapport());
             Application.Run(new frmRegionVisiteur());
+
         }
     }
 }

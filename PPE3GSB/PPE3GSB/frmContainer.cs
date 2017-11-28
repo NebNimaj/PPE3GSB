@@ -23,10 +23,5 @@ namespace PPE3GSB
             frapport.MdiParent = this;
             frapport.Show();
         }
-
-        private void frmContainer_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

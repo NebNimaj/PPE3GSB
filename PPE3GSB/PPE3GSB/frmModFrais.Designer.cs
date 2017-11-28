@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.butAccept = new System.Windows.Forms.Button();
             this.butAnnuler = new System.Windows.Forms.Button();
             this.txtQuantité = new System.Windows.Forms.TextBox();
@@ -46,6 +47,10 @@
             this.lblFrais = new System.Windows.Forms.Label();
             this.cboTypeFrais = new System.Windows.Forms.ComboBox();
             this.dateTimeP = new System.Windows.Forms.DateTimePicker();
+            this.bsTypeFrais = new System.Windows.Forms.BindingSource(this.components);
+            this.nudMontant = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.bsTypeFrais)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMontant)).BeginInit();
             this.SuspendLayout();
             // 
             // butAccept
@@ -81,6 +86,7 @@
             // 
             // txtMontantUnitaire
             // 
+            this.txtMontantUnitaire.Enabled = false;
             this.txtMontantUnitaire.Location = new System.Drawing.Point(134, 100);
             this.txtMontantUnitaire.Name = "txtMontantUnitaire";
             this.txtMontantUnitaire.Size = new System.Drawing.Size(100, 20);
@@ -94,15 +100,16 @@
             // 
             this.cboTypeForfait.FormattingEnabled = true;
             this.cboTypeForfait.Items.AddRange(new object[] {
-            "Forfait étape",
-            "Frais kilométrique",
-            "Nuitée hôtel",
-            "Repas restaurant"});
+            "Frais Kilométrique",
+            "Forfait Etape",
+            "Nuitée Hôtel",
+            "Repas Restaurant"});
             this.cboTypeForfait.Location = new System.Drawing.Point(134, 47);
             this.cboTypeForfait.Name = "cboTypeForfait";
             this.cboTypeForfait.Size = new System.Drawing.Size(199, 21);
             this.cboTypeForfait.TabIndex = 4;
             this.cboTypeForfait.Visible = false;
+            this.cboTypeForfait.SelectedIndexChanged += new System.EventHandler(this.cboTypeForfait_SelectedIndexChanged);
             // 
             // lblMontant
             // 
@@ -232,11 +239,24 @@
             this.dateTimeP.Value = new System.DateTime(2017, 10, 9, 15, 59, 11, 0);
             this.dateTimeP.Visible = false;
             // 
+            // bsTypeFrais
+            // 
+            this.bsTypeFrais.DataSource = typeof(PPE3GSB.FraisForfait);
+            // 
+            // nudMontant
+            // 
+            this.nudMontant.DecimalPlaces = 2;
+            this.nudMontant.Location = new System.Drawing.Point(238, 266);
+            this.nudMontant.Name = "nudMontant";
+            this.nudMontant.Size = new System.Drawing.Size(120, 20);
+            this.nudMontant.TabIndex = 20;
+            // 
             // frmModFrais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 410);
+            this.Controls.Add(this.nudMontant);
             this.Controls.Add(this.dateTimeP);
             this.Controls.Add(this.cboTypeFrais);
             this.Controls.Add(this.lblFrais);
@@ -257,7 +277,8 @@
             this.Controls.Add(this.butAccept);
             this.Name = "frmModFrais";
             this.Text = "modFrais";
-            this.Load += new System.EventHandler(this.modFrais_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bsTypeFrais)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMontant)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,5 +304,7 @@
         private System.Windows.Forms.Label lblFrais;
         private System.Windows.Forms.ComboBox cboTypeFrais;
         private System.Windows.Forms.DateTimePicker dateTimeP;
+        private System.Windows.Forms.BindingSource bsTypeFrais;
+        private System.Windows.Forms.NumericUpDown nudMontant;
     }
 }

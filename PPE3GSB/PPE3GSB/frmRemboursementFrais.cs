@@ -18,8 +18,6 @@ namespace PPE3GSB
         public frmRemboursementFrais()
         {
             InitializeComponent();
-           // maConnexion = new connectFrais();
-            //bsFrais.DataSource = maConnexion.FICHEFRAIS.ToList();
         }
 
 
@@ -35,26 +33,49 @@ namespace PPE3GSB
             frm.Show();
         }
 
-        private void frmRemboursementFrais_Load(object sender, EventArgs e)
+        public void loadBS()
         {
-            // TODO: cette ligne de code charge les données dans la table 'sIO2_GSB1_BJJDDataSet.fichefrais'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
-            //this.fichefraisTableAdapter.Fill(this.sIO2_GSB1_BJJDDataSet.fichefrais);
-            // TODO: cette ligne de code charge les données dans la table 'sIO2_GSB1_BJJDDataSet.LigneFraisForfait'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
-            //this.ligneFraisForfaitTableAdapter.Fill(this.sIO2_GSB1_BJJDDataSet.LigneFraisForfait);
-            // TODO: cette ligne de code charge les données dans la table 'sIO2_GSB1_BJJDDataSet.LigneFraisForfait'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
-            //this.ligneFraisForfaitTableAdapter.Fill(this.sIO2_GSB1_BJJDDataSet.LigneFraisForfait);
-            // TODO: cette ligne de code charge les données dans la table 'sIO2_GSB1_BJJDDataSet.FraisForfait'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
-            //this.fraisForfaitTableAdapter.Fill(this.sIO2_GSB1_BJJDDataSet.FraisForfait);
-            // TODO: cette ligne de code charge les données dans la table 'sIO2_GSB1_BJJDDataSet.LigneFraisHorsForfait'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
-            //this.ligneFraisHorsForfaitTableAdapter.Fill(this.sIO2_GSB1_BJJDDataSet.LigneFraisHorsForfait);
-            // TODO: cette ligne de code charge les données dans la table 'sIO2_GSB1_BJJDDataSet.LigneFraisHorsForfait'. Vous pouvez la déplacer ou la supprimer selon vos besoins.
-            //this.ligneFraisHorsForfaitTableAdapter.Fill(this.sIO2_GSB1_BJJDDataSet.LigneFraisHorsForfait);
+            bsLigneFraisForfait.DataSource = Modele.MaConnexion.LigneFraisForfait.ToList();
+            dgvLigneFraisForfait.DataSource = bsLigneFraisForfait;
+            bsFraisHorsForfait.DataSource = Modele.MaConnexion.LigneFraisHorsForfait.ToList();
+            dgvFraisHorsForfait.DataSource = bsFraisHorsForfait;
 
         }
 
-        private void ligneFraisForfaitDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void frmRemboursementFrais_Load(object sender, EventArgs e)
         {
+            loadBS();
+        }
 
+        private void butSuppr_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LigneFraisHorsForfait monLigneFraisHorsForfait = (LigneFraisHorsForfait)bsFraisHorsForfait.Current;
+                Modele.MaConnexion.LigneFraisHorsForfait.DeleteObject(monLigneFraisHorsForfait);
+                Modele.MaConnexion.SaveChanges();
+                MessageBox.Show("Frais supprimé", "Action");
+            }
+            catch
+            {
+                try
+                {
+                    LigneFraisHorsForfait monLigneHorsFrais = (LigneFraisHorsForfait)bsLigneFraisForfait.Current;
+                    Modele.MaConnexion.LigneFraisHorsForfait.DeleteObject(monLigneHorsFrais);
+                    Modele.MaConnexion.SaveChanges();
+                    MessageBox.Show("Frais supprimé", "Action");
+                }
+                catch
+                {
+                    MessageBox.Show("Erreur lors de la suppréssion", "Action");
+                }
+            }
+            loadBS();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            loadBS();
         }
     }
 }
