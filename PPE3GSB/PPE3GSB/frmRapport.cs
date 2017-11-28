@@ -12,7 +12,7 @@ using System.Security.Cryptography;
 
 namespace PPE3GSB
 {
-    public partial class frmRapport : frmBase
+    public partial class frmRapport :frmBase
     {
         public frmRapport() :base()
         {
@@ -41,7 +41,6 @@ namespace PPE3GSB
                 if (pswdc.Equals(passwdCrypte) || monVisiteur.password.Equals(passwdCrypte))
                 {
                     Modele.VisiteurConnecte = monVisiteur;
-                    MessageBox.Show("ok");
                     return true;
                 }
                 else

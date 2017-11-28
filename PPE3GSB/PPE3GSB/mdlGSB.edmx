@@ -125,7 +125,6 @@
           <Property Name="bilan" Type="varchar" MaxLength="64" />
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="idMedecin" Type="int" Nullable="false" />
-
           <Property Name="remplace" Type="int" />
           <Property Name="coefficient" Type="int" />
           <Property Name="nom" Type="varchar" MaxLength="50" />
@@ -139,15 +138,6 @@
           <Property Name="libRegion" Type="varchar" MaxLength="64" />
           <Property Name="idVisiteur" Type="char" MaxLength="3" Nullable="false" />
           <Property Name="idSecteur" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="REMPLACANT">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nom" Type="varchar" MaxLength="50" />
-          <Property Name="prenom" Type="varchar" MaxLength="50" />
-          <Property Name="coefficient" Type="int" />
         </EntityType>
         <EntityType Name="Secteur">
           <Key>
@@ -396,7 +386,6 @@
           <EntitySet Name="PRESENTATION" EntityType="Self.PRESENTATION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RAPPORT" EntityType="Self.RAPPORT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="REMPLACANT" EntityType="Self.REMPLACANT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Secteur" EntityType="Self.Secteur" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SPECIALITE" EntityType="Self.SPECIALITE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />

@@ -45,9 +45,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::PPE3GSB.Properties.Resources.logo;
+            this.BackColor = System.Drawing.Color.Teal;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(704, 378);
+            this.ClientSize = new System.Drawing.Size(945, 503);
             this.Controls.Add(this.lblTitre);
             this.Name = "frmBase";
             this.Text = "frmBase";
