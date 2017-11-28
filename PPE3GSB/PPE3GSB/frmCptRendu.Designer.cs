@@ -37,13 +37,8 @@
             this.lblOffre = new System.Windows.Forms.Label();
             this.btnDetails = new System.Windows.Forms.Button();
             this.btnFermer = new System.Windows.Forms.Button();
-            this.txtNumRapport = new System.Windows.Forms.TextBox();
-            this.cboPracticiens = new System.Windows.Forms.ComboBox();
-            this.txtTitre = new System.Windows.Forms.TextBox();
-            this.txtBilan = new System.Windows.Forms.TextBox();
             this.bnRapport = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bsRapport = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -54,10 +49,14 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorModifyItem = new System.Windows.Forms.ToolStripButton();
-            this.btnModifier = new System.Windows.Forms.Button();
-            this.dtpRapport = new System.Windows.Forms.DateTimePicker();
-            this.btnAjout = new System.Windows.Forms.Button();
+            this.dgvEchantillons = new System.Windows.Forms.DataGridView();
+            this.txtNumRapport = new System.Windows.Forms.TextBox();
+            this.txtDateRapport = new System.Windows.Forms.TextBox();
+            this.txtMotif = new System.Windows.Forms.TextBox();
+            this.txtBilan = new System.Windows.Forms.TextBox();
+            this.cboPracticiens = new System.Windows.Forms.ComboBox();
+            this.txtTitre = new System.Windows.Forms.TextBox();
+            this.bsEchantillon = new System.Windows.Forms.BindingSource(this.components);
             this.bsPracticien = new System.Windows.Forms.BindingSource(this.components);
             this.bsPresentation = new System.Windows.Forms.BindingSource(this.components);
             this.lblMotif = new System.Windows.Forms.Label();
@@ -85,7 +84,8 @@
             this.txtRemplacantPrenom = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bnRapport)).BeginInit();
             this.bnRapport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsRapport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillons)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEchantillon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPracticien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPresentation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMotif)).BeginInit();
@@ -104,7 +104,7 @@
             this.lblNumRap.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNumRap.Location = new System.Drawing.Point(8, 95);
             this.lblNumRap.Name = "lblNumRap";
-            this.lblNumRap.Size = new System.Drawing.Size(80, 13);
+            this.lblNumRap.Size = new System.Drawing.Size(94, 13);
             this.lblNumRap.TabIndex = 0;
             this.lblNumRap.Text = "Numéro rapport";
             // 
@@ -141,12 +141,11 @@
             this.lblOffre.BackColor = System.Drawing.Color.Transparent;
             this.lblOffre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOffre.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblOffre.Location = new System.Drawing.Point(386, 66);
+            this.lblOffre.Location = new System.Drawing.Point(375, 140);
             this.lblOffre.Name = "lblOffre";
-            this.lblOffre.Size = new System.Drawing.Size(151, 17);
+            this.lblOffre.Size = new System.Drawing.Size(130, 17);
             this.lblOffre.TabIndex = 5;
-            this.lblOffre.Text = "Echantillons présentés";
-            this.lblOffre.Visible = false;
+            this.lblOffre.Text = "Offre d\'échantillons";
             // 
             // btnDetails
             // 
@@ -157,12 +156,11 @@
             this.btnDetails.TabIndex = 6;
             this.btnDetails.Text = "Détails";
             this.btnDetails.UseVisualStyleBackColor = true;
-            this.btnDetails.Click += new System.EventHandler(this.btnDetails_Click);
             // 
             // btnFermer
             // 
             this.btnFermer.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnFermer.Location = new System.Drawing.Point(692, 388);
+            this.btnFermer.Location = new System.Drawing.Point(467, 328);
             this.btnFermer.Name = "btnFermer";
             this.btnFermer.Size = new System.Drawing.Size(75, 23);
             this.btnFermer.TabIndex = 10;
@@ -210,7 +208,6 @@
             // bnRapport
             // 
             this.bnRapport.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bnRapport.BindingSource = this.bsRapport;
             this.bnRapport.CountItem = this.bindingNavigatorCountItem;
             this.bnRapport.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bnRapport.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -224,7 +221,6 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorModifyItem,
             this.bindingNavigatorDeleteItem});
             this.bnRapport.Location = new System.Drawing.Point(0, 0);
             this.bnRapport.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
@@ -245,11 +241,6 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Ajouter nouveau";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
-            // 
-            // bsRapport
-            // 
-            this.bsRapport.CurrentChanged += new System.EventHandler(this.bsRapport_CurrentChanged);
             // 
             // bindingNavigatorCountItem
             // 
@@ -261,7 +252,6 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
@@ -327,6 +317,64 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // dgvEchantillons
+            // 
+            this.dgvEchantillons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEchantillons.Location = new System.Drawing.Point(378, 163);
+            this.dgvEchantillons.Name = "dgvEchantillons";
+            this.dgvEchantillons.Size = new System.Drawing.Size(240, 150);
+            this.dgvEchantillons.TabIndex = 12;
+            // 
+            // txtNumRapport
+            // 
+            this.txtNumRapport.Enabled = false;
+            this.txtNumRapport.Location = new System.Drawing.Point(110, 85);
+            this.txtNumRapport.Name = "txtNumRapport";
+            this.txtNumRapport.Size = new System.Drawing.Size(100, 20);
+            this.txtNumRapport.TabIndex = 13;
+            // 
+            // txtDateRapport
+            // 
+            this.txtDateRapport.Location = new System.Drawing.Point(110, 145);
+            this.txtDateRapport.Name = "txtDateRapport";
+            this.txtDateRapport.Size = new System.Drawing.Size(100, 20);
+            this.txtDateRapport.TabIndex = 15;
+            // 
+            // txtMotif
+            // 
+            this.txtMotif.Location = new System.Drawing.Point(110, 171);
+            this.txtMotif.Name = "txtMotif";
+            this.txtMotif.Size = new System.Drawing.Size(156, 20);
+            this.txtMotif.TabIndex = 16;
+            // 
+            // txtBilan
+            // 
+            this.txtBilan.Location = new System.Drawing.Point(110, 200);
+            this.txtBilan.Multiline = true;
+            this.txtBilan.Name = "txtBilan";
+            this.txtBilan.Size = new System.Drawing.Size(183, 154);
+            this.txtBilan.TabIndex = 17;
+            // 
+            // cboPracticiens
+            // 
+            this.cboPracticiens.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.cboPracticiens.FormattingEnabled = true;
+            this.cboPracticiens.Location = new System.Drawing.Point(110, 118);
+            this.cboPracticiens.Name = "cboPracticiens";
+            this.cboPracticiens.Size = new System.Drawing.Size(156, 21);
+            this.cboPracticiens.TabIndex = 18;
+            // 
+            // txtTitre
+            // 
+            this.txtTitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitre.ForeColor = System.Drawing.Color.DarkBlue;
+            this.txtTitre.Location = new System.Drawing.Point(25, 37);
+            this.txtTitre.Name = "txtTitre";
+            this.txtTitre.Size = new System.Drawing.Size(593, 26);
+            this.txtTitre.TabIndex = 20;
+            this.txtTitre.Text = "RAPPORTS DE VISITE";
+            this.txtTitre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+
             // bindingNavigatorModifyItem
             // 
             this.bindingNavigatorModifyItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -538,6 +586,7 @@
             this.lblChoixAffichage.Size = new System.Drawing.Size(71, 13);
             this.lblChoixAffichage.TabIndex = 39;
             this.lblChoixAffichage.Text = "Medicament :";
+
             // 
             // nupNote
             // 
@@ -612,7 +661,11 @@
             this.Controls.Add(this.txtTitre);
             this.Controls.Add(this.cboPracticiens);
             this.Controls.Add(this.txtBilan);
+            this.Controls.Add(this.txtMotif);
+            this.Controls.Add(this.txtDateRapport);
             this.Controls.Add(this.txtNumRapport);
+            this.Controls.Add(this.dgvEchantillons);
+            this.Controls.Add(this.bnRapport);
             this.Controls.Add(this.btnFermer);
             this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.lblOffre);
@@ -663,7 +716,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bnRapport)).EndInit();
             this.bnRapport.ResumeLayout(false);
             this.bnRapport.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bsRapport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEchantillons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsEchantillon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPracticien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsPresentation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsMotif)).EndInit();
@@ -682,6 +736,7 @@
 
         private System.Windows.Forms.Label lblNumRap;
         private System.Windows.Forms.Label lblPractic;
+
         private System.Windows.Forms.Label lblDateRapport;
         private System.Windows.Forms.Label lblBilan;
         private System.Windows.Forms.Label lblOffre;
@@ -706,6 +761,15 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.DataGridView dgvEchantillons;
+        private System.Windows.Forms.TextBox txtNumRapport;
+        private System.Windows.Forms.TextBox txtDateRapport;
+        private System.Windows.Forms.TextBox txtMotif;
+        private System.Windows.Forms.TextBox txtBilan;
+        private System.Windows.Forms.ComboBox cboPracticiens;
+        private System.Windows.Forms.TextBox txtTitre;
+        private System.Windows.Forms.BindingSource bsEchantillon;
+        private System.Windows.Forms.BindingSource bsPracticien;
         private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.DateTimePicker dtpRapport;
         private System.Windows.Forms.Button btnAjout;

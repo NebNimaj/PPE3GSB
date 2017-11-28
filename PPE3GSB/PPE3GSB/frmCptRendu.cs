@@ -11,8 +11,7 @@ using System.Windows.Forms;
 
 namespace PPE3GSB
 {
-    
-    public partial class frmCptRendu :frmBase
+    public partial class frmCptRendu : frmBase
     {
         /*TODO :  presentation de medicament
          * BDD faite

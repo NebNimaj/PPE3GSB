@@ -37,20 +37,20 @@
             this.lblDateEmbauche = new System.Windows.Forms.Label();
             this.lblTitre = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
-            this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
             this.txtPrenom = new System.Windows.Forms.TextBox();
             this.txtRue = new System.Windows.Forms.TextBox();
-            this.txtCp = new System.Windows.Forms.TextBox();
+            this.txtCodePostal = new System.Windows.Forms.TextBox();
             this.txtVille = new System.Windows.Forms.TextBox();
             this.txtDateEmbauche = new System.Windows.Forms.TextBox();
             this.txtIdentifiant = new System.Windows.Forms.TextBox();
             this.lblLaboratoire = new System.Windows.Forms.Label();
             this.txtLaboratoire = new System.Windows.Forms.TextBox();
-            this.bsLaboratoire = new System.Windows.Forms.BindingSource(this.components);
             this.lblIdentifiant = new System.Windows.Forms.Label();
             this.btnModification = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).BeginInit();
+            this.bsLaboratoire = new System.Windows.Forms.BindingSource(this.components);
+            this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bsLaboratoire)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNom
@@ -89,9 +89,9 @@
             this.lblCp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCp.Location = new System.Drawing.Point(26, 191);
             this.lblCp.Name = "lblCp";
-            this.lblCp.Size = new System.Drawing.Size(29, 16);
+            this.lblCp.Size = new System.Drawing.Size(88, 16);
             this.lblCp.TabIndex = 3;
-            this.lblCp.Text = "cp :";
+            this.lblCp.Text = "Code Postal :";
             // 
             // lblVille
             // 
@@ -147,13 +147,13 @@
             this.txtRue.Size = new System.Drawing.Size(100, 20);
             this.txtRue.TabIndex = 11;
             // 
-            // txtCp
+            // txtCodePostal
             // 
-            this.txtCp.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVisiteur, "cp", true));
-            this.txtCp.Location = new System.Drawing.Point(151, 188);
-            this.txtCp.Name = "txtCp";
-            this.txtCp.Size = new System.Drawing.Size(100, 20);
-            this.txtCp.TabIndex = 12;
+            this.txtCodePostal.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bsVisiteur, "cp", true));
+            this.txtCodePostal.Location = new System.Drawing.Point(151, 188);
+            this.txtCodePostal.Name = "txtCodePostal";
+            this.txtCodePostal.Size = new System.Drawing.Size(100, 20);
+            this.txtCodePostal.TabIndex = 12;
             // 
             // txtVille
             // 
@@ -228,7 +228,7 @@
             this.Controls.Add(this.txtIdentifiant);
             this.Controls.Add(this.txtDateEmbauche);
             this.Controls.Add(this.txtVille);
-            this.Controls.Add(this.txtCp);
+            this.Controls.Add(this.txtCodePostal);
             this.Controls.Add(this.txtRue);
             this.Controls.Add(this.txtPrenom);
             this.Controls.Add(this.txtNom);
@@ -242,8 +242,8 @@
             this.Controls.Add(this.lblNom);
             this.Name = "frmVisiteur";
             this.Text = "Visiteur";
-            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsLaboratoire)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bsVisiteur)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,7 +261,7 @@
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.TextBox txtPrenom;
         private System.Windows.Forms.TextBox txtRue;
-        private System.Windows.Forms.TextBox txtCp;
+        private System.Windows.Forms.TextBox txtCodePostal;
         private System.Windows.Forms.TextBox txtVille;
         private System.Windows.Forms.TextBox txtDateEmbauche;
         private System.Windows.Forms.TextBox txtIdentifiant;

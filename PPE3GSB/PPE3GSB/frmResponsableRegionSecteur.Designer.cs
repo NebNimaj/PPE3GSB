@@ -1,6 +1,6 @@
 ﻿namespace PPE3GSB
 {
-    partial class frmBase
+    partial class frmResponsableRegionSecteur
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTitre = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblTitre
-            // 
-            this.lblTitre.AutoSize = true;
-            this.lblTitre.BackColor = System.Drawing.Color.Transparent;
-            this.lblTitre.Location = new System.Drawing.Point(339, 9);
-            this.lblTitre.Name = "lblTitre";
-            this.lblTitre.Size = new System.Drawing.Size(29, 13);
-            this.lblTitre.TabIndex = 0;
-            this.lblTitre.Text = "GSB";
-            // 
-            // frmBase
+            // frmResponsableRegionSecteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::PPE3GSB.Properties.Resources.logo;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(704, 378);
-            this.Controls.Add(this.lblTitre);
-            this.Name = "frmBase";
-            this.Text = "frmBase";
+            this.ClientSize = new System.Drawing.Size(778, 394);
+            this.Name = "frmResponsableRegionSecteur";
+            this.Text = "frmResponsableRegionSecteur";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        protected System.Windows.Forms.Label lblTitre;
     }
 }
