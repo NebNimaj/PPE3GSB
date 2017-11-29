@@ -36,5 +36,12 @@ namespace PPE3GSB
             lblTitre.Text +=" " + Modele.VisiteurConnecte.nom + " " + Modele.VisiteurConnecte.prenom;
 
         }
+
+        private void gestionVisiteurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegionVisiteur frmRegionVisi = new frmRegionVisiteur();
+            frmRegionVisi.MdiParent = this;
+            frmRegionVisi.Show();
+        }
     }
 }

@@ -33,6 +33,13 @@
             this.cboRegion = new System.Windows.Forms.ComboBox();
             this.dgvVisiteur = new System.Windows.Forms.DataGridView();
             this.idVisiteur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
             this.lblTitre = new System.Windows.Forms.Label();
             this.lblNom = new System.Windows.Forms.Label();
             this.lblPrenom = new System.Windows.Forms.Label();
@@ -46,13 +53,6 @@
             this.txtVille = new System.Windows.Forms.TextBox();
             this.txtCodePostal = new System.Windows.Forms.TextBox();
             this.txtDateEmbauche = new System.Windows.Forms.TextBox();
-            this.bsVisiteur = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsRegion = new System.Windows.Forms.BindingSource(this.components);
             this.btnResponsable = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisiteur)).BeginInit();
@@ -101,6 +101,46 @@
             this.idVisiteur.DataPropertyName = "idVisiteur";
             this.idVisiteur.HeaderText = "idVisiteur";
             this.idVisiteur.Name = "idVisiteur";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "nom";
+            this.dataGridViewTextBoxColumn3.HeaderText = "nom";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "prenom";
+            this.dataGridViewTextBoxColumn4.HeaderText = "prenom";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "rue";
+            this.dataGridViewTextBoxColumn5.HeaderText = "rue";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "ville";
+            this.dataGridViewTextBoxColumn7.HeaderText = "ville";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "cp";
+            this.dataGridViewTextBoxColumn6.HeaderText = "cp";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "dateEmbauche";
+            this.dataGridViewTextBoxColumn8.HeaderText = "dateEmbauche";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // bsVisiteur
+            // 
+            this.bsVisiteur.DataSource = typeof(PPE3GSB.Visiteur);
             // 
             // lblTitre
             // 
@@ -214,46 +254,6 @@
             this.txtDateEmbauche.Size = new System.Drawing.Size(100, 20);
             this.txtDateEmbauche.TabIndex = 18;
             // 
-            // bsVisiteur
-            // 
-            this.bsVisiteur.DataSource = typeof(PPE3GSB.Visiteur);
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "nom";
-            this.dataGridViewTextBoxColumn3.HeaderText = "nom";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "prenom";
-            this.dataGridViewTextBoxColumn4.HeaderText = "prenom";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "rue";
-            this.dataGridViewTextBoxColumn5.HeaderText = "rue";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "ville";
-            this.dataGridViewTextBoxColumn7.HeaderText = "ville";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "cp";
-            this.dataGridViewTextBoxColumn6.HeaderText = "cp";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "dateEmbauche";
-            this.dataGridViewTextBoxColumn8.HeaderText = "dateEmbauche";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            // 
             // bsRegion
             // 
             this.bsRegion.DataSource = typeof(PPE3GSB.Region);
@@ -271,7 +271,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 656);
+            this.ClientSize = new System.Drawing.Size(856, 656);
             this.Controls.Add(this.btnResponsable);
             this.Controls.Add(this.txtDateEmbauche);
             this.Controls.Add(this.txtCodePostal);
