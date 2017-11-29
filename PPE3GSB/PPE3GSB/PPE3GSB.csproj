@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAjoutVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAjoutVisiteur.Designer.cs">
+      <DependentUpon>frmAjoutVisiteur.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,11 +68,71 @@
     <Compile Include="frmDetailsMedecin.Designer.cs">
       <DependentUpon>frmDetailsMedecin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLaboratoireVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLaboratoireVisiteur.Designer.cs">
+      <DependentUpon>frmLaboratoireVisiteur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuGestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuGestion.Designer.cs">
+      <DependentUpon>frmMenuGestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModFrais.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmContainer.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModification.Designer.cs">
+      <DependentUpon>frmModification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegionVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegionVisiteur.Designer.cs">
+      <DependentUpon>frmRegionVisiteur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmResponsableRegionSecteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResponsableRegionSecteur.Designer.cs">
+      <DependentUpon>frmResponsableRegionSecteur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSecteurVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSecteurVisiteur.Designer.cs">
+      <DependentUpon>frmSecteurVisiteur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVisiteur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisiteur.Designer.cs">
+      <DependentUpon>frmVisiteur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVisiteurLaboratoire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisiteurLaboratoire.Designer.cs">
+      <DependentUpon>frmVisiteurLaboratoire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVisiteurRegion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisiteurRegion.Designer.cs">
+      <DependentUpon>frmVisiteurRegion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVisiteurResponsable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisiteurResponsable.Designer.cs">
+      <DependentUpon>frmVisiteurResponsable.cs</DependentUpon>
     </Compile>
     <Compile Include="MEDECIN.cs" />
     <Compile Include="Program.cs" />
@@ -95,11 +161,26 @@
     <Compile Include="frmCptRendu.Designer.cs">
       <DependentUpon>frmCptRendu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAjoutVisiteur.resx">
+      <DependentUpon>frmAjoutVisiteur.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDetailsMedecin.resx">
       <DependentUpon>frmDetailsMedecin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLaboratoireVisiteur.resx">
+      <DependentUpon>frmLaboratoireVisiteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuGestion.resx">
+      <DependentUpon>frmMenuGestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModFrais.resx">
       <DependentUpon>frmModFrais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModification.resx">
+      <DependentUpon>frmModification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegionVisiteur.resx">
+      <DependentUpon>frmRegionVisiteur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRemboursementFrais.resx">
       <DependentUpon>frmRemboursementFrais.cs</DependentUpon>
@@ -130,6 +211,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionCptRendu.resx">
       <DependentUpon>frmGestionCptRendu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResponsableRegionSecteur.resx">
+      <DependentUpon>frmResponsableRegionSecteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSecteurVisiteur.resx">
+      <DependentUpon>frmSecteurVisiteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVisiteur.resx">
+      <DependentUpon>frmVisiteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVisiteurLaboratoire.resx">
+      <DependentUpon>frmVisiteurLaboratoire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVisiteurRegion.resx">
+      <DependentUpon>frmVisiteurRegion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVisiteurResponsable.resx">
+      <DependentUpon>frmVisiteurResponsable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
