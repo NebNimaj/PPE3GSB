@@ -61,5 +61,26 @@ namespace PPE3GSB
             txtDateEmbauche.Text = maregion.Visiteur.dateEmbauche;
 
         }
+        private void btnResponsable_Click(object sender, EventArgs e)
+        {
+            var filteredData = Modele.MaConnexion.Region.ToList()
+               .Where(x => x.idRegion == int.Parse(cboRegion.SelectedValue.ToString()));
+            bsRegion.DataSource = filteredData;
+            bsRegion.MoveFirst();
+
+            var LQuery1 = Modele.MaConnexion.Region.ToList()
+                .Where(x => x.idVisiteur == x.Visiteur.idVisiteur);
+            Region maregion1 = (Region)bsRegion.Current;
+
+            maregion1.Visiteur.nom = txtNom.Text;
+            maregion1.Visiteur.prenom = txtPrenom.Text;
+            maregion1.Visiteur.rue = txtRue.Text;
+            maregion1.Visiteur.ville = txtVille.Text;
+            maregion1.Visiteur.cp = txtCodePostal.Text;
+            maregion1.Visiteur.dateEmbauche = txtDateEmbauche.Text;
+            Modele.MaConnexion.SaveChanges();
+            MessageBox.Show("Enregistrement ok", "Action");
+            this.Close();
+        }
     }
 }

@@ -32,6 +32,9 @@
             this.gestionRapportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionFraisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionVisiteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.secteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.laboratoireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,10 +72,35 @@
             // 
             // gestionVisiteurToolStripMenuItem
             // 
+            this.gestionVisiteurToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.regionToolStripMenuItem,
+            this.secteurToolStripMenuItem,
+            this.laboratoireToolStripMenuItem});
             this.gestionVisiteurToolStripMenuItem.Name = "gestionVisiteurToolStripMenuItem";
             this.gestionVisiteurToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.gestionVisiteurToolStripMenuItem.Text = "Gestion Visiteur";
             this.gestionVisiteurToolStripMenuItem.Click += new System.EventHandler(this.gestionVisiteurToolStripMenuItem_Click);
+            // 
+            // regionToolStripMenuItem
+            // 
+            this.regionToolStripMenuItem.Name = "regionToolStripMenuItem";
+            this.regionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.regionToolStripMenuItem.Text = "Region";
+            this.regionToolStripMenuItem.Click += new System.EventHandler(this.regionToolStripMenuItem_Click);
+            // 
+            // secteurToolStripMenuItem
+            // 
+            this.secteurToolStripMenuItem.Name = "secteurToolStripMenuItem";
+            this.secteurToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.secteurToolStripMenuItem.Text = "Secteur";
+            this.secteurToolStripMenuItem.Click += new System.EventHandler(this.secteurToolStripMenuItem_Click);
+            // 
+            // laboratoireToolStripMenuItem
+            // 
+            this.laboratoireToolStripMenuItem.Name = "laboratoireToolStripMenuItem";
+            this.laboratoireToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.laboratoireToolStripMenuItem.Text = "Laboratoire";
+            this.laboratoireToolStripMenuItem.Click += new System.EventHandler(this.laboratoireToolStripMenuItem_Click);
             // 
             // frmContainer
             // 
@@ -100,5 +128,8 @@
         private System.Windows.Forms.ToolStripMenuItem gestionRapportsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionFraisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionVisiteurToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem regionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem secteurToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem laboratoireToolStripMenuItem;
     }
 }
