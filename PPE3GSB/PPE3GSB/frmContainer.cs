@@ -36,5 +36,30 @@ namespace PPE3GSB
             lblTitre.Text +=" " + Modele.VisiteurConnecte.nom + " " + Modele.VisiteurConnecte.prenom;
 
         }
+
+        private void gestionVisiteurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void regionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegionVisiteur frmRegionVisi = new frmRegionVisiteur();
+            frmRegionVisi.MdiParent = this;
+            frmRegionVisi.Show();
+        }
+
+        private void secteurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSecteurVisiteur frmSecteurVisi = new frmSecteurVisiteur();
+            frmSecteurVisi.MdiParent = this;
+            frmSecteurVisi.Show();
+        }
+
+        private void laboratoireToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLaboratoireVisiteur frmLaboVisi = new frmLaboratoireVisiteur();
+            frmLaboVisi.MdiParent = this;
+            frmLaboVisi.Show();
+        }
     }
 }
