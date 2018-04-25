@@ -20,6 +20,14 @@ namespace PPE3GSB
             InitializeComponent();
         }
 
+        private void txtTotal_txtChanged(object sender, EventArgs e)
+        {
+            //Affiche le calcul de Quantité et Montant Unitaire dans la boîte Total
+            txtPTotalEtape.Text = Convert.ToString(Convert.ToDouble(txtQteEtape.Text) * Convert.ToDouble(txtPUniteEtape.Text));
+            txtPTotalKm.Text = Convert.ToString(Convert.ToDouble(txtQteKm.Text) * Convert.ToDouble(txtPUniteKm.Text));
+            txtPTotalNuite.Text = Convert.ToString(Convert.ToDouble(txtQteNuite.Text) * Convert.ToDouble(txtPUniteNuite.Text));
+            txtPTotalRepas.Text = Convert.ToString(Convert.ToDouble(txtQteRepas.Text) * Convert.ToDouble(txtPUniteRepas.Text));
+        }
 
         private void butModifier_Click(object sender, EventArgs e)
         {
@@ -36,7 +44,7 @@ namespace PPE3GSB
         public void loadBS()
         {
             bsLigneFraisForfait.DataSource = Modele.MaConnexion.LigneFraisForfait.ToList();
-            dgvLigneFraisForfait.DataSource = bsLigneFraisForfait;
+            //dgvLigneFraisForfait.DataSource = bsLigneFraisForfait;
             bsFraisHorsForfait.DataSource = Modele.MaConnexion.LigneFraisHorsForfait.ToList();
             dgvFraisHorsForfait.DataSource = bsFraisHorsForfait;
 
