@@ -45,7 +45,6 @@
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.montantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bsFraisHorsForfait = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.txtQteEtape = new System.Windows.Forms.NumericUpDown();
             this.txtQteNuite = new System.Windows.Forms.NumericUpDown();
             this.txtQteKm = new System.Windows.Forms.NumericUpDown();
@@ -65,6 +64,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.butActu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bsLigneFraisForfait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bsFraisForfait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFraisHorsForfait)).BeginInit();
@@ -77,26 +77,27 @@
             // 
             // butAjouter
             // 
-            this.butAjouter.Location = new System.Drawing.Point(29, 355);
+            this.butAjouter.Location = new System.Drawing.Point(619, 207);
             this.butAjouter.Name = "butAjouter";
             this.butAjouter.Size = new System.Drawing.Size(91, 23);
             this.butAjouter.TabIndex = 2;
-            this.butAjouter.Text = "Ajouter/Modifier";
+            this.butAjouter.Text = "Ajouter";
             this.butAjouter.UseVisualStyleBackColor = true;
-            this.butAjouter.Click += new System.EventHandler(this.butAjouter_Click);
+            this.butAjouter.Click += new System.EventHandler(this.butModifier_Click);
             // 
             // butCloture
             // 
-            this.butCloture.Location = new System.Drawing.Point(481, 355);
+            this.butCloture.Location = new System.Drawing.Point(385, 290);
             this.butCloture.Name = "butCloture";
-            this.butCloture.Size = new System.Drawing.Size(91, 23);
+            this.butCloture.Size = new System.Drawing.Size(91, 43);
             this.butCloture.TabIndex = 3;
             this.butCloture.Text = "Clôturer";
             this.butCloture.UseVisualStyleBackColor = true;
+            this.butCloture.Click += new System.EventHandler(this.butCloture_Click);
             // 
             // butSuppr
             // 
-            this.butSuppr.Location = new System.Drawing.Point(219, 355);
+            this.butSuppr.Location = new System.Drawing.Point(716, 207);
             this.butSuppr.Name = "butSuppr";
             this.butSuppr.Size = new System.Drawing.Size(91, 23);
             this.butSuppr.TabIndex = 4;
@@ -180,16 +181,6 @@
             // 
             this.bsFraisHorsForfait.DataSource = typeof(PPE3GSB.LigneFraisHorsForfait);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(701, 355);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Actualiser";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // txtQteEtape
             // 
             this.txtQteEtape.Location = new System.Drawing.Point(132, 107);
@@ -229,7 +220,7 @@
             this.txtPUniteEtape.Name = "txtPUniteEtape";
             this.txtPUniteEtape.Size = new System.Drawing.Size(100, 20);
             this.txtPUniteEtape.TabIndex = 11;
-            this.txtPUniteEtape.Text = "10";
+            this.txtPUniteEtape.Text = "0";
             // 
             // txtPUniteNuite
             // 
@@ -238,7 +229,6 @@
             this.txtPUniteNuite.Name = "txtPUniteNuite";
             this.txtPUniteNuite.Size = new System.Drawing.Size(100, 20);
             this.txtPUniteNuite.TabIndex = 12;
-            this.txtPUniteNuite.Text = "100";
             // 
             // txtPUniteRepas
             // 
@@ -247,7 +237,6 @@
             this.txtPUniteRepas.Name = "txtPUniteRepas";
             this.txtPUniteRepas.Size = new System.Drawing.Size(100, 20);
             this.txtPUniteRepas.TabIndex = 13;
-            this.txtPUniteRepas.Text = "5";
             // 
             // txtPUniteKm
             // 
@@ -256,7 +245,6 @@
             this.txtPUniteKm.Name = "txtPUniteKm";
             this.txtPUniteKm.Size = new System.Drawing.Size(100, 20);
             this.txtPUniteKm.TabIndex = 14;
-            this.txtPUniteKm.Text = "2,5";
             // 
             // label1
             // 
@@ -357,11 +345,22 @@
             this.label7.TabIndex = 25;
             this.label7.Text = "Frais Kilométrique";
             // 
+            // butActu
+            // 
+            this.butActu.Location = new System.Drawing.Point(522, 207);
+            this.butActu.Name = "butActu";
+            this.butActu.Size = new System.Drawing.Size(91, 23);
+            this.butActu.TabIndex = 27;
+            this.butActu.Text = "Actualiser";
+            this.butActu.UseVisualStyleBackColor = true;
+            this.butActu.Click += new System.EventHandler(this.butActu_Click);
+            // 
             // frmRemboursementFrais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(819, 390);
+            this.ClientSize = new System.Drawing.Size(819, 345);
+            this.Controls.Add(this.butActu);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -381,7 +380,6 @@
             this.Controls.Add(this.txtQteKm);
             this.Controls.Add(this.txtQteNuite);
             this.Controls.Add(this.txtQteEtape);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvFraisHorsForfait);
             this.Controls.Add(this.butSuppr);
             this.Controls.Add(this.butCloture);
@@ -418,7 +416,6 @@
         private System.Windows.Forms.BindingSource bsFraisForfait;
         private System.Windows.Forms.DataGridView dgvFraisHorsForfait;
         private System.Windows.Forms.BindingSource bsFraisHorsForfait;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn libelleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn montantDataGridViewTextBoxColumn;
@@ -441,6 +438,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button butActu;
         //private SIO2_GSB1_BJJDDataSet sIO2_GSB1_BJJDDataSet;
     }
 }
